@@ -5,6 +5,7 @@ import { Question, Chapter } from './types';
 import { chapter1Questions } from './data/chapter1';
 import { chapter2Questions } from './data/chapter2';
 import { chapter3Questions } from './data/chapter3';
+import { chapter4Questions } from './data/chapter4';
 
 const chapters: Chapter[] = [
   {
@@ -24,6 +25,12 @@ const chapters: Chapter[] = [
     title: "Chapter 3: The Insurance Contract",
     description: "Legal principles, contract formation, and property rights in a policy.",
     questions: chapter3Questions
+  },
+  {
+    id: 4,
+    title: "Chapter 4: Life Insurance Premiums",
+    description: "Policy reserves, mortality tables, investment earnings, and level premium systems.",
+    questions: chapter4Questions
   }
 ];
 
