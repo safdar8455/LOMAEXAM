@@ -6,6 +6,7 @@ import { chapter1Questions } from './data/chapter1';
 import { chapter2Questions } from './data/chapter2';
 import { chapter3Questions } from './data/chapter3';
 import { chapter4Questions } from './data/chapter4';
+import { chapter5Questions } from './data/chapter5';
 
 const chapters: Chapter[] = [
   {
@@ -31,6 +32,12 @@ const chapters: Chapter[] = [
     title: "Chapter 4: Life Insurance Premiums",
     description: "Policy reserves, mortality tables, investment earnings, and level premium systems.",
     questions: chapter4Questions
+  },
+  {
+    id: 5,
+    title: "Chapter 5: Term Life Insurance",
+    description: "Personal and business needs, level/decreasing/increasing term plans, renewal and conversion features.",
+    questions: chapter5Questions
   }
 ];
 
