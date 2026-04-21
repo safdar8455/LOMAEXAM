@@ -9,6 +9,7 @@ import { chapter4Questions } from './data/chapter4';
 import { chapter5Questions } from './data/chapter5';
 import {chapter6Questions} from './data/chapter6';
 import { chapter7Questions } from './data/chapter7';
+import { chapter8Questions } from './data/chapter8';
 
 const chapters: Chapter[] = [
   {
@@ -53,6 +54,12 @@ const chapters: Chapter[] = [
     title: "Chapter 7: Supplemental Benefits",
     description: "Disability benefits, accident benefits, accelerated death benefits, and riders for additional insureds.",
     questions: chapter7Questions
+  },
+  {
+    id: 8,
+    title: "Chapter 8: Individual Life Insurance Policy Provisions",
+    description: "Free-look, incontestability, grace period, reinstatement, loans, and nonforfeiture options.",
+    questions: chapter8Questions
   }
 ];
 
