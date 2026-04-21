@@ -8,6 +8,7 @@ import { chapter3Questions } from './data/chapter3';
 import { chapter4Questions } from './data/chapter4';
 import { chapter5Questions } from './data/chapter5';
 import {chapter6Questions} from './data/chapter6';
+import { chapter7Questions } from './data/chapter7';
 
 const chapters: Chapter[] = [
   {
@@ -46,6 +47,12 @@ const chapters: Chapter[] = [
     title: "Chapter 6: Cash Value Life Insurance and Endowment Insurance",
     description: "Whole life, universal life, variable life, indexed universal life, and endowment insurance characteristics.",
     questions: chapter6Questions
+  },
+  {
+    id: 7,
+    title: "Chapter 7: Supplemental Benefits",
+    description: "Disability benefits, accident benefits, accelerated death benefits, and riders for additional insureds.",
+    questions: chapter7Questions
   }
 ];
 
