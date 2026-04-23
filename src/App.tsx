@@ -7,10 +7,11 @@ import { chapter2Questions } from './data/chapter2';
 import { chapter3Questions } from './data/chapter3';
 import { chapter4Questions } from './data/chapter4';
 import { chapter5Questions } from './data/chapter5';
-import {chapter6Questions} from './data/chapter6';
+import { chapter6Questions } from './data/chapter6';
 import { chapter7Questions } from './data/chapter7';
 import { chapter8Questions } from './data/chapter8';
 import { chapter9Questions } from './data/chapter9'; 
+import { chapter10Questions } from './data/chapter10';
 const chapters: Chapter[] = [
   {
     id: 1,
@@ -66,6 +67,12 @@ const chapters: Chapter[] = [
     title: "Chapter 9: Life Insurance Policy Ownership Rights",
     description: "Beneficiary designations, dividend options, ownership transfers, and settlement options.",
     questions: chapter9Questions
+  },
+  {
+    id: 10,
+    title: "Chapter 10: Introduction to Annuities",
+    description: "Longevity risk, annuity classifications, new fixed products (DIA, FIA), and standard provisions.",
+    questions: chapter10Questions
   }
 ];
 
