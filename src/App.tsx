@@ -10,7 +10,7 @@ import { chapter5Questions } from './data/chapter5';
 import {chapter6Questions} from './data/chapter6';
 import { chapter7Questions } from './data/chapter7';
 import { chapter8Questions } from './data/chapter8';
-
+import { chapter9Questions } from './data/chapter9'; 
 const chapters: Chapter[] = [
   {
     id: 1,
@@ -60,6 +60,12 @@ const chapters: Chapter[] = [
     title: "Chapter 8: Individual Life Insurance Policy Provisions",
     description: "Free-look, incontestability, grace period, reinstatement, loans, and nonforfeiture options.",
     questions: chapter8Questions
+  },
+  {
+    id: 9,
+    title: "Chapter 9: Life Insurance Policy Ownership Rights",
+    description: "Beneficiary designations, dividend options, ownership transfers, and settlement options.",
+    questions: chapter9Questions
   }
 ];
 
