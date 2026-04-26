@@ -12,6 +12,7 @@ import { chapter7Questions } from './data/chapter7';
 import { chapter8Questions } from './data/chapter8';
 import { chapter9Questions } from './data/chapter9'; 
 import { chapter10Questions } from './data/chapter10';
+import { chapter11Questions } from './data/chapter11';
 const chapters: Chapter[] = [
   {
     id: 1,
@@ -73,6 +74,12 @@ const chapters: Chapter[] = [
     title: "Chapter 10: Introduction to Annuities",
     description: "Longevity risk, annuity classifications, new fixed products (DIA, FIA), and standard provisions.",
     questions: chapter10Questions
+  },
+  {
+    id: 11,
+    title: "Chapter 11: Annuities and Individual Retirement Arrangements",
+    description: "Payout options, guarantee riders, payout calculations, fees, taxation, and traditional/Roth IRAs.",
+    questions: chapter11Questions
   }
 ];
 
