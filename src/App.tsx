@@ -13,6 +13,8 @@ import { chapter8Questions } from './data/chapter8';
 import { chapter9Questions } from './data/chapter9'; 
 import { chapter10Questions } from './data/chapter10';
 import { chapter11Questions } from './data/chapter11';
+import { chapter12Questions } from './data/chapter12';
+
 const chapters: Chapter[] = [
   {
     id: 1,
@@ -80,6 +82,12 @@ const chapters: Chapter[] = [
     title: "Chapter 11: Annuities and Individual Retirement Arrangements",
     description: "Payout options, guarantee riders, payout calculations, fees, taxation, and traditional/Roth IRAs.",
     questions: chapter11Questions
+  },
+  {
+    id: 12,
+    title: "Chapter 12: Health Insurance Products",
+    description: "Medical expense coverage, managed care, CDHPs, disability income, and long-term care insurance.",
+    questions: chapter12Questions
   }
 ];
 
