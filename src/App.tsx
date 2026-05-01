@@ -14,6 +14,7 @@ import { chapter9Questions } from './data/chapter9';
 import { chapter10Questions } from './data/chapter10';
 import { chapter11Questions } from './data/chapter11';
 import { chapter12Questions } from './data/chapter12';
+import { chapter13Questions } from './data/chapter13';
 
 const chapters: Chapter[] = [
   {
@@ -88,6 +89,12 @@ const chapters: Chapter[] = [
     title: "Chapter 12: Health Insurance Products",
     description: "Medical expense coverage, managed care, CDHPs, disability income, and long-term care insurance.",
     questions: chapter12Questions
+  },
+  {
+    id: 13,
+    title: "Chapter 13: Principles of Group Insurance",
+    description: "Group contracts, certificates, underwriting objectives, insurable groups, and premium calculation methods.",
+    questions: chapter13Questions
   }
 ];
 
