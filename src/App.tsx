@@ -15,6 +15,7 @@ import { chapter10Questions } from './data/chapter10';
 import { chapter11Questions } from './data/chapter11';
 import { chapter12Questions } from './data/chapter12';
 import { chapter13Questions } from './data/chapter13';
+import { chapter14Questions } from './data/chapter14';
 
 const chapters: Chapter[] = [
   {
@@ -95,6 +96,12 @@ const chapters: Chapter[] = [
     title: "Chapter 13: Principles of Group Insurance",
     description: "Group contracts, certificates, underwriting objectives, insurable groups, and premium calculation methods.",
     questions: chapter13Questions
+  },
+  {
+    id: 14,
+    title: "Chapter 14: Group Life Insurance and Group Retirement Plans",
+    description: "Policy provisions, term/cash value plans, creditor life, and qualified retirement plan types (DB/DC).",
+    questions: chapter14Questions
   }
 ];
 
