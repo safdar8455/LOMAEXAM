@@ -10,14 +10,16 @@ import { chapter5Questions } from './data/chapter5';
 import { chapter6Questions } from './data/chapter6';
 import { chapter7Questions } from './data/chapter7';
 import { chapter8Questions } from './data/chapter8';
-import { chapter9Questions } from './data/chapter9'; 
+import { chapter9Questions } from './data/chapter9';
 import { chapter10Questions } from './data/chapter10';
 import { chapter11Questions } from './data/chapter11';
 import { chapter12Questions } from './data/chapter12';
 import { chapter13Questions } from './data/chapter13';
 import { chapter14Questions } from './data/chapter14';
+import { finalExamQuestions } from './data/finalExam';
+import { tpgChapterQuestions } from './data/tpgChaterQuestions';
 
-const chapters: Chapter[] = [
+const studyChapters: Chapter[] = [
   {
     id: 1,
     title: "Chapter 1: Introduction to Risk",
@@ -48,7 +50,6 @@ const chapters: Chapter[] = [
     description: "Personal and business needs, level/decreasing/increasing term plans, renewal and conversion features.",
     questions: chapter5Questions
   },
-
   {
     id: 6,
     title: "Chapter 6: Cash Value Life Insurance and Endowment Insurance",
@@ -102,11 +103,39 @@ const chapters: Chapter[] = [
     title: "Chapter 14: Group Life Insurance and Group Retirement Plans",
     description: "Policy provisions, term/cash value plans, creditor life, and qualified retirement plan types (DB/DC).",
     questions: chapter14Questions
+  },
+  {
+    id: 100,
+    title: "Comprehensive Final Examination",
+    description: "Full-length 60-question exam covering all 14 chapters. Official LOMA-style difficulty with randomized topics.",
+    questions: finalExamQuestions
   }
 ];
 
+const tpgChapters: Chapter[] = [
+  ...tpgChapterQuestions.map(tpg => ({
+    id: tpg.id,
+    title: tpg.title,
+    description: "Practice questions directly from the official LOMA Test Preparation Guide.",
+    questions: tpg.questions
+  })),
+  {
+    id: 100,
+    title: "TPG Final Sample Examination",
+    description: "The official 60-question sample exam from the Test Preparation Guide.",
+    questions: finalExamQuestions
+  }
+];
+
+
 export default function App() {
+  const [appMode, setAppMode] = useState<'learning' | 'assessment'>('learning');
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
+
+  const activeChapters = useMemo(() => 
+    appMode === 'learning' ? studyChapters : tpgChapters
+  , [appMode]);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isLocked, setIsLocked] = useState(false);
@@ -114,8 +143,8 @@ export default function App() {
   const [showResults, setShowResults] = useState(false);
   
   const currentChapter = useMemo(() => 
-    chapters.find(c => c.id === selectedChapterId) || null
-  , [selectedChapterId]);
+    activeChapters.find(c => c.id === selectedChapterId) || null
+  , [selectedChapterId, activeChapters]);
 
   const questions = currentChapter?.questions || [];
   const currentQuestion = questions[currentQuestionIndex];
@@ -163,13 +192,45 @@ export default function App() {
     return (
       <div className="min-h-screen bg-bg p-8 md:p-24">
         <div className="max-w-5xl mx-auto">
-          <header className="mb-20">
-            <h1 className="font-serif italic text-5xl text-ink mb-4">LOMA 280 Exam Master</h1>
-            <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Principles of Insurance Study Suite</p>
+          <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h1 className="font-serif italic text-5xl text-ink mb-4">LOMA 280 Exam Master</h1>
+              <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Principles of Insurance Study Suite</p>
+            </div>
+            
+            <div className="flex bg-white/50 backdrop-blur p-1 border border-border">
+              <button
+                onClick={() => setAppMode('learning')}
+                className={`px-6 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  appMode === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Comprehensive Study
+              </button>
+              <button
+                onClick={() => setAppMode('assessment')}
+                className={`px-6 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  appMode === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                TPG Assessment
+              </button>
+            </div>
           </header>
 
+          <div className="mb-16 max-w-2xl">
+            <h2 className="font-serif italic text-2xl text-ink mb-4">
+              {appMode === 'learning' ? 'Deep Learning Phase' : 'Official Preparation Center'}
+            </h2>
+            <p className="font-serif italic text-sm text-muted leading-relaxed">
+              {appMode === 'learning' 
+                ? 'Comprehensive modules featuring 100 scenario-based questions per chapter to ensure mastery of the LOMA 280 curriculum.'
+                : 'Accelerated assessment containing the official practice questions and sample exam from the LOMA Test Preparation Guide (TPG).'}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {chapters.map(chapter => (
+            {activeChapters.map(chapter => (
               <motion.button
                 key={chapter.id}
                 whileHover={{ y: -5 }}
@@ -177,7 +238,9 @@ export default function App() {
                 className="group text-left bg-white border border-border p-10 relative overflow-hidden transition-all hover:border-accent"
               >
                 <div className="absolute top-0 left-0 w-1 h-full bg-border group-hover:bg-accent transition-colors" />
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-muted mb-6 font-bold font-sans">Chapter {chapter.id}</span>
+                <span className="block text-[10px] uppercase tracking-[0.2em] text-muted mb-6 font-bold font-sans">
+                  {chapter.id === 100 ? 'Comprehensive Assessment' : `Chapter ${chapter.id}`}
+                </span>
                 <h2 className="font-serif text-2xl text-ink mb-4 leading-tight">{chapter.title}</h2>
                 <p className="font-serif italic text-xs text-muted leading-relaxed mb-8">{chapter.description}</p>
                 <div className="flex items-center gap-2 text-accent font-sans text-[10px] font-bold uppercase tracking-widest group-hover:gap-4 transition-all">
@@ -207,7 +270,9 @@ export default function App() {
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-ink" />
           <Award className="w-16 h-16 mx-auto mb-6 text-accent" />
-          <h1 className="font-serif italic text-4xl mb-4 text-ink">Results: Ch. {selectedChapterId}</h1>
+          <h1 className="font-serif italic text-4xl mb-4 text-ink">
+            {selectedChapterId === 100 ? 'Final Exam Results' : `Results: Ch. ${selectedChapterId}`}
+          </h1>
           <p className="font-sans text-xs uppercase tracking-[0.2em] text-muted mb-12">Performance Summary</p>
           
           <div className="grid grid-cols-2 gap-px bg-border mb-12 border border-border">
@@ -271,12 +336,18 @@ export default function App() {
           </div>
 
           <ul className="hidden md:block space-y-0 text-muted">
-            {chapters.map(c => (
+            {activeChapters.map(c => (
               <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
-                <button onClick={() => { setSelectedChapterId(c.id); restartQuiz(); }} className="text-[13px] font-sans hover:text-accent">
-                  Ch. {c.id} Exam
+                <button 
+                  onClick={() => { 
+                    setSelectedChapterId(c.id); 
+                    restartQuiz(); 
+                  }} 
+                  className="text-[13px] font-sans hover:text-accent text-left"
+                >
+                  {c.id === 100 ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`}
                 </button>
-                {c.id === selectedChapterId && <span className="text-[11px] font-sans opacity-60">{Math.round(progress)}%</span>}
+                {c.id === selectedChapterId && <span className="text-[11px] font-sans opacity-60 ml-2">{Math.round(progress)}%</span>}
               </li>
             ))}
           </ul>
