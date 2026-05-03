@@ -19,6 +19,7 @@ import { chapter14Questions } from './data/chapter14';
 import { finalExamQuestions } from './data/finalExam';
 import { tpgChapterQuestions } from './data/tpgChapterQuestions';
 import { simulationRounds } from './data/simulationExams';
+import { tpgMaster100 } from './data/tpgMaster100';
 
 const studyChapters: Chapter[] = [
   {
@@ -139,7 +140,7 @@ const simulationChapters: Chapter[] = [
     id: 11,
     title: "100-Question Mastery Challenge",
     description: "The ultimate preparation. 100 high-difficulty MCQs covering every learning objective in the LOMA 280 curriculum.",
-    questions: finalExamQuestions
+    questions: tpgMaster100
   }
 ];
 
@@ -164,7 +165,7 @@ export default function App() {
   const [showResults, setShowResults] = useState(false);
   
   const currentChapter = useMemo(() => 
-    activeChapters.find((c: Chapter) => c.id === selectedChapterId) || null
+    activeChapters.find(c => c.id === selectedChapterId) || null
   , [selectedChapterId, activeChapters]);
 
   const questions = currentChapter?.questions || [];
@@ -179,13 +180,13 @@ export default function App() {
   const handleConfirm = () => {
     if (selectedOption === null || isLocked || !currentQuestion) return;
     const isCorrect = selectedOption === currentQuestion.answer;
-    if (isCorrect) setScore((prev: number) => prev + 1);
+    if (isCorrect) setScore(prev => prev + 1);
     setIsLocked(true);
   };
 
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev: number) => prev + 1);
+      setCurrentQuestionIndex(prev => prev + 1);
       setSelectedOption(null);
       setIsLocked(false);
     } else {
@@ -261,7 +262,7 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeChapters.map((chapter: Chapter) => (
+            {activeChapters.map(chapter => (
               <motion.button
                 key={chapter.id}
                 whileHover={{ y: -5 }}
@@ -352,7 +353,7 @@ export default function App() {
 
           <div className="mb-12">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Module Progress</span>
-            <div className="font-serif text-xl text-ink leading-tight">{currentChapter?.title}</div>
+            <div className="font-serif text-xl text-ink leading-tight">{currentChapter.title}</div>
           </div>
 
           <div className="mb-16">

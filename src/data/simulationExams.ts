@@ -20,6 +20,9 @@ const getQuestions = (chapter: Question[], count: number, startOffset: number): 
   return chapter.slice(startOffset, startOffset + count);
 };
 
+// Flatten TPG chapter questions from array of chapters to single question array
+const tpgQuestions: Question[] = tpgChapterQuestions.flatMap(chapter => chapter.questions);
+
 // Weighting based on official TPG Sample Exam distribution
 const createSimulationRound = (offset: number): Question[] => {
   return [
@@ -37,7 +40,7 @@ const createSimulationRound = (offset: number): Question[] => {
     ...getQuestions(chapter12Questions, 5, offset),
     ...getQuestions(chapter13Questions, 4, offset),
     ...getQuestions(chapter14Questions, 5, offset),
-    ...getQuestions(tpgChapterQuestions, 10,offset),
+    ...getQuestions(tpgQuestions, 10, offset),
     ...getQuestions(finalExamQuestions, 15, offset),
 
   ].slice(0, 60);
