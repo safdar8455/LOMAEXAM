@@ -17,7 +17,8 @@ import { chapter12Questions } from './data/chapter12';
 import { chapter13Questions } from './data/chapter13';
 import { chapter14Questions } from './data/chapter14';
 import { finalExamQuestions } from './data/finalExam';
-import { tpgChapterQuestions } from './data/tpgChaterQuestions';
+import { tpgChapterQuestions } from './data/tpgChapterQuestions';
+import { simulationRounds } from './data/simulationExams';
 
 const studyChapters: Chapter[] = [
   {
@@ -127,14 +128,26 @@ const tpgChapters: Chapter[] = [
   }
 ];
 
+const simulationChapters: Chapter[] = simulationRounds.map((round, index) => ({
+  id: index + 1,
+  title: `Simulation Round ${index + 1}`,
+  description: `Full-length 60-question simulation with weighting equivalent to the official LOMA Test Preparation Guide.`,
+  questions: round
+}));
+
 
 export default function App() {
-  const [appMode, setAppMode] = useState<'learning' | 'assessment'>('learning');
+  const [appMode, setAppMode] = useState<'learning' | 'assessment' | 'simulation'>('learning');
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
 
-  const activeChapters = useMemo(() => 
-    appMode === 'learning' ? studyChapters : tpgChapters
-  , [appMode]);
+  const activeChapters = useMemo(() => {
+    switch(appMode) {
+      case 'learning': return studyChapters;
+      case 'assessment': return tpgChapters;
+      case 'simulation': return simulationChapters;
+      default: return studyChapters;
+    }
+  }, [appMode]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -201,31 +214,41 @@ export default function App() {
             <div className="flex bg-white/50 backdrop-blur p-1 border border-border">
               <button
                 onClick={() => setAppMode('learning')}
-                className={`px-6 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
                   appMode === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
-                Comprehensive Study
+                Learning
               </button>
               <button
                 onClick={() => setAppMode('assessment')}
-                className={`px-6 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
                   appMode === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
-                TPG Assessment
+                TPG Review
+              </button>
+              <button
+                onClick={() => setAppMode('simulation')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  appMode === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Sim Rounds
               </button>
             </div>
           </header>
 
           <div className="mb-16 max-w-2xl">
             <h2 className="font-serif italic text-2xl text-ink mb-4">
-              {appMode === 'learning' ? 'Deep Learning Phase' : 'Official Preparation Center'}
+              {appMode === 'learning' ? 'Deep Learning Phase' : appMode === 'assessment' ? 'Official Preparation Center' : 'Exam Simulation Room'}
             </h2>
             <p className="font-serif italic text-sm text-muted leading-relaxed">
               {appMode === 'learning' 
                 ? 'Comprehensive modules featuring 100 scenario-based questions per chapter to ensure mastery of the LOMA 280 curriculum.'
-                : 'Accelerated assessment containing the official practice questions and sample exam from the LOMA Test Preparation Guide (TPG).'}
+                : appMode === 'assessment'
+                ? 'Accelerated assessment containing the official practice questions and sample exam from the LOMA Test Preparation Guide (TPG).'
+                : 'Full-length 60-question rounds sampled from our massive question bank. Same difficulty, unique questions every round.'}
             </p>
           </div>
 
@@ -345,7 +368,12 @@ export default function App() {
                   }} 
                   className="text-[13px] font-sans hover:text-accent text-left"
                 >
-                  {c.id === 100 ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`}
+                  {appMode === 'simulation' 
+                    ? `Sim Round ${c.id}` 
+                    : c.id === 100 
+                    ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') 
+                    : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`
+                  }
                 </button>
                 {c.id === selectedChapterId && <span className="text-[11px] font-sans opacity-60 ml-2">{Math.round(progress)}%</span>}
               </li>
