@@ -342,9 +342,9 @@ export default function App() {
   if (!currentQuestion) return null;
 
   return (
-    <div className="min-h-screen bg-bg flex flex-col md:grid md:grid-cols-[280px_1fr]">
+    <div className="h-screen overflow-hidden bg-bg flex flex-col md:grid md:grid-cols-[280px_1fr]">
       {/* Sidebar */}
-      <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg">
+      <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg overflow-hidden">
         <div>
           <button onClick={goHome} className="font-serif italic text-2xl tracking-tighter mb-16 text-ink block hover:text-accent transition-colors">
             LOMA 280 Prep
@@ -366,7 +366,7 @@ export default function App() {
             </div>
           </div>
 
-          <ul className="hidden md:block space-y-0 text-muted">
+          <ul className="hidden md:block space-y-0 text-muted" style={{ maxHeight: '20rem', overflowY: 'auto', paddingRight: '0.5rem' }}>
             {activeChapters.map(c => (
               <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
                 <button 
@@ -489,6 +489,20 @@ export default function App() {
             </button>
             
             <div className="flex gap-x-4">
+              {currentQuestionIndex > 0 && (
+                <button
+                  onClick={() => {
+                    setCurrentQuestionIndex((prev: number) => prev - 1);
+                    setSelectedOption(null);
+                    setIsLocked(false);
+                  }}
+                  className="px-10 py-3 bg-white border border-ink text-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-ink hover:text-white shadow-sm"
+                >
+                  <ChevronRight className="w-4 h-4 rotate-180" />
+                  Previous Question
+                </button>
+              )}
+              
               {!isLocked ? (
                 <button
                   onClick={handleConfirm}
