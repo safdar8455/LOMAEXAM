@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Award, BookOpen, AlertCircle, LayoutGrid } from 'lucide-react';
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Award, BookOpen, AlertCircle, LayoutGrid, Calendar } from 'lucide-react';
 import { Question, Chapter } from './types';
 import { chapter1Questions } from './data/chapter1';
 import { chapter2Questions } from './data/chapter2';
@@ -19,6 +19,9 @@ import { chapter14Questions } from './data/chapter14';
 import { finalExamQuestions } from './data/finalExam';
 import { tpgChapterQuestions } from './data/tpgChapterQuestions';
 import { simulationRounds } from './data/simulationExams';
+import { tpgMaster100 } from './data/tpgMaster100';
+import { glossaryQuestions } from './data/chapter15';
+import { saveProgress, getProgress, ProgressData } from './lib/storage';
 
 const studyChapters: Chapter[] = [
   {
@@ -106,6 +109,12 @@ const studyChapters: Chapter[] = [
     questions: chapter14Questions
   },
   {
+    id: 15,
+    title: "Glossary: Master Class",
+    description: "300 scenario-based challenges covering every defined term in the LOMA 280 curriculum. The ultimate test of your insurance vocabulary.",
+    questions: glossaryQuestions
+  },
+  {
     id: 100,
     title: "Comprehensive Final Examination",
     description: "Full-length 60-question exam covering all 14 chapters. Official LOMA-style difficulty with randomized topics.",
@@ -132,14 +141,14 @@ const simulationChapters: Chapter[] = [
   ...simulationRounds.map((round, index) => ({
     id: index + 1,
     title: `Simulation Round ${index + 1}`,
-    description: `Full-length 60-question simulation with weighting equivalent to the official LOMA Test Preparation Guide.`,
+    description: `Full-length 60-question simulation. Randomized from the complete question bank including all Chapters, TPG, Final Exams, and Glossary.`,
     questions: round
   })),
   {
-    id: 11,
+    id: 99,
     title: "100-Question Mastery Challenge",
     description: "The ultimate preparation. 100 high-difficulty MCQs covering every learning objective in the LOMA 280 curriculum.",
-    questions: finalExamQuestions
+    questions: tpgMaster100
   }
 ];
 
@@ -147,6 +156,11 @@ const simulationChapters: Chapter[] = [
 export default function App() {
   const [appMode, setAppMode] = useState<'learning' | 'assessment' | 'simulation'>('learning');
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
+  const [allProgress, setAllProgress] = useState<ProgressData>({});
+
+  useEffect(() => {
+    setAllProgress(getProgress());
+  }, []);
 
   const activeChapters = useMemo(() => {
     switch(appMode) {
@@ -164,7 +178,7 @@ export default function App() {
   const [showResults, setShowResults] = useState(false);
   
   const currentChapter = useMemo(() => 
-    activeChapters.find((c: Chapter) => c.id === selectedChapterId) || null
+    activeChapters.find(c => c.id === selectedChapterId) || null
   , [selectedChapterId, activeChapters]);
 
   const questions = currentChapter?.questions || [];
@@ -179,17 +193,30 @@ export default function App() {
   const handleConfirm = () => {
     if (selectedOption === null || isLocked || !currentQuestion) return;
     const isCorrect = selectedOption === currentQuestion.answer;
-    if (isCorrect) setScore((prev: number) => prev + 1);
+    if (isCorrect) setScore(prev => prev + 1);
     setIsLocked(true);
   };
 
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev: number) => prev + 1);
+      setCurrentQuestionIndex(prev => prev + 1);
       setSelectedOption(null);
       setIsLocked(false);
     } else {
+      const finalAccuracy = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
+      if (selectedChapterId !== null) {
+        const newProgress = saveProgress(appMode, selectedChapterId, finalAccuracy);
+        setAllProgress(newProgress);
+      }
       setShowResults(true);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+      setSelectedOption(null);
+      setIsLocked(false);
     }
   };
 
@@ -261,24 +288,44 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeChapters.map((chapter: Chapter) => (
-              <motion.button
-                key={chapter.id}
-                whileHover={{ y: -5 }}
-                onClick={() => setSelectedChapterId(chapter.id)}
-                className="group text-left bg-white border border-border p-10 relative overflow-hidden transition-all hover:border-accent"
-              >
-                <div className="absolute top-0 left-0 w-1 h-full bg-border group-hover:bg-accent transition-colors" />
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-muted mb-6 font-bold font-sans">
-                  {chapter.id === 100 ? 'Comprehensive Assessment' : `Chapter ${chapter.id}`}
-                </span>
-                <h2 className="font-serif text-2xl text-ink mb-4 leading-tight">{chapter.title}</h2>
-                <p className="font-serif italic text-xs text-muted leading-relaxed mb-8">{chapter.description}</p>
-                <div className="flex items-center gap-2 text-accent font-sans text-[10px] font-bold uppercase tracking-widest group-hover:gap-4 transition-all">
-                  Start Assessment <ChevronRight className="w-3 h-3" />
-                </div>
-              </motion.button>
-            ))}
+            {activeChapters.map(chapter => {
+              const chProgress = allProgress[appMode]?.[chapter.id];
+              return (
+                <motion.button
+                  key={chapter.id}
+                  whileHover={{ y: -5 }}
+                  onClick={() => setSelectedChapterId(chapter.id)}
+                  className="group text-left bg-white border border-border p-10 relative overflow-hidden transition-all hover:border-accent"
+                >
+                  <div className="absolute top-0 left-0 w-1 h-full bg-border group-hover:bg-accent transition-colors" />
+                  
+                  {chProgress && (
+                    <div className="absolute top-0 right-0 p-4 flex flex-col items-end opacity-40 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-accent">Best Score</span>
+                      <span className="text-xl font-serif text-ink">{chProgress.bestScore}%</span>
+                    </div>
+                  )}
+
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-muted mb-6 font-bold font-sans">
+                    {chapter.id === 100 ? 'Comprehensive Assessment' : `Chapter ${chapter.id}`}
+                  </span>
+                  <h2 className="font-serif text-2xl text-ink mb-4 leading-tight">{chapter.title}</h2>
+                  <p className="font-serif italic text-xs text-muted leading-relaxed mb-8">{chapter.description}</p>
+                  
+                  <div className="mt-auto flex justify-between items-center">
+                    <div className="flex items-center gap-2 text-accent font-sans text-[10px] font-bold uppercase tracking-widest group-hover:gap-4 transition-all">
+                      Start Assessment <ChevronRight className="w-3 h-3" />
+                    </div>
+                    {chProgress && (
+                      <span className="text-[8px] uppercase tracking-widest text-muted flex items-center gap-1">
+                        <Calendar className="w-2 h-2" />
+                        {new Date(chProgress.lastDate).toLocaleDateString()}
+                      </span>
+                    )}
+                  </div>
+                </motion.button>
+              );
+            })}
           </div>
 
           <footer className="mt-32 pt-12 border-t border-border flex justify-between items-center text-muted text-[10px] uppercase tracking-widest font-bold">
@@ -342,9 +389,9 @@ export default function App() {
   if (!currentQuestion) return null;
 
   return (
-    <div className="h-screen overflow-hidden bg-bg flex flex-col md:grid md:grid-cols-[280px_1fr]">
+    <div className="min-h-screen bg-bg flex flex-col md:grid md:grid-cols-[280px_1fr]">
       {/* Sidebar */}
-      <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg overflow-hidden">
+      <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg">
         <div>
           <button onClick={goHome} className="font-serif italic text-2xl tracking-tighter mb-16 text-ink block hover:text-accent transition-colors">
             LOMA 280 Prep
@@ -352,7 +399,7 @@ export default function App() {
 
           <div className="mb-12">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Module Progress</span>
-            <div className="font-serif text-xl text-ink leading-tight">{currentChapter?.title}</div>
+            <div className="font-serif text-xl text-ink leading-tight">{currentChapter.title}</div>
           </div>
 
           <div className="mb-16">
@@ -366,27 +413,37 @@ export default function App() {
             </div>
           </div>
 
-          <ul className="hidden md:block space-y-0 text-muted" style={{ maxHeight: '20rem', overflowY: 'auto', paddingRight: '0.5rem' }}>
-            {activeChapters.map(c => (
-              <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
-                <button 
-                  onClick={() => { 
-                    setSelectedChapterId(c.id); 
-                    restartQuiz(); 
-                  }} 
-                  className="text-[13px] font-sans hover:text-accent text-left"
-                >
-                  {appMode === 'simulation' 
-                    ? `Sim Round ${c.id}` 
-                    : c.id === 100 
-                    ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') 
-                    : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`
-                  }
-                </button>
-                {c.id === selectedChapterId && <span className="text-[11px] font-sans opacity-60 ml-2">{Math.round(progress)}%</span>}
-              </li>
-            ))}
-          </ul>
+          <div className="max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
+            <ul className="hidden md:block space-y-0 text-muted">
+              {activeChapters.map(c => {
+                const chProgress = allProgress[appMode]?.[c.id];
+                return (
+                  <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
+                    <div className="flex flex-col">
+                      <button 
+                        onClick={() => { 
+                          setSelectedChapterId(c.id); 
+                          restartQuiz(); 
+                        }} 
+                        className="text-[13px] font-sans hover:text-accent text-left"
+                      >
+                        {appMode === 'simulation' 
+                          ? `Sim Round ${c.id}` 
+                          : c.id === 100 
+                          ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') 
+                          : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`
+                        }
+                      </button>
+                      {chProgress && (
+                        <span className="text-[9px] font-bold tracking-widest text-accent uppercase">Best: {chProgress.bestScore}%</span>
+                      )}
+                    </div>
+                    {c.id === selectedChapterId && <span className="text-[11px] font-sans opacity-60 ml-2">{Math.round(progress)}%</span>}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-border hidden md:block">
@@ -484,25 +541,26 @@ export default function App() {
 
           {/* Action Bar */}
           <div className="mt-auto pt-10 border-t border-border flex justify-between items-center pb-8">
-            <button onClick={goHome} className="text-muted font-sans text-[10px] uppercase tracking-widest font-bold hover:text-ink transition-colors">
-              Quit Exam
-            </button>
-            
-            <div className="flex gap-x-4">
-              {currentQuestionIndex > 0 && (
+            <div className="flex gap-x-6 items-center">
+              <button 
+                onClick={goHome} 
+                className="text-muted font-sans text-[10px] uppercase tracking-widest font-bold hover:text-ink transition-colors"
+              >
+                Quit Exam
+              </button>
+              
+              {currentQuestionIndex > 0 && !isLocked && (
                 <button
-                  onClick={() => {
-                    setCurrentQuestionIndex((prev: number) => prev - 1);
-                    setSelectedOption(null);
-                    setIsLocked(false);
-                  }}
-                  className="px-10 py-3 bg-white border border-ink text-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-ink hover:text-white shadow-sm"
+                  onClick={handlePrevious}
+                  className="text-muted font-sans text-[10px] uppercase tracking-widest font-bold hover:text-ink transition-colors flex items-center gap-2"
                 >
-                  <ChevronRight className="w-4 h-4 rotate-180" />
-                  Previous Question
+                  <RotateCcw className="w-3 h-3" />
+                  Previous
                 </button>
               )}
-              
+            </div>
+            
+            <div className="flex gap-x-4">
               {!isLocked ? (
                 <button
                   onClick={handleConfirm}

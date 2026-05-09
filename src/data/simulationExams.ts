@@ -13,37 +13,50 @@ import { chapter11Questions } from './chapter11';
 import { chapter12Questions } from './chapter12';
 import { chapter13Questions } from './chapter13';
 import { chapter14Questions } from './chapter14';
-import { tpgChapterQuestions } from './tpgChapterQuestions';
 import { finalExamQuestions } from './finalExam';
+import { tpgChapterQuestions } from './tpgChapterQuestions';
+import { tpgMaster100 } from './tpgMaster100';
+import { glossaryQuestions } from './chapter15';
 
-const getQuestions = (chapter: Question[], count: number, startOffset: number): Question[] => {
-  return chapter.slice(startOffset, startOffset + count);
+// Flatten TPG Chapter questions
+const flattenedTpgQuestions = tpgChapterQuestions.flatMap(c => c.questions);
+
+// Mega Pool containing EVERYTHING
+const masterPool: Question[] = [
+  ...chapter1Questions,
+  ...chapter2Questions,
+  ...chapter3Questions,
+  ...chapter4Questions,
+  ...chapter5Questions,
+  ...chapter6Questions,
+  ...chapter7Questions,
+  ...chapter8Questions,
+  ...chapter9Questions,
+  ...chapter10Questions,
+  ...chapter11Questions,
+  ...chapter12Questions,
+  ...chapter13Questions,
+  ...chapter14Questions,
+  ...finalExamQuestions,
+  ...flattenedTpgQuestions,
+  ...tpgMaster100,
+  ...glossaryQuestions
+];
+
+// Fisher-Yates Shuffle
+const shuffle = (array: Question[]): Question[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
 
-// Flatten TPG chapter questions from array of chapters to single question array
-const tpgQuestions: Question[] = tpgChapterQuestions.flatMap(chapter => chapter.questions);
-
-// Weighting based on official TPG Sample Exam distribution
-const createSimulationRound = (offset: number): Question[] => {
-  return [
-    ...getQuestions(chapter1Questions, 4, offset),
-    ...getQuestions(chapter2Questions, 5, offset),
-    ...getQuestions(chapter3Questions, 3, offset),
-    ...getQuestions(chapter4Questions, 4, offset),
-    ...getQuestions(chapter5Questions, 4, offset),
-    ...getQuestions(chapter6Questions, 5, offset),
-    ...getQuestions(chapter7Questions, 4, offset),
-    ...getQuestions(chapter8Questions, 5, offset),
-    ...getQuestions(chapter9Questions, 4, offset),
-    ...getQuestions(chapter10Questions, 4, offset),
-    ...getQuestions(chapter11Questions, 4, offset),
-    ...getQuestions(chapter12Questions, 5, offset),
-    ...getQuestions(chapter13Questions, 4, offset),
-    ...getQuestions(chapter14Questions, 5, offset),
-    ...getQuestions(tpgQuestions, 10, offset),
-    ...getQuestions(finalExamQuestions, 15, offset),
-
-  ].slice(0, 60);
-};
-
-export const simulationRounds: Question[][] = Array.from({ length: 21 }, (_, i) => createSimulationRound(i * 6));
+// Create 20 unique simulation rounds
+// Each round is a 60-question sample from the master pool
+// To ensure variety, we shuffle the pool for each round
+export const simulationRounds: Question[][] = Array.from({ length: 20 }, () => {
+  const randomizedPool = shuffle(masterPool);
+  return randomizedPool.slice(0, 60);
+});
