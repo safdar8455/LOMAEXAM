@@ -1,9 +1,9 @@
 import { Question } from '../types';
 
-export const glossaryQuestions: Question[] = [
+export const glossaryQuestions: Question[]=[
   {
     id: 1,
-    lo: "Glossary - 401(k) Plan",
+    lo: "Glossary",
     question: "The Summit Corporation established a retirement plan that allows its employees to make pre-tax contributions from their salaries. The company also matches a portion of these contributions. This type of qualified retirement plan is known as a",
     options: ["401(k) plan", "403(b) plan", "457(b) plan", "Simplified Employee Pension (SEP)"],
     answer: 0,
@@ -11,7 +11,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 2,
-    lo: "Glossary - 403(b) Plan",
+    lo: "Glossary",
     question: "Grace works as a teacher at a public secondary school. Her employer offers a tax-advantaged retirement plan specifically designed for employees of public schools and certain tax-exempt organizations. This plan is a",
     options: ["401(k) plan", "403(b) plan", "457(b) plan", "Profit sharing plan"],
     answer: 1,
@@ -19,7 +19,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 3,
-    lo: "Glossary - 457(b) Plan",
+    lo: "Glossary",
     question: "Marcus is an employee of a local municipal government. He participates in a deferred compensation plan established by the state government for its employees. This plan is typically categorized as a",
     options: ["401(k) plan", "403(b) plan", "457(b) plan", "Simplified Employee Pension (SEP)"],
     answer: 2,
@@ -27,7 +27,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 4,
-    lo: "Glossary - Absolute Assignment",
+    lo: "Glossary",
     question: "Mr. Henderson decided to transfer all of his ownership rights in his life insurance policy to his daughter, Maya, permanently and irrevocably. This transfer of ownership is known as a(n)",
     options: ["collateral assignment", "absolute assignment", "endorsement", "revocable designation"],
     answer: 1,
@@ -35,7 +35,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 5,
-    lo: "Glossary - Accelerated Death Benefit",
+    lo: "Glossary",
     question: "Regina has been diagnosed with a terminal illness and has a life expectancy of less than 12 months. Her life insurance policy includes a provision that allows her to receive a portion of the death benefit now to help pay for medical costs. This benefit is a(n)",
     options: ["accidental death benefit", "double indemnity benefit", "accelerated death benefit", "paid-up additions option"],
     answer: 2,
@@ -43,7 +43,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 6,
-    lo: "Glossary - Acceptance",
+    lo: "Glossary",
     question: "In the process of forming an insurance contract, the insurer issued a policy exactly as applied for by the applicant. By receiving and agreeing to the terms of the offer, the offeree has provided a(n)",
     options: ["consideration", "acceptance", "mutual assent", "lawful purpose"],
     answer: 1,
@@ -51,7 +51,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 7,
-    lo: "Glossary - AD&D Benefit",
+    lo: "Glossary",
     question: "Timothy was involved in a serious car accident that resulted in the loss of both of his legs. His life insurance policy includes a rider that pays a specific sum for such a loss. This rider is known as a(n)",
     options: ["accidental death benefit", "living benefit", "accidental death and dismemberment (AD&D) benefit", "waiver of premium for disability benefit"],
     answer: 2,
@@ -59,7 +59,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 8,
-    lo: "Glossary - Accidental Death Benefit",
+    lo: "Glossary",
     question: "Sarah’s life insurance policy has a face amount of $100,000 and a supplemental benefit that pays an additional $100,000 if she dies due to a covered accident. If Sarah dies in a plane crash, the insurer will pay $200,000. The supplemental $100,000 is a(n)",
     options: ["accelerated death benefit", "accidental death benefit", "survivor benefit", "face amount adjustment"],
     answer: 1,
@@ -67,7 +67,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 9,
-    lo: "Glossary - Accumulated Value",
+    lo: "Glossary",
     question: "Nora owns a deferred annuity. The current value of her contract, which includes the total premiums paid plus interest earned, minus any fees or withdrawals, is $45,000. This $45,000 is referred to as the",
     options: ["cash surrender value", "accumulated value", "annuity unit value", "payout amount"],
     answer: 1,
@@ -75,7 +75,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 10,
-    lo: "Glossary - Accumulation at Interest Dividend Option",
+    lo: "Glossary",
     question: "James receives annual dividends from his participating life insurance policy. He has elected to leave these dividends with the insurer to earn interest, rather than taking them in cash. This dividend option is the",
     options: ["cash dividend option", "premium reduction dividend option", "accumulation at interest dividend option", "paid-up additions dividend option"],
     answer: 2,
@@ -83,7 +83,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 11,
-    lo: "Glossary - Accumulation Period",
+    lo: "Glossary",
     question: "Sofia purchased a deferred annuity at age 35, planning to start receiving payments at age 65. The 30-year span between the purchase date and the date payments begin is the",
     options: ["payout period", "liquidation period", "accumulation period", "grace period"],
     answer: 2,
@@ -91,7 +91,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 12,
-    lo: "Glossary - Accumulation Unit",
+    lo: "Glossary",
     question: "In a variable deferred annuity, the ownership shares that represent the value of the policyowner's investment in a specific subaccount during the growth phase are called",
     options: ["annuity units", "accumulation units", "payout units", "stock units"],
     answer: 1,
@@ -99,7 +99,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 13,
-    lo: "Glossary - Actively-at-work Provision",
+    lo: "Glossary",
     question: "LMN Corporation offers a group life insurance plan to its employees. The plan states that an employee must be present and performing their duties on the day the coverage is scheduled to start to be eligible. This is an example of a(n)",
     options: ["eligibility period", "probationary period", "actively-at-work provision", "waiting period"],
     answer: 2,
@@ -107,7 +107,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 14,
-    lo: "Glossary - Activities of Daily Living (ADLs)",
+    lo: "Glossary",
     question: "A long-term care insurance policy uses specific functional metrics to determine if an insured is eligible for benefits. These metrics, which include bathing, dressing, and eating, are known as",
     options: ["instrumental activities of daily living", "activities of daily living (ADLs)", "cognitive impairments", "physical impairments"],
     answer: 1,
@@ -115,7 +115,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 15,
-    lo: "Glossary - Actuary",
+    lo: "Glossary",
     question: "Brian is a professional who uses mathematical models and statistical analysis to assess risk and set premium rates for an insurance company. Brian is a(n)",
     options: ["underwriter", "claim adjuster", "actuary", "insurance commissioner"],
     answer: 2,
@@ -123,7 +123,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 16,
-    lo: "Glossary - Additional Term Insurance Dividend Option",
+    lo: "Glossary",
     question: "Maria has a participating life insurance policy. She chooses to have the insurer use her dividends to buy one-year term insurance on her life. This is the",
     options: ["paid-up additions dividend option", "cash dividend option", "additional term insurance dividend option", "accumulation at interest dividend option"],
     answer: 2,
@@ -131,7 +131,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 17,
-    lo: "Glossary - Aleatory Contract",
+    lo: "Glossary",
     question: "The parties to a life insurance contract provide something of value to each other, but the eventual payout by the insurer depends on the occurrence of an uncertain event (death). This makes the contract",
     options: ["commutative", "aleatory", "unilateral", "formal"],
     answer: 1,
@@ -139,7 +139,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 18,
-    lo: "Glossary - Annual Statement",
+    lo: "Glossary",
     question: "Insurer ABC must prepare a detailed accounting report every year and file it with the state insurance departments where it conducts business. This report is the",
     options: ["Balance Sheet", "Annual Statement", "Market Conduct Report", "Certificate of Authority"],
     answer: 1,
@@ -147,7 +147,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 19,
-    lo: "Glossary - Annuitant",
+    lo: "Glossary",
     question: "John purchased an annuity contract. The payments he will receive are based on the life expectancy of his wife, Mary. In this contract, Mary is the",
     options: ["contract owner", "annuitant", "beneficiary", "payee"],
     answer: 1,
@@ -155,7 +155,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 20,
-    lo: "Glossary - Annuity",
+    lo: "Glossary",
     question: "A financial product that provides a series of periodic payments to an individual is defined as a(n)",
     options: ["life insurance policy", "annuity", "mutual fund", "certificate of deposit"],
     answer: 1,
@@ -163,7 +163,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 21,
-    lo: "Glossary - Annuity Contract",
+    lo: "Glossary",
     question: "An agreement where an insurer promises to pay a person a series of regular payments in exchange for a premium is a(n)",
     options: ["insurance policy", "annuity contract", "dividend option", "settlement option"],
     answer: 1,
@@ -171,7 +171,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 22,
-    lo: "Glossary - Annuity Options",
+    lo: "Glossary",
     question: "When Kevin’s annuity reaches the payout phase, he must decide whether he wants payments for life or for a fixed period of 10 years. These choices are known as",
     options: ["dividend options", "nonforfeiture options", "annuity options", "conversion privileges"],
     answer: 2,
@@ -179,7 +179,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 23,
-    lo: "Glossary - Annuity Start Date",
+    lo: "Glossary",
     question: "The date specified in an annuity contract when the insurer is required to begin making periodic payments to the payee is the",
     options: ["issue date", "annuity start date", "maturity date", "expiration date"],
     answer: 1,
@@ -187,7 +187,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 24,
-    lo: "Glossary - Annuity Unit",
+    lo: "Glossary",
     question: "During the payout period of a variable annuity, the number of these shares remains constant, but their value fluctuates based on the performance of the subaccounts. These are called",
     options: ["accumulation units", "annuity units", "stock units", "investment units"],
     answer: 1,
@@ -195,7 +195,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 25,
-    lo: "Glossary - Antiselection",
+    lo: "Glossary",
     question: "The underwriting department at Insurer XYZ noticed that individuals with pre-existing heart conditions are more likely to apply for their life insurance than healthy individuals. This trend is known as",
     options: ["moral hazard", "antiselection", "risk avoidance", "risk transfer"],
     answer: 1,
@@ -203,7 +203,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 26,
-    lo: "Glossary - Applicant",
+    lo: "Glossary",
     question: "Mrs. Kim filled out a form to request a life insurance policy from an insurance company. In this scenario, Mrs. Kim is the",
     options: ["assignee", "beneficiary", "applicant", "policyowner"],
     answer: 2,
@@ -211,7 +211,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 27,
-    lo: "Glossary - Assets",
+    lo: "Glossary",
     question: "An insurance company's buildings, investment portfolio, and cash reserves are together classified as its",
     options: ["liabilities", "assets", "surplus", "equity"],
     answer: 1,
@@ -219,7 +219,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 28,
-    lo: "Glossary - Assignee",
+    lo: "Glossary",
     question: "When Robert assigned his life insurance policy to a bank as security for a loan, the bank became the",
     options: ["assignor", "assignee", "beneficiary", "policyowner"],
     answer: 1,
@@ -227,7 +227,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 29,
-    lo: "Glossary - Assignor",
+    lo: "Glossary",
     question: "When Robert assigned his life insurance policy to a bank as security for a loan, Robert acted as the",
     options: ["assignor", "assignee", "successor payee", "contingent beneficiary"],
     answer: 0,
@@ -235,7 +235,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 30,
-    lo: "Glossary - Attained Age",
+    lo: "Glossary",
     question: "Li applied for life insurance on January 1, 2024. As of that date, she is exactly 45 years old. This age is her",
     options: ["issue age", "attained age", "maturity age", "annuitant age"],
     answer: 1,
@@ -243,7 +243,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 31,
-    lo: "Glossary - Attained Age Conversion",
+    lo: "Glossary",
     question: "Yusuf converted his term life insurance policy to a whole life policy at age 50. The premium for his new policy is based on his current age of 50. This is a(n)",
     options: ["original age conversion", "attained age conversion", "grace period conversion", "automatic conversion"],
     answer: 1,
@@ -251,7 +251,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 32,
-    lo: "Glossary - Automatic Nonforfeiture Benefit",
+    lo: "Glossary",
     question: "Mr. Brown’s whole life policy lapsed after the grace period ended because he didn't pay the premium. Since he didn't select an option, the insurer automatically applied the extended term insurance feature. This is a(n)",
     options: ["automatic premium loan", "automatic nonforfeiture benefit", "dividend option", "reinstatement right"],
     answer: 1,
@@ -259,7 +259,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 33,
-    lo: "Glossary - Automatic Premium Loan (APL) Option",
+    lo: "Glossary",
     question: "Linda’s policy has a provision that allows the insurer to pay an overdue premium by taking a loan against the policy's cash value, preventing a lapse. This is the",
     options: ["automatic nonforfeiture benefit", "automatic premium loan (APL) option", "cash dividend option", "collateral assignment"],
     answer: 1,
@@ -267,7 +267,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 34,
-    lo: "Glossary - Bargaining Contract",
+    lo: "Glossary",
     question: "In a business insurance deal, two large corporations negotiated every detail of their agreement as equals. This resulting contract is a(n)",
     options: ["contract of adhesion", "bargaining contract", "aleatory contract", "unilateral contract"],
     answer: 1,
@@ -275,7 +275,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 35,
-    lo: "Glossary - Basic Medical Expense Coverage",
+    lo: "Glossary",
     question: "An insurance plan that provides separate reimbursement limits for hospital stays, surgeries, and doctor visits is providing",
     options: ["major medical coverage", "comprehensive health insurance", "basic medical expense coverage", "long-term care insurance"],
     answer: 2,
@@ -283,7 +283,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 36,
-    lo: "Glossary - Beneficiary",
+    lo: "Glossary",
     question: "In a life insurance policy, Sarah named her son, Leo, to receive the $500,000 death benefit when she dies. Leo is the",
     options: ["assignee", "beneficiary", "payee", "policyowner"],
     answer: 1,
@@ -291,7 +291,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 37,
-    lo: "Glossary - Benefit Formula",
+    lo: "Glossary",
     question: "A company’s retirement plan calculates an employee's future pension based on their average salary and years of service. This calculation method is a(n)",
     options: ["benefit schedule", "benefit formula", "contribution limit", "annuity option"],
     answer: 1,
@@ -299,7 +299,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 38,
-    lo: "Glossary - Benefit Period",
+    lo: "Glossary",
     question: "Sandra has a disability income policy that will pay her monthly benefits for a maximum of 5 years for a single disability. This 5-year limit is the",
     options: ["waiting period", "elimination period", "benefit period", "accumulation period"],
     answer: 2,
@@ -307,7 +307,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 39,
-    lo: "Glossary - Benefit Schedule",
+    lo: "Glossary",
     question: "A group life insurance master contract states that 'Managers receive $100,000 of coverage, and Staff receive $50,000.' This definition of coverage amounts is the",
     options: ["benefit formula", "payout factor", "benefit schedule", "risk classification"],
     answer: 2,
@@ -315,7 +315,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 40,
-    lo: "Glossary - Benefit Trigger",
+    lo: "Glossary",
     question: "A long-term care policy requires the insured to be unable to perform two ADLs or have a cognitive impairment to start receiving benefits. These requirements are",
     options: ["exclusions", "benefit triggers", "waiting periods", "nonforfeiture benefits"],
     answer: 1,
@@ -323,7 +323,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 41,
-    lo: "Glossary - Bilateral Contract",
+    lo: "Glossary",
     question: "A contract where both parties make legally enforceable promises to each other at the time the contract is formed is a(n)",
     options: ["unilateral contract", "aleatory contract", "bilateral contract", "contract of adhesion"],
     answer: 2,
@@ -331,7 +331,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 42,
-    lo: "Glossary - Blended Rating",
+    lo: "Glossary",
     question: "An insurer calculates a group's premium by using both the group’s specific claim history and standard industry data for that type of group. This is",
     options: ["manual rating", "experience rating", "blended rating", "manual underwriting"],
     answer: 2,
@@ -339,7 +339,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 43,
-    lo: "Glossary - Block of Policies",
+    lo: "Glossary",
     question: "An insurer groups together a thousand policies issued to 30-year-old non-smoking females to better track their mortality experience. This group is a(n)",
     options: ["association group", "block of policies", "risk class", "common interest association"],
     answer: 1,
@@ -347,7 +347,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 44,
-    lo: "Glossary - Business Continuation Insurance Plan",
+    lo: "Glossary",
     question: "The partners of a small firm purchased insurance to ensure the business remains solvent and structured if one partner dies. This is a(n)",
     options: ["key person plan", "business continuation insurance plan", "estate plan", "buy-sell agreement"],
     answer: 1,
@@ -355,7 +355,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 45,
-    lo: "Glossary - Buy-Sell Agreement",
+    lo: "Glossary",
     question: "A legal agreement between two business owners states that if one dies, the survivor MUST purchase the deceased's share, and the estate MUST sell it. This is a(n)",
     options: ["absolute assignment", "collateral assignment", "buy-sell agreement", "business continuation plan"],
     answer: 2,
@@ -363,7 +363,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 46,
-    lo: "Glossary - Calendar-Year Deductible",
+    lo: "Glossary",
     question: "Herman has a health plan where he must pay the first $1,500 of his medical expenses every year before the insurer starts paying. This is a(n)",
     options: ["stop-loss provision", "usual, customary, and reasonable fee", "calendar-year deductible", "out-of-pocket maximum"],
     answer: 2,
@@ -371,7 +371,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 47,
-    lo: "Glossary - Capital",
+    lo: "Glossary",
     question: "The money that stockholders invested into a stock insurance company is part of the insurer's",
     options: ["surplus", "capital", "policy reserves", "liabilities"],
     answer: 1,
@@ -379,7 +379,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 48,
-    lo: "Glossary - Cash Dividend Option",
+    lo: "Glossary",
     question: "A policyowner receives a check in the mail from their mutual insurer representing their share of the divisible surplus. This is the",
     options: ["premium reduction option", "accumulation at interest option", "cash dividend option", "paid-up additions option"],
     answer: 2,
@@ -387,7 +387,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 49,
-    lo: "Glossary - Cash Payment Nonforfeiture Option",
+    lo: "Glossary",
     question: "Eleanor surrendered her whole life policy and received the cash value in a single lump sum. She used the",
     options: ["extended term insurance option", "reduced paid-up insurance option", "cash payment nonforfeiture option", "automatic premium loan"],
     answer: 2,
@@ -395,7 +395,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 50,
-    lo: "Glossary - Cash Surrender Value",
+    lo: "Glossary",
     question: "The net amount a policyowner is entitled to receive after surrendering a permanent policy, usually adjusted for loans or charges, is the",
     options: ["face amount", "cash surrender value", "accumulated value", "dividend amount"],
     answer: 1,
@@ -403,7 +403,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 51,
-    lo: "Glossary - Cash Value",
+    lo: "Glossary",
     question: "The savings element that builds up inside a whole life insurance policy is the",
     options: ["dividend", "surplus", "cash value", "policy loan"],
     answer: 2,
@@ -411,7 +411,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 52,
-    lo: "Glossary - Certificate Holder",
+    lo: "Glossary",
     question: "In a group insurance plan, an individual employee who is covered by the plan and has a document summarizing their coverage is the",
     options: ["policyholder", "certificate holder", "assignee", "annuitant"],
     answer: 1,
@@ -419,7 +419,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 53,
-    lo: "Glossary - Certificate of Authority",
+    lo: "Glossary",
     question: "An insurance company must obtain a specific document from the state government to legally conduct business in that jurisdiction. This document is a(n)",
     options: ["Annual Statement", "Certificate of Insurance", "Certificate of Authority", "Master Contract"],
     answer: 2,
@@ -427,7 +427,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 54,
-    lo: "Glossary - Certificate of Insurance",
+    lo: "Glossary",
     question: "In a group life plan, instead of receiving the entire master contract, each employee receives a summary document called a(n)",
     options: ["individual policy", "endorsement", "certificate of insurance", "record of coverage"],
     answer: 2,
@@ -435,7 +435,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 55,
-    lo: "Glossary - Children's Insurance Rider",
+    lo: "Glossary",
     question: "Mark added a provision to his life insurance policy that provides term coverage for his two young sons. This is a(n)",
     options: ["additional insured rider", "spouse insurance rider", "children’s insurance rider", "payor benefit rider"],
     answer: 2,
@@ -443,7 +443,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 56,
-    lo: "Glossary - Claim",
+    lo: "Glossary",
     question: "After the death of the insured, the beneficiary submitted a formal request for payment to the insurer. This request is a(n)",
     options: ["application", "claim", "offer", "acceptance"],
     answer: 1,
@@ -451,7 +451,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 57,
-    lo: "Glossary - Class Designation",
+    lo: "Glossary",
     question: "Tom named 'all my children' as beneficiaries of his policy rather than listing each of their names individually. This is a(n)",
     options: ["revocable designation", "irrevocable designation", "class designation", "successor designation"],
     answer: 2,
@@ -459,7 +459,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 58,
-    lo: "Glossary - Closed Contract",
+    lo: "Glossary",
     question: "An individual life insurance policy states that only the terms printed in the policy and the attached application constitute the agreement. This is a(n)",
     options: ["open contract", "closed contract", "informal contract", "bargaining contract"],
     answer: 1,
@@ -467,7 +467,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 59,
-    lo: "Glossary - Coinsurance",
+    lo: "Glossary",
     question: "Mr. Gupta’s health insurance requires him to pay 20% of his medical bills after meeting his deductible, while the insurer pays 80%. This requirement is",
     options: ["a copayment", "coinsurance", "a deductible", "a stop-loss"],
     answer: 1,
@@ -475,7 +475,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 60,
-    lo: "Glossary - Collateral Assignment",
+    lo: "Glossary",
     question: "To get a $50,000 bank loan, Jane assigned the monetary value of her $200,000 policy to the bank as security until the loan is paid off. This is a(n)",
     options: ["absolute assignment", "collateral assignment", "endorsement", "revocable designation"],
     answer: 1,
@@ -483,7 +483,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 61,
-    lo: "Glossary - Commutative Contract",
+    lo: "Glossary",
     question: "Two parties agree to trade a car for $20,000. Each party believes the values being exchanged are relatively equal. This is a(n)",
     options: ["aleatory contract", "commutative contract", "unilateral contract", "contract of adhesion"],
     answer: 1,
@@ -491,7 +491,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 62,
-    lo: "Glossary - Compound Interest",
+    lo: "Glossary",
     question: "Lila’s savings account earned interest not just on her original $1,000 deposit, but also on the interest she had earned in previous months. This is",
     options: ["simple interest", "compound interest", "indexed interest", "bonus interest"],
     answer: 1,
@@ -499,7 +499,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 63,
-    lo: "Glossary - Conditional Promise",
+    lo: "Glossary",
     question: "An insurer’s promise to pay a death benefit is valid ONLY IF the insured dies while the policy is in force. This type of promise is a(n)",
     options: ["unilateral promise", "absolute promise", "conditional promise", "formal promise"],
     answer: 2,
@@ -507,7 +507,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 64,
-    lo: "Glossary - Consideration",
+    lo: "Glossary",
     question: "In an insurance contract, the policyowner pays the premium and the insurer promises to pay potential benefits. These items of value are the",
     options: ["mutual assent", "consideration", "capacity", "lawful purpose"],
     answer: 1,
@@ -515,7 +515,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 65,
-    lo: "Glossary - Consolidation",
+    lo: "Glossary",
     question: "The merger of a large bank and a national insurance company into a single holding company is an example of industry",
     options: ["convergence", "consolidation", "diversification", "liquidation"],
     answer: 1,
@@ -523,7 +523,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 66,
-    lo: "Glossary - Consumer-driven Health Plan (CDHP)",
+    lo: "Glossary",
     question: "An employer offers a plan with a very high deductible but gives employees more choice and responsibility for how their health funds are spent. This is a(n)",
     options: ["HMO", "PPO", "consumer-driven health plan (CDHP)", "qualified health plan"],
     answer: 2,
@@ -531,7 +531,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 67,
-    lo: "Glossary - Contingent Beneficiary",
+    lo: "Glossary",
     question: "Frank named his wife primary beneficiary and his brother as the person to receive payouts if his wife dies before him. His brother is the",
     options: ["irrevocable beneficiary", "contingent beneficiary", "successor payee", "assignee"],
     answer: 1,
@@ -539,7 +539,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 68,
-    lo: "Glossary - Continuous-Premium Whole Life Insurance Policy",
+    lo: "Glossary",
     question: "George’s whole life policy requires him to pay the same premium every year until he dies. This is a(n)",
     options: ["limited-payment policy", "single-premium policy", "continuous-premium whole life insurance policy", "extended term policy"],
     answer: 2,
@@ -547,7 +547,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 69,
-    lo: "Glossary - Contract of Adhesion",
+    lo: "Glossary",
     question: "Most insurance policies are written by the insurer, and the applicant must accept all the terms as-is or not buy the policy at all. This makes it a(n)",
     options: ["bargaining contract", "bilateral contract", "contract of adhesion", "informal contract"],
     answer: 2,
@@ -555,7 +555,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 70,
-    lo: "Glossary - Contract of Indemnity",
+    lo: "Glossary",
     question: "When a fire damaged a building, the insurance company paid exactly the amount of the financial loss suffered, no more. This building insurance is a",
     options: ["valued contract", "double indemnity contract", "contract of indemnity", "aleatory contract"],
     answer: 2,
@@ -563,7 +563,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 71,
-    lo: "Glossary - Contract Owner",
+    lo: "Glossary",
     question: "In an annuity, the person who has the power to name beneficiaries and choose payout options is the",
     options: ["annuitant", "payee", "contract owner", "beneficiary"],
     answer: 2,
@@ -571,7 +571,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 72,
-    lo: "Glossary - Contributory Plan",
+    lo: "Glossary",
     question: "A group health insurance plan requires employees to pay 50% of the premium through payroll deduction. This is a(n)",
     options: ["noncontributory plan", "contributory plan", "voluntary plan", "HMO plan"],
     answer: 1,
@@ -579,7 +579,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 73,
-    lo: "Glossary - Conversion Privilege",
+    lo: "Glossary",
     question: "Sheila has a group term life policy from her job. When she quits, she has the right to change her group term coverage to an individual permanent policy. This is her",
     options: ["reinstatement right", "conversion privilege", "nonforfeiture benefit", "eligibility period"],
     answer: 1,
@@ -587,7 +587,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 74,
-    lo: "Glossary - Copayment",
+    lo: "Glossary",
     question: "When visiting his primary care doctor, Mike is always required to pay a flat fee of $20 at the time of service. This is a(n)",
     options: ["deductible", "coinsurance", "copayment", "out-of-pocket maximum"],
     answer: 2,
@@ -595,7 +595,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 75,
-    lo: "Glossary - Corporation",
+    lo: "Glossary",
     question: "An insurance company is a legal entity created by state authority that is separate and distinct from its owners. It is a",
     options: ["partnership", "sole proprietorship", "corporation", "fraternal society"],
     answer: 2,
@@ -603,7 +603,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 76,
-    lo: "Glossary - Cost of Living Adjustment (COLA) Benefit",
+    lo: "Glossary",
     question: "Pat has a disability income policy that increases her monthly benefit check마다 each year based on the inflation rate. This is the",
     options: ["future purchase option", "COLA benefit", "partial disability benefit", "waiver of premium"],
     answer: 1,
@@ -611,7 +611,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 77,
-    lo: "Glossary - Credit Life Insurance",
+    lo: "Glossary",
     question: "When Ted bought a motorcycle with a loan from the dealer, he also bought insurance that will pay off the loan balance if he dies. This is",
     options: ["mortgage life insurance", "credit life insurance", "key person insurance", "decreased whole life"],
     answer: 1,
@@ -619,7 +619,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 78,
-    lo: "Glossary - Current Interest-Crediting Rate",
+    lo: "Glossary",
     question: "An insurer announced that it will pay 4.5% interest on all its fixed annuities for the coming year, which is above the 1% guarantee. This 4.5% is the",
     options: ["guaranteed minimum rate", "current interest-crediting rate", "index performance rate", "MVA rate"],
     answer: 1,
@@ -627,7 +627,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 79,
-    lo: "Glossary - Death Benefit",
+    lo: "Glossary",
     question: "In a deferred annuity, if the annuitant dies during the growth phase, the contract owner's beneficiary receives the value of the account. This payout is a(n)",
     options: ["annuity payment", "death benefit", "nonforfeiture benefit", "cash surrender value"],
     answer: 1,
@@ -635,7 +635,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 80,
-    lo: "Glossary - Declined Risk",
+    lo: "Glossary",
     question: "An applicant has severe chronic health issues that fall outside the insurer's acceptable bounds. The insurer decides not to issue any policy. This applicant is a(n)",
     options: ["substandard risk", "standard risk", "declined risk", "uninsurable hazard"],
     answer: 2,
@@ -643,7 +643,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 81,
-    lo: "Glossary - Decreasing Term Life Insurance",
+    lo: "Glossary",
     question: "Carla has a policy where the death benefit starts at $250,000 and drops every year as her mortgage balance goes down. This is",
     options: ["level term insurance", "decreasing term life insurance", "increasing term insurance", "whole life insurance"],
     answer: 1,
@@ -651,7 +651,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 82,
-    lo: "Glossary - Deferred Annuity",
+    lo: "Glossary",
     question: "Bob bought an annuity today but doesn't want to start receiving income payments until he retires in fifteen years. This is a(n)",
     options: ["immediate annuity", "deferred annuity", "longevity annuity", "fixed period annuity"],
     answer: 1,
@@ -659,7 +659,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 83,
-    lo: "Glossary - Deferred Income Annuity (DIA)",
+    lo: "Glossary",
     question: "At age 60, Susan paid a lump sum for an annuity that will start paying her a guaranteed income starting at age 85 if she is still alive. This is a(n)",
     options: ["SPDA", "SPIA", "deferred income annuity (DIA)", "accumulation unit"],
     answer: 2,
@@ -667,7 +667,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 84,
-    lo: "Glossary - Defined Benefit Formula",
+    lo: "Glossary",
     question: "A employer-sponsored retirement plan specifies exactly how much pension an employee will get (e.g., '$2,000 per month'). This specificity is defined by the plan's",
     options: ["defined contribution plan", "defined benefit formula", "benefit schedule", "payout factor"],
     answer: 1,
@@ -675,7 +675,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 85,
-    lo: "Glossary - Defined Contribution Plan",
+    lo: "Glossary",
     question: "In Apex Corp’s retirement plan, the company puts $2,000 a year into an account for each worker, but the final retirement amount depends on market growth. This is a(n)",
     options: ["defined benefit plan", "defined contribution plan", "annuity certain", "qualified pension plan"],
     answer: 1,
@@ -683,7 +683,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 86,
-    lo: "Glossary - Dental Expense Coverage",
+    lo: "Glossary",
     question: "A health plan that pay for cleanings, fillings, and tooth extractions is providing",
     options: ["basic medical coverage", "vision care coverage", "dental expense coverage", "HMO coverage"],
     answer: 2,
@@ -691,7 +691,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 87,
-    lo: "Glossary - Direct Writer",
+    lo: "Glossary",
     question: "Insurance Company A transfers some of the risks of the policies it issued to Reinsurer B. In this reinsurance deal, Company A is the",
     options: ["assuming company", "direct writer", "beneficiary", "assignee"],
     answer: 1,
@@ -699,7 +699,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 88,
-    lo: "Glossary - Disability Buyout Coverage",
+    lo: "Glossary",
     question: "Two partners in a firm have a policy that will provide funds for one to buy out the other’s interest if the other becomes permanently disabled. This is",
     options: ["disability income coverage", "disability buyout coverage", "key person insurance", "AD&D insurance"],
     answer: 1,
@@ -707,7 +707,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 89,
-    lo: "Glossary - Disability Income Benefit",
+    lo: "Glossary",
     question: "Anna’s life insurance policy includes a rider that will pay her $1,000 every month if she becomes totally disabled. This is a(n)",
     options: ["accelerated death benefit", "disability income benefit", "waiver of premium benefit", "hospital expense benefit"],
     answer: 1,
@@ -715,7 +715,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 90,
-    lo: "Glossary - Divisible Surplus",
+    lo: "Glossary",
     question: "An insurance company determined it has $10 million in extra funds that it is legally allowed to distribute to its participating policyowners. This $10 million is the",
     options: ["capital", "liabilities", "divisible surplus", "statutory reserves"],
     answer: 2,
@@ -723,7 +723,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 91,
-    lo: "Glossary - Dodd-Frank Act",
+    lo: "Glossary",
     question: "A major U.S. federal law was passed in 2010 to promote financial stability after the 2008 crisis by improving transparency and accountability. This is the",
     options: ["McCarran-Ferguson Act", "Dodd-Frank Act", "ACA", "ERISA"],
     answer: 1,
@@ -731,7 +731,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 92,
-    lo: "Glossary - Domicile",
+    lo: "Glossary",
     question: "If Insurer XYZ is legally incorporated in the state of Delaware, Delaware is known as the insurer's",
     options: ["territory", "licensing area", "domicile", "federal unit"],
     answer: 2,
@@ -739,7 +739,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 93,
-    lo: "Glossary - Dread Disease (DD) Benefit",
+    lo: "Glossary",
     question: "Sam’s policy has a provision that pays him 25% of his death benefit early if he is diagnosed specifically with invasive cancer. This is a(n)",
     options: ["accidental death benefit", "living benefit / dread disease benefit", "terminal illness benefit", "disability income benefit"],
     answer: 1,
@@ -747,7 +747,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 94,
-    lo: "Glossary - Eligibility Period",
+    lo: "Glossary",
     question: "In a group plan, there is a 31-day window after a new hire finishes their probation during which they can join the plan without a medical exam. This window is the",
     options: ["probationary period", "eligibility period", "waiting period", "actively-at-work window"],
     answer: 1,
@@ -755,7 +755,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 95,
-    lo: "Glossary - Elimination Period",
+    lo: "Glossary",
     question: "Valery must be disabled for 90 days before her disability insurance starts paying her benefits. These first 90 days are the",
     options: ["waiting period / elimination period", "probationary period", "grace period", "benefit period"],
     answer: 0,
@@ -763,7 +763,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 96,
-    lo: "Glossary - Employee Retirement Income Security Act (ERISA)",
+    lo: "Glossary",
     question: "A U.S. federal law sets minimum standards for most voluntarily established retirement and health plans in private industry to protect employees. This is",
     options: ["Dodd-Frank", "ERISA", "ACA", "FINRA"],
     answer: 1,
@@ -771,7 +771,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 97,
-    lo: "Glossary - Employee Stock Ownership Plan (ESOP)",
+    lo: "Glossary",
     question: "A company’s retirement plan invests all employer contributions into shares of the company’s own stock. This is a(n)",
     options: ["401(k)", "403(b)", "employee stock ownership plan (ESOP)", "SIMPLE IRA"],
     answer: 2,
@@ -779,7 +779,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 98,
-    lo: "Glossary - Endowment Insurance",
+    lo: "Glossary",
     question: "Harold has a policy that will pay him $50,000 if he is still alive at age 65, or pay his wife $50,000 if he dies before then. This is",
     options: ["whole life insurance", "term life insurance", "endowment insurance", "universal life"],
     answer: 2,
@@ -787,7 +787,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 99,
-    lo: "Glossary - Entire Contract Provision",
+    lo: "Glossary",
     question: "The provision that defines what group of documents (e.g., policy + application) makes up the legally binding insurance agreement is the",
     options: ["incontestability provision", "entire contract provision", "free-look provision", "grace period provision"],
     answer: 1,
@@ -795,7 +795,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 100,
-    lo: "Glossary - Estate Plan",
+    lo: "Glossary",
     question: "Sarah sat down with an advisor to determine how to preserve her assets and ensure they are distributed to her children as she desires after her death. She is creating a(n)",
     options: ["business continuation plan", "estate plan", "buy-sell agreement", "trust"],
     answer: 1,
@@ -803,7 +803,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 101,
-    lo: "Glossary - Evidence of Insurability",
+    lo: "Glossary",
     question: "When applying for a large amount of life insurance, Mrs. Chen was required to undergo a medical exam to provide proof that she is an insurable risk. This proof is known as",
     options: ["evidence of insurability", "an Annual Statement", "a Certificate of Authority", "a nonforfeiture benefit"],
     answer: 0,
@@ -811,7 +811,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 102,
-    lo: "Glossary - Exclusion",
+    lo: "Glossary",
     question: "A provision in a life insurance policy states that the insurer will not pay the death benefit if the insured dies while participating in professional auto racing. This provision is a(n)",
     options: ["endorsement", "exclusion", "rider", "assignment"],
     answer: 1,
@@ -819,7 +819,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 103,
-    lo: "Glossary - Experience Rating",
+    lo: "Glossary",
     question: "An insurer determines the premium for a large employer's group policy primarily by looking at that specific employer's actual claims history from the past three years. This method is",
     options: ["manual rating", "experience rating", "blended rating", "retrospective rating"],
     answer: 1,
@@ -827,7 +827,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 104,
-    lo: "Glossary - Extended Term Insurance Nonforfeiture Option",
+    lo: "Glossary",
     question: "When Mr. O'Malley stopped paying premiums on his whole life policy, the insurer used the net cash value to purchase term insurance for the full face amount for as long a period as possible. This is the",
     options: ["cash payment nonforfeiture option", "reduced paid-up insurance option", "extended term insurance nonforfeiture option", "automatic premium loan"],
     answer: 2,
@@ -835,7 +835,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 105,
-    lo: "Glossary - Face Amount",
+    lo: "Glossary",
     question: "David applied for a life insurance policy and was approved for $250,000 in coverage. This $250,000 figure is known as the policy's",
     options: ["accumulated value", "cash value", "face amount", "surrender value"],
     answer: 2,
@@ -843,7 +843,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 106,
-    lo: "Glossary - Family Income Coverage",
+    lo: "Glossary",
     question: "A plan of decreasing term life insurance that is designed to pay the beneficiary a stated monthly income amount if the insured dies during the policy term is",
     options: ["family income coverage", "family policy", "joint life insurance", "juvenile insurance"],
     answer: 0,
@@ -851,7 +851,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 107,
-    lo: "Glossary - Family Policy",
+    lo: "Glossary",
     question: "A whole life insurance policy that includes term insurance coverage on both the primary insured and their spouse and children is known as a",
     options: ["joint life policy", "family policy", "last survivor policy", "juvenile policy"],
     answer: 1,
@@ -859,7 +859,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 108,
-    lo: "Glossary - Federal Insurance Office (FIO)",
+    lo: "Glossary",
     question: "Which US federal agency, created by the Dodd-Frank Act, is authorized to monitor the insurance industry and identify areas with inadequate state regulation?",
     options: ["FSOC", "FIO", "SEC", "FINRA"],
     answer: 1,
@@ -867,7 +867,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 109,
-    lo: "Glossary - Financial Intermediary",
+    lo: "Glossary",
     question: "A bank acts as an organization that collects funds from depositors (suppliers) and channels them to borrowers (users). In this role, the bank is a",
     options: ["financial model", "financial intermediary", "regulatory agency", "stock corporation"],
     answer: 1,
@@ -875,7 +875,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 110,
-    lo: "Glossary - Financial Services Industry",
+    lo: "Glossary",
     question: "The broad industry that offers products to help people meet financial goals, protect against losses, and manage debt is known as the",
     options: ["banking industry", "insurance industry", "securities industry", "financial services industry"],
     answer: 3,
@@ -883,7 +883,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 111,
-    lo: "Glossary - Financial Stability Oversight Council (FSOC)",
+    lo: "Glossary",
     question: "Which US agency is responsible for identifying threats to the nation's financial system and coordinating regulatory responses to those threats?",
     options: ["SEC", "FINRA", "FSOC", "FIO"],
     answer: 2,
@@ -891,7 +891,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 112,
-    lo: "Glossary - First-Dollar Coverage",
+    lo: "Glossary",
     question: "A medical expense insurance policy that begins to reimburse the insured for covered expenses immediately, without requiring any deductible to be paid first, provides",
     options: ["major medical coverage", "first-dollar coverage", "coinsurance", "stop-loss coverage"],
     answer: 1,
@@ -899,7 +899,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 113,
-    lo: "Glossary - Fixed Amount Annuity",
+    lo: "Glossary",
     question: "An annuity payout option where the insurer provides monthly payments of exactly $1,500 until the funds are exhausted is a",
     options: ["fixed period annuity", "fixed amount annuity", "life only annuity", "joint life annuity"],
     answer: 1,
@@ -907,7 +907,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 114,
-    lo: "Glossary - Fixed Annuity",
+    lo: "Glossary",
     question: "In this type of annuity contract, the insurer guarantees both a minimum interest rate and a minimum amount for the periodic payments. This is a",
     options: ["variable annuity", "fixed annuity", "indexed annuity", "deferred income annuity"],
     answer: 1,
@@ -915,7 +915,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 115,
-    lo: "Glossary - Fixed Indexed Annuity (FIA)",
+    lo: "Glossary",
     question: "A fixed deferred annuity that offers principal guarantees but also provides the possibility of extra earnings linked to the performance of a stock market index is a",
     options: ["variable annuity", "fixed indexed annuity (FIA)", "market-value-adjusted annuity", "longevity annuity"],
     answer: 1,
@@ -923,7 +923,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 116,
-    lo: "Glossary - Fixed Period Annuity",
+    lo: "Glossary",
     question: "An annuity option in which the insurer provides payments for exactly 20 years, regardless of how long the annuitant lives, is a",
     options: ["fixed amount annuity", "fixed period annuity", "life income with period certain", "straight life annuity"],
     answer: 1,
@@ -931,7 +931,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 117,
-    lo: "Glossary - Flexible-Premium Universal Life Insurance",
+    lo: "Glossary",
     question: "A type of universal life policy that allows the policyowner to change both the amount and the frequency of their premium payments within set limits is",
     options: ["fixed-premium universal life", "flexible-premium universal life", "variable universal life", "whole life insurance"],
     answer: 1,
@@ -939,7 +939,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 118,
-    lo: "Glossary - Fraternal Benefit Society",
+    lo: "Glossary",
     question: "A nonprofit organization that provides social and insurance benefits solely to its members and is often established by a common ethnic or religious background is a",
     options: ["mutual insurance company", "fraternal benefit society", "stock insurance company", "reinsurer"],
     answer: 1,
@@ -947,7 +947,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 119,
-    lo: "Glossary - Fraudulent Misrepresentation",
+    lo: "Glossary",
     question: "A person intentionally lies on an insurance application to get coverage they wouldn't otherwise qualify for. This lie is a",
     options: ["material misrepresentation", "fraudulent misrepresentation", "mutual assent", "policy rider"],
     answer: 1,
@@ -955,7 +955,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 120,
-    lo: "Glossary - Free-Look Provision",
+    lo: "Glossary",
     question: "A policy provision gives the owner a 10-day period after delivery to cancel the policy for a full refund of premiums. This is the",
     options: ["entire contract provision", "grace period provision", "free-look provision", "incontestability provision"],
     answer: 2,
@@ -963,7 +963,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 121,
-    lo: "Glossary - General Account",
+    lo: "Glossary",
     question: "The asset account that supports an insurer's guarantees for its whole life and fixed annuity products is the",
     options: ["separate account", "segregated account", "general account", "subaccount"],
     answer: 2,
@@ -971,7 +971,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 122,
-    lo: "Glossary - Grace Period",
+    lo: "Glossary",
     question: "After a premium's due date, the policy remains in effect for a set number of days even if the premium hasn't been paid. This time is the",
     options: ["elimination period", "waiting period", "grace period", "probationary period"],
     answer: 2,
@@ -979,7 +979,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 123,
-    lo: "Glossary - Group Annuity",
+    lo: "Glossary",
     question: "A company purchases an annuity to provide regular retirement income for its eligible employees. This is a",
     options: ["individual annuity", "group annuity", "deferred income annuity", "longevity annuity"],
     answer: 1,
@@ -987,7 +987,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 124,
-    lo: "Glossary - Group Creditor Life Insurance",
+    lo: "Glossary",
     question: "A bank holds a policy that covers the lives of all its current borrowers to ensure their debts are paid off if they die. This is",
     options: ["individual life insurance", "group creditor life insurance", "mortgage life insurance", "key person insurance"],
     answer: 1,
@@ -995,7 +995,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 125,
-    lo: "Glossary - Group Policyholder",
+    lo: "Glossary",
     question: "In a group insurance arrangement, the employer who negotiates the contract terms and pays the premiums to the insurer is the",
     options: ["certificate holder", "group insured", "group policyholder", "beneficiary"],
     answer: 2,
@@ -1003,7 +1003,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 126,
-    lo: "Glossary - Guaranteed Insurability Benefit",
+    lo: "Glossary",
     question: "A rider that allows a policyowner to purchase additional amounts of life insurance at specific times without having to prove they are still healthy is a",
     options: ["waiver of premium benefit", "accidental death benefit", "guaranteed insurability benefit", "accelerated death benefit"],
     answer: 2,
@@ -1011,7 +1011,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 127,
-    lo: "Glossary - Guaranteed Lifetime Withdrawal Benefit (GLWB)",
+    lo: "Glossary",
     question: "A rider on a variable annuity that allows the owner to take withdrawals for their entire life, even if the account balance drops to zero, is a",
     options: ["GMWB", "GLWB", "GMAB", "GMIB"],
     answer: 1,
@@ -1019,7 +1019,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 128,
-    lo: "Glossary - Health Care Flexible Spending Account (HCFSA)",
+    lo: "Glossary",
     question: "An employer-sponsored plan that allows workers to set aside pre-tax money to pay for medical expenses like copays and prescriptions is a(n)",
     options: ["HMO", "HSA", "HRA", "HCFSA"],
     answer: 3,
@@ -1027,7 +1027,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 129,
-    lo: "Glossary - Health Maintenance Organization (HMO)",
+    lo: "Glossary",
     question: "A health care system that provides comprehensive services through a network of providers to members (subscribers) in a specific geographic area is a(n)",
     options: ["PPO", "POS", "HMO", "CDHP"],
     answer: 2,
@@ -1035,7 +1035,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 130,
-    lo: "Glossary - Health Savings Account (HSA)",
+    lo: "Glossary",
     question: "A tax-advantaged account that individuals can use to save money specifically for medical expenses, often paired with a high-deductible health plan, is a(n)",
     options: ["HCFSA", "HRA", "HSA", "HMO"],
     answer: 2,
@@ -1043,7 +1043,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 131,
-    lo: "Glossary - Immediate Annuity",
+    lo: "Glossary",
     question: "A contract that begins providing periodic income payments to the payee within one year of its purchase is a(n)",
     options: ["deferred annuity", "immediate annuity", "longevity annuity", "fixed period annuity"],
     answer: 1,
@@ -1051,7 +1051,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 132,
-    lo: "Glossary - Incontestability Provision",
+    lo: "Glossary",
     question: "A policy provision that prevents the insurer from canceling a life insurance policy due to a misrepresentation on the application after it has been in force for 2 years is the",
     options: ["grace period provision", "entire contract provision", "incontestability provision", "free-look provision"],
     answer: 2,
@@ -1059,7 +1059,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 133,
-    lo: "Glossary - Indemnity Benefit Method",
+    lo: "Glossary",
     question: "In a long-term care policy, if the insurer pays a flat $200 per day to the insured regardless of the actual cost of care, it is using the",
     options: ["reimbursement method", "indemnity benefit method", "fixed amount method", "coinsurance method"],
     answer: 1,
@@ -1067,7 +1067,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 134,
-    lo: "Glossary - Indexed Universal Life (IUL) Insurance",
+    lo: "Glossary",
     question: "A type of universal life policy where the interest credited to the cash value is tied to the performance of an external financial index is",
     options: ["variable universal life", "indexed universal life (IUL)", "fixed-premium universal life", "whole life insurance"],
     answer: 1,
@@ -1075,7 +1075,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 135,
-    lo: "Glossary - Individual Retirement Account (IRA)",
+    lo: "Glossary",
     question: "A tax-favored retirement savings vehicle that is established by an individual in the form of a trust or custodial account is a(n)",
     options: ["401(k)", "individual retirement account (IRA)", "pension plan", "annuity"],
     answer: 1,
@@ -1083,7 +1083,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 136,
-    lo: "Glossary - Informal Contract",
+    lo: "Glossary",
     question: "A contract that is enforceable because its substance meets legal requirements, rather than because it follows a specific written format, is a(n)",
     options: ["formal contract", "informal contract", "closed contract", "bilateral contract"],
     answer: 1,
@@ -1091,7 +1091,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 137,
-    lo: "Glossary - Instrumental Activities of Daily Living (IADLs)",
+    lo: "Glossary",
     question: "Activities like managing finances, cooking, and using a telephone, which are necessary for living independently but not for basic functioning, are",
     options: ["ADLs", "IADLs", "cognitive impairments", "physical impairments"],
     answer: 1,
@@ -1099,7 +1099,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 138,
-    lo: "Glossary - Insurable Interest",
+    lo: "Glossary",
     question: "The legal requirement that a policyowner must be likely to suffer a financial loss if the insured event occurs is known as",
     options: ["mutual assent", "consideration", "insurable interest", "lawful purpose"],
     answer: 2,
@@ -1107,7 +1107,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 139,
-    lo: "Glossary - Insurance Commissioner",
+    lo: "Glossary",
     question: "The top official in a state who is responsible for directing the operations of the state's insurance department is the",
     options: ["actuary", "underwriter", "insurance commissioner", "state senator"],
     answer: 2,
@@ -1115,7 +1115,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 140,
-    lo: "Glossary - Insured",
+    lo: "Glossary",
     question: "In a life insurance policy, Greg is the person whose death will trigger the payment of the death benefit. Greg is the",
     options: ["policyowner", "beneficiary", "insured", "assignee"],
     answer: 2,
@@ -1123,7 +1123,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 141,
-    lo: "Glossary - Intermediary",
+    lo: "Glossary",
     question: "An organization that moves funds from people who have extra money to those who need to borrow money is a(n)",
     options: ["actuary", "intermediary", "stockholder", "regulator"],
     answer: 1,
@@ -1131,7 +1131,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 142,
-    lo: "Glossary - Irrevocable Beneficiary",
+    lo: "Glossary",
     question: "A beneficiary whose status cannot be changed by the policyowner without that beneficiary's written consent is a(n)",
     options: ["revocable beneficiary", "irrevocable beneficiary", "contingent beneficiary", "primary beneficiary"],
     answer: 1,
@@ -1139,7 +1139,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 143,
-    lo: "Glossary - Joint and Survivor Annuity",
+    lo: "Glossary",
     question: "An annuity option that provides payments to two people and continues as long as either person is still alive is a",
     options: ["joint life annuity", "joint and survivor annuity", "last survivor annuity", "joint whole life annuity"],
     answer: 1,
@@ -1147,7 +1147,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 144,
-    lo: "Glossary - Joint Whole Life Insurance",
+    lo: "Glossary",
     question: "A policy that insures two lives (like a husband and wife) and pays the death benefit when the first person dies is",
     options: ["last survivor life insurance", "joint whole life insurance", "family policy", "juvenile insurance"],
     answer: 1,
@@ -1155,7 +1155,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 145,
-    lo: "Glossary - Juvenile Insurance Policy",
+    lo: "Glossary",
     question: "An insurance policy issued on the life of a minor child but owned and paid for by their parent is a",
     options: ["family policy", "joint life policy", "juvenile insurance policy", "third-party policy"],
     answer: 2,
@@ -1163,7 +1163,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 146,
-    lo: "Glossary - Key Person",
+    lo: "Glossary",
     question: "A star software developer whose death would cause a massive financial loss to their tech startup is considered a",
     options: ["standard risk", "preferred risk", "key person", "declined risk"],
     answer: 2,
@@ -1171,7 +1171,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 147,
-    lo: "Glossary - Lapse",
+    lo: "Glossary",
     question: "The termination of an insurance policy because the owner failed to pay the required premium is a",
     options: ["grace period", "reinstatement", "lapse", "conversion"],
     answer: 2,
@@ -1179,7 +1179,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 148,
-    lo: "Glossary - Last Survivor Life Insurance",
+    lo: "Glossary",
     question: "A policy that covers two lives but pays the death benefit only after BOTH people have died is",
     options: ["joint whole life insurance", "last survivor life insurance", "family policy", "first-to-die insurance"],
     answer: 1,
@@ -1187,7 +1187,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 149,
-    lo: "Glossary - Law of Large Numbers",
+    lo: "Glossary",
     question: "The concept that the more times an event is observed, the closer the observed results will get to the true probability is the",
     options: ["risk selection principle", "law of large numbers", "aleatory principle", "mortality assumption"],
     answer: 1,
@@ -1195,7 +1195,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 150,
-    lo: "Glossary - Level Premium System",
+    lo: "Glossary",
     question: "A premium system where the policyowner pays the exact same premium amount every year for the duration of the policy is the",
     options: ["step-rate system", "level premium system", "experience rating system", "blended rating system"],
     answer: 1,
@@ -1203,7 +1203,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 151,
-    lo: "Glossary - Liabilities",
+    lo: "Glossary",
     question: "In an insurance company's balance sheet, its debts and future obligations to pay policy benefits are listed as",
     options: ["assets", "capital", "surplus", "liabilities"],
     answer: 3,
@@ -1211,7 +1211,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 152,
-    lo: "Glossary - Life Annuity",
+    lo: "Glossary",
     question: "A contract that provides periodic income payments for at least the entire lifetime of a specific named individual is a(n)",
     options: ["annuity certain", "fixed amount annuity", "life annuity", "deferred annuity"],
     answer: 2,
@@ -1219,7 +1219,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 153,
-    lo: "Glossary - Life Income Option",
+    lo: "Glossary",
     question: "A policy settlement option where the insurer pays the death benefit to the beneficiary in regular installments for the rest of their life is the",
     options: ["interest option", "fixed amount option", "life income option", "fixed period option"],
     answer: 2,
@@ -1227,7 +1227,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 154,
-    lo: "Glossary - Life Insurance",
+    lo: "Glossary",
     question: "The specific type of insurance that provides protection against the economic loss caused by the death of the insured person is",
     options: ["health insurance", "life insurance", "annuities", "AD&D insurance"],
     answer: 1,
@@ -1235,7 +1235,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 155,
-    lo: "Glossary - Limited-Payment Whole Life",
+    lo: "Glossary",
     question: "A policy that provides lifetime coverage but only requires premiums to be paid for 20 years or until age 65 is",
     options: ["straight life policy", "limited-payment whole life insurance policy", "single-premium policy", "term life policy"],
     answer: 1,
@@ -1243,7 +1243,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 156,
-    lo: "Glossary - Longevity Annuity",
+    lo: "Glossary",
     question: "A fixed annuity bought at age 65 that won't start paying income until age 85 is designed specifically to cover",
     options: ["death risk", "longevity risk", "morbidity risk", "interest rate risk"],
     answer: 1,
@@ -1251,7 +1251,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 157,
-    lo: "Glossary - Long-Term Care Insurance (LTCI)",
+    lo: "Glossary",
     question: "A type of health insurance that pays for medical or health-related services needed by those who cannot perform ADLs or have cognitive issues is",
     options: ["major medical insurance", "disability income insurance", "long-term care insurance (LTCI)", "HMO coverage"],
     answer: 2,
@@ -1259,7 +1259,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 158,
-    lo: "Glossary - Major Medical Expense Coverage",
+    lo: "Glossary",
     question: "Health insurance that provides substantial benefits for hospital, surgical, and physician expenses plus additional services and preventive care is",
     options: ["basic medical coverage", "major medical expense coverage", "dental coverage", "disability coverage"],
     answer: 1,
@@ -1267,7 +1267,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 159,
-    lo: "Glossary - Managed Care Plan",
+    lo: "Glossary",
     question: "A health plan arrangement that integrates both the financing and the actual delivery of health care services to a group of members is a(n)",
     options: ["traditional health plan", "managed care plan", "indemnity plan", "major medical plan"],
     answer: 1,
@@ -1275,7 +1275,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 160,
-    lo: "Glossary - Manual Rating",
+    lo: "Glossary",
     question: "An insurer sets a group's premium by using broad industry classifications rather than the specific group's own history. This is",
     options: ["experience rating", "blended rating", "manual rating", "individual rating"],
     answer: 2,
@@ -1283,7 +1283,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 161,
-    lo: "Glossary - Market Conduct Law",
+    lo: "Glossary",
     question: "A specific type of law designed to ensure that insurance companies conduct their business fairly and ethically is a(n)",
     options: ["securities law", "market conduct law", "anti-trust law", "tax law"],
     answer: 1,
@@ -1291,7 +1291,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 162,
-    lo: "Glossary - Master Group Insurance Contract",
+    lo: "Glossary",
     question: "The primary document that describes the legal relationship between the insurer and the group policyholder (employer) is the",
     options: ["certificate of insurance", "Annual Statement", "master group insurance contract", "individual policy"],
     answer: 2,
@@ -1299,7 +1299,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 163,
-    lo: "Glossary - Maturity Date",
+    lo: "Glossary",
     question: "In an endowment policy, the date on which the insurer must pay the face amount to the policyowner if the insured is still alive is the",
     options: ["issue date", "grace date", "maturity date", "anniversary date"],
     answer: 2,
@@ -1307,7 +1307,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 164,
-    lo: "Glossary - Medicaid",
+    lo: "Glossary",
     question: "In the United States, the joint federal and state program that provides medical coverage specifically to low-income individuals is",
     options: ["Medicare", "Medicaid", "Social Security", "ERISA"],
     answer: 1,
@@ -1315,7 +1315,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 165,
-    lo: "Glossary - Medicare",
+    lo: "Glossary",
     question: "In the United States, the federal government program that provides medical benefits specifically to people aged 65 and older is",
     options: ["Medicaid", "Medicare", "Social Security", "Affordable Care Act"],
     answer: 1,
@@ -1323,7 +1323,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 166,
-    lo: "Glossary - Misrepresentation",
+    lo: "Glossary",
     question: "A false or misleading statement made by an applicant in an insurance application is a(n)",
     options: ["consideration", "acceptance", "misrepresentation", "rider"],
     answer: 2,
@@ -1331,7 +1331,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 167,
-    lo: "Glossary - Modified Coverage Whole Life",
+    lo: "Glossary",
     question: "A whole life policy where the death benefit decreases by a specific amount when the insured reaches certain ages (like 65 and 70) is",
     options: ["straight life policy", "modified coverage whole life insurance policy", "universal life", "term life"],
     answer: 1,
@@ -1339,7 +1339,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 168,
-    lo: "Glossary - Modified-Premium Whole Life",
+    lo: "Glossary",
     question: "A policy where the annual premium is low for the first 5 years and then increases to a higher level premium for the rest of its duration is",
     options: ["straight life policy", "modified-premium whole life insurance policy", "single-premium policy", "flexible-premium policy"],
     answer: 1,
@@ -1347,7 +1347,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 169,
-    lo: "Glossary - Moral Hazard",
+    lo: "Glossary",
     question: "A risk characteristic that suggests an applicant might act dishonestly (e.g., a history of insurance fraud) is a(n)",
     options: ["physical hazard", "moral hazard", "insurable interest", "aleatory risk"],
     answer: 1,
@@ -1355,7 +1355,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 170,
-    lo: "Glossary - Morbidity Rate",
+    lo: "Glossary",
     question: "The metric used to describe the incidence of sickness and accidents within a specific group of people is the",
     options: ["mortality rate", "morbidity rate", "lapse rate", "interest rate"],
     answer: 1,
@@ -1363,7 +1363,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 171,
-    lo: "Glossary - Mortality and Expense Risks (M&E) Charge",
+    lo: "Glossary",
     question: "An annual fee in a variable annuity that covers the insurer's cost of providing death benefit guarantees and administrative overhead is the",
     options: ["surrender charge", "M&E charge", "contract fee", "service fee"],
     answer: 1,
@@ -1371,7 +1371,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 172,
-    lo: "Glossary - Mortality Rate",
+    lo: "Glossary",
     question: "The rate at which deaths occur among a specified group of people over a specific period is the",
     options: ["morbidity rate", "mortality rate", "lapse rate", "surrender rate"],
     answer: 1,
@@ -1379,7 +1379,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 173,
-    lo: "Glossary - Mortgage Life Insurance",
+    lo: "Glossary",
     question: "A specific type of decreasing term insurance where the death benefit precisely follows the decreasing balance owed on a home loan is",
     options: ["credit life insurance", "mortgage life insurance", "family income coverage", "joint life insurance"],
     answer: 1,
@@ -1387,7 +1387,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 174,
-    lo: "Glossary - Mutual Insurance Company",
+    lo: "Glossary",
     question: "An insurance company that is owned by its policyowners rather than by stockholders is a",
     options: ["stock insurance company", "mutual insurance company", "fraternal benefit society", "holding company"],
     answer: 1,
@@ -1395,7 +1395,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 175,
-    lo: "Glossary - National Association of Insurance Commissioners (NAIC)",
+    lo: "Glossary",
     question: "Which US organization promotes state-level regulatory uniformity by developing model laws and regulations as guidelines?",
     options: ["SEC", "FINRA", "NAIC", "FSOC"],
     answer: 2,
@@ -1403,7 +1403,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 176,
-    lo: "Glossary - Net Cash Surrender Value",
+    lo: "Glossary",
     question: "When Kevin surrenders his policy, he receives $10,000 *after* the insurer subtracted a $500 outstanding loan. This $10,000 is the",
     options: ["accumulated value", "face amount", "net cash surrender value", "dividend amount"],
     answer: 2,
@@ -1411,7 +1411,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 177,
-    lo: "Glossary - Noncontributory Plan",
+    lo: "Glossary",
     question: "Waiters-R-Us pays 100% of the premium for its employees' group life plan. Employees don't have to pay anything. This is a(n)",
     options: ["contributory plan", "noncontributory plan", "voluntary plan", "HMO plan"],
     answer: 1,
@@ -1419,7 +1419,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 178,
-    lo: "Glossary - Nonforfeiture Provision",
+    lo: "Glossary",
     question: "The policy provision that summarizes the options available to a policyowner if their cash value policy lapses is the",
     options: ["grace period provision", "incontestability provision", "nonforfeiture provision", "entire contract provision"],
     answer: 2,
@@ -1427,7 +1427,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 179,
-    lo: "Glossary - Nonparticipating Policy",
+    lo: "Glossary",
     question: "A life insurance policy where the owner does *not* share in the insurer's divisible surplus and does *not* receive dividends is a(n)",
     options: ["participating policy", "nonparticipating policy", "individual policy", "standard policy"],
     answer: 1,
@@ -1435,7 +1435,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 180,
-    lo: "Glossary - Offer",
+    lo: "Glossary",
     question: "In the legal process of forming a contract, a proposal to enter into a binding agreement with another party is a(n)",
     options: ["acceptance", "consideration", "offer", "counter-offer"],
     answer: 2,
@@ -1443,7 +1443,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 181,
-    lo: "Glossary - Open Contract",
+    lo: "Glossary",
     question: "A contract that identifies certain documents as part of the agreement but doesn't necessarily have all those documents physically attached is a(n)",
     options: ["closed contract", "open contract", "informal contract", "standard contract"],
     answer: 1,
@@ -1451,7 +1451,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 182,
-    lo: "Glossary - Open Enrollment Period",
+    lo: "Glossary",
     question: "A group health insurer offers a yearly 30-day window during which any eligible employee can join the plan even if they declined it when they were first hired. This is a(n)",
     options: ["probationary period", "eligibility period", "open enrollment period", "waiting period"],
     answer: 2,
@@ -1459,7 +1459,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 183,
-    lo: "Glossary - Option A Plan",
+    lo: "Glossary",
     question: "In a universal life policy, an arrangement where the death benefit is always level and equal to the policy's face amount is",
     options: ["Option A plan", "Option B plan", "Option C plan", "Option D plan"],
     answer: 0,
@@ -1467,7 +1467,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 184,
-    lo: "Glossary - Option B Plan",
+    lo: "Glossary",
     question: "In a universal life policy, an arrangement where the death benefit at any time is equal to the face amount *plus* the cash value is",
     options: ["Option A plan", "Option B plan", "level death benefit plan", "standard plan"],
     answer: 1,
@@ -1475,7 +1475,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 185,
-    lo: "Glossary - Paid-up Additional Insurance Dividend Option",
+    lo: "Glossary",
     question: "A dividend option where the insurer uses the dividend to buy more whole life coverage that requires no further premium payments is the",
     options: ["cash dividend option", "paid-up additional insurance dividend option", "one-year term dividend option", "premium reduction option"],
     answer: 1,
@@ -1483,7 +1483,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 186,
-    lo: "Glossary - Partial Disability",
+    lo: "Glossary",
     question: "A condition that prevents an insured from performing *some* of their usual duties but still allows them to work in a reduced capacity is",
     options: ["total disability", "partial disability", "presumptive disability", "cognitive impairment"],
     answer: 1,
@@ -1491,7 +1491,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 187,
-    lo: "Glossary - Participating Policy",
+    lo: "Glossary",
     question: "A life insurance policy where the owner shares in the mutual insurer's surplus and may receive dividends is a(n)",
     options: ["nonparticipating policy", "participating policy", "stock policy", "open policy"],
     answer: 1,
@@ -1499,7 +1499,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 188,
-    lo: "Glossary - Partnership",
+    lo: "Glossary",
     question: "A business form owned by two or more people who are legally known as the partners is a",
     options: ["corporation", "sole proprietorship", "partnership", "fraternal society"],
     answer: 2,
@@ -1507,7 +1507,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 189,
-    lo: "Glossary - Payout Factor",
+    lo: "Glossary",
     question: "The figure that determines the dollar amount of each annuity payment per $1,000 of accumulated value is the",
     options: ["interest rate", "morbidity rate", "payout factor", "annuity unit value"],
     answer: 2,
@@ -1515,7 +1515,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 190,
-    lo: "Glossary - Payout Period",
+    lo: "Glossary",
     question: "The phase of an annuity contract during which the insurer is actively making income payments to the payee is the",
     options: ["accumulation period", "payout period", "waiting period", "grace period"],
     answer: 1,
@@ -1523,7 +1523,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 191,
-    lo: "Glossary - Personal Risk",
+    lo: "Glossary",
     question: "The possibility of financial loss associated with death, illness, or outliving one's resources is categorized as a(n)",
     options: ["pure risk", "speculative risk", "personal risk", "economic hazard"],
     answer: 2,
@@ -1531,7 +1531,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 192,
-    lo: "Glossary - Physical Hazard",
+    lo: "Glossary",
     question: "An applicant's chronic high blood pressure, which increases their likelihood of suffering a stroke, is a(n)",
     options: ["moral hazard", "physical hazard", "aleatory risk", "underwriting guideline"],
     answer: 1,
@@ -1539,7 +1539,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 193,
-    lo: "Glossary - Physical Impairment",
+    lo: "Glossary",
     question: "A treatable but chronic condition like arthritis or diabetes is categorized in health insurance as a(n)",
     options: ["cognitive impairment", "physical impairment", "ADL deficiency", "nonparticipating condition"],
     answer: 1,
@@ -1547,7 +1547,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 194,
-    lo: "Glossary - Physicians' Expenses",
+    lo: "Glossary",
     question: "Medical charges associated with visits to a doctor's office, whether in or out of a hospital, are categorized as",
     options: ["hospital expenses", "surgical expenses", "physicians’ expenses", "ancillary expenses"],
     answer: 2,
@@ -1555,7 +1555,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 195,
-    lo: "Glossary - Plan Sponsor",
+    lo: "Glossary",
     question: "The employer or organization that establishes a retirement plan for the benefit of its members is the",
     options: ["plan administrator", "plan participant", "plan sponsor", "payee"],
     answer: 2,
@@ -1563,7 +1563,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 196,
-    lo: "Glossary - Point-of-service (POS) Plan",
+    lo: "Glossary",
     question: "A managed care plan that allows members to choose at the time they need care whether to use a network provider or an out-of-network provider is a(n)",
     options: ["HMO", "PPO", "point-of-service (POS) plan", "CDHP"],
     answer: 2,
@@ -1571,7 +1571,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 197,
-    lo: "Glossary - Policy Anniversary",
+    lo: "Glossary",
     question: "The yearly recurrence of the date on which an insurance policy originally became effective is the",
     options: ["policy date", "policy anniversary", "maturity date", "expiration date"],
     answer: 1,
@@ -1579,7 +1579,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 198,
-    lo: "Glossary - Policy Dividend",
+    lo: "Glossary",
     question: "The money a mutual insurer pays to its participating policyowners from its divisible surplus is a(n)",
     options: ["policy loan", "policy dividend", "interest payout", "capital gain"],
     answer: 1,
@@ -1587,7 +1587,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 199,
-    lo: "Glossary - Policy Loan Provision",
+    lo: "Glossary",
     question: "Which policy provision specifies that a whole life policyowner can borrow money from the insurer if they use the cash value as security?",
     options: ["nonforfeiture provision", "grace period provision", "policy loan provision", "dividend provision"],
     answer: 2,
@@ -1595,7 +1595,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 200,
-    lo: "Glossary - Policy Reserves",
+    lo: "Glossary",
     question: "The liabilities that an insurer sets aside to represent the estimated amount needed to pay future policy benefits are",
     options: ["statutory capital", "policy reserves", "divisible surplus", "operating expenses"],
     answer: 1,
@@ -1603,7 +1603,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 201,
-    lo: "Glossary - Policy Rider",
+    lo: "Glossary",
     question: "A policyowner wants to add a specific additional benefit to their existing life insurance policy. The document that amends the original contract to include this benefit is a",
     options: ["reinstatement form", "policy rider", "assignment", "beneficiary change"],
     answer: 1,
@@ -1611,7 +1611,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 202,
-    lo: "Glossary - Policy Term",
+    lo: "Glossary",
     question: "A life insurance policy provides coverage for exactly 10 years, after which the coverage ends unless renewed. This 10-year period is the",
     options: ["grace period", "policy term", "accumulation period", "benefit period"],
     answer: 1,
@@ -1619,7 +1619,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 203,
-    lo: "Glossary - Policy Withdrawal Provision",
+    lo: "Glossary",
     question: "A universal life policy feature allows the owner to take out a portion of the cash value in cash, which permanently reduces the cash value and potentially the death benefit. This is the",
     options: ["policy loan provision", "policy withdrawal provision", "partial surrender provision", "dividend option"],
     answer: 1,
@@ -1627,7 +1627,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 204,
-    lo: "Glossary - Portability Provision",
+    lo: "Glossary",
     question: "A group insurance plan allows an employee to keep their coverage even if they leave the company to work elsewhere. This feature is a(n)",
     options: ["actively-at-work provision", "conversion privilege", "portability provision", "eligibility period"],
     answer: 2,
@@ -1635,7 +1635,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 205,
-    lo: "Glossary - Preferred Provider Organization (PPO)",
+    lo: "Glossary",
     question: "A managed health care plan that offers discounted costs if members use a specific network of providers, but still provides some coverage for out-of-network care, is a(n)",
     options: ["HMO", "preferred provider organization (PPO)", "CDHP", "Traditional Indemnity Plan"],
     answer: 1,
@@ -1643,7 +1643,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 206,
-    lo: "Glossary - Preferred Risk",
+    lo: "Glossary",
     question: "An applicant for life insurance is in excellent health, has no dangerous hobbies, and has a family history of longevity. They will likely be classified as a",
     options: ["standard risk", "preferred risk", "substandard risk", "declined risk"],
     answer: 1,
@@ -1651,7 +1651,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 207,
-    lo: "Glossary - Premium",
+    lo: "Glossary",
     question: "The specific amount of money an individual must pay to an insurance company in exchange for the company's promise to pay benefits is the",
     options: ["consideration", "premium", "face amount", "surplus"],
     answer: 1,
@@ -1659,7 +1659,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 208,
-    lo: "Glossary - Prescription Drug Coverage",
+    lo: "Glossary",
     question: "A health insurance benefit that specifically pays for medications that are ordered by a doctor and are not sold over-the-counter is",
     options: ["major medical coverage", "prescription drug coverage", "physicians' expense coverage", "dental coverage"],
     answer: 1,
@@ -1667,7 +1667,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 209,
-    lo: "Glossary - Presumptive Disability",
+    lo: "Glossary",
     question: "Under many disability policies, an insured who suffers total blindness is automatically considered totally disabled without needing to prove they can't work. This is",
     options: ["partial disability", "total disability", "presumptive disability", "residual disability"],
     answer: 2,
@@ -1675,7 +1675,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 210,
-    lo: "Glossary - Principal",
+    lo: "Glossary",
     question: "When an individual takes out a $10,000 policy loan, the $10,000 itself (before any interest is added) is categorized as the",
     options: ["surplus", "liabilities", "principal", "premium"],
     answer: 2,
@@ -1683,7 +1683,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 211,
-    lo: "Glossary - Probationary Period",
+    lo: "Glossary",
     question: "A new employee is told they must wait 90 days before they are allowed to enroll in the company's group life insurance plan. This 90-day wait is the",
     options: ["eligibility period", "probationary period", "waiting period", "grace period"],
     answer: 1,
@@ -1691,7 +1691,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 212,
-    lo: "Glossary - Profit Sharing Plan",
+    lo: "Glossary",
     question: "A qualified retirement plan where the employer makes discretionary contributions to employees' accounts from the company's earnings is a(n)",
     options: ["defined benefit plan", "profit sharing plan", "ESOP", "SIMPLE IRA"],
     answer: 1,
@@ -1699,7 +1699,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 213,
-    lo: "Glossary - Pure Risk",
+    lo: "Glossary",
     question: "The risk of a house burning down, where there is only a possibility of loss or no loss (but no chance of gain), is a",
     options: ["speculative risk", "pure risk", "economic risk", "aleatory risk"],
     answer: 1,
@@ -1707,7 +1707,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 214,
-    lo: "Glossary - Qualified Annuity",
+    lo: "Glossary",
     question: "An annuity that is purchased with pre-tax dollars within a tax-advantaged retirement plan, like a 401(k), is a(n)",
     options: ["nonqualified annuity", "qualified annuity", "immediate annuity", "flexible annuity"],
     answer: 1,
@@ -1715,7 +1715,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 215,
-    lo: "Glossary - Rate of Return",
+    lo: "Glossary",
     question: "If an insurer's investments earned $50,000 on a $1,000,000 initial investment, the resulting 5% figure is the",
     options: ["current interest rate", "payout factor", "rate of return", "mortality rate"],
     answer: 2,
@@ -1723,7 +1723,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 216,
-    lo: "Glossary - Real Property",
+    lo: "Glossary",
     question: "In insurance law, a piece of land and the house permanently built upon it are classified as",
     options: ["personal property", "intangible property", "real property", "common property"],
     answer: 2,
@@ -1731,7 +1731,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 217,
-    lo: "Glossary - Reduced Paid-up Insurance Nonforfeiture Option",
+    lo: "Glossary",
     question: "Under this nonforfeiture option, the policyowner uses the net cash value to buy a whole life policy with a smaller death benefit that requires no more premiums. This is",
     options: ["extended term insurance", "reduced paid-up insurance", "cash surrender value", "automatic premium loan"],
     answer: 1,
@@ -1739,7 +1739,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 218,
-    lo: "Glossary - Reinstatement",
+    lo: "Glossary",
     question: "The process of putting a lapsed insurance policy back into force by paying overdue premiums and providing health evidence is",
     options: ["conversion", "reinstatement", "renewal", "grace period"],
     answer: 1,
@@ -1747,7 +1747,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 219,
-    lo: "Glossary - Reinsurance",
+    lo: "Glossary",
     question: "If Insurer A wants to limit its potential loss on a massive $10 million policy, it might buy insurance from Insurer B for a portion of that risk. This is",
     options: ["direct writing", "ceding", "reinsurance", "mutualization"],
     answer: 2,
@@ -1755,7 +1755,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 220,
-    lo: "Glossary - Reinsurer",
+    lo: "Glossary",
     question: "In a reinsurance transaction, the company that accepts the risk transferred from another insurer is the",
     options: ["direct writer", "ceding company", "reinsurer", "beneficiary"],
     answer: 2,
@@ -1763,7 +1763,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 221,
-    lo: "Glossary - Renewable Term Insurance",
+    lo: "Glossary",
     question: "A term policy that allows the owner to keep the coverage at the end of the term without a medical exam, though the premium will increase based on their new age, is",
     options: ["convertible term insurance", "renewable term insurance", "whole life insurance", "yearly level insurance"],
     answer: 1,
@@ -1771,7 +1771,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 222,
-    lo: "Glossary - Return of Premium (ROP) Term Insurance",
+    lo: "Glossary",
     question: "A term policy promises to pay back all the premiums paid if the insured is still alive at the end of the 20-year term. This is",
     options: ["level term", "decreasing term", "return of premium (ROP) term insurance", "increasing term"],
     answer: 2,
@@ -1779,7 +1779,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 223,
-    lo: "Glossary - Revocable Beneficiary",
+    lo: "Glossary",
     question: "If a policyowner can change the beneficiary designation at any time without the current beneficiary's permission, the beneficiary is a(n)",
     options: ["irrevocable beneficiary", "revocable beneficiary", "contingent beneficiary", "primary beneficiary"],
     answer: 1,
@@ -1787,7 +1787,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 224,
-    lo: "Glossary - Right of Revocation",
+    lo: "Glossary",
     question: "A life insurance policyowner's legal power to change who receives the death benefit whenever they choose is their",
     options: ["conversion privilege", "right of revocation", "insurable interest", "nonforfeiture right"],
     answer: 1,
@@ -1795,7 +1795,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 225,
-    lo: "Glossary - Risk Management",
+    lo: "Glossary",
     question: "The multi-step process where a person identifies potential financial losses and decides whether to avoid, control, or transfer them is",
     options: ["underwriting", "risk management", "risk classification", "actuarial modeling"],
     answer: 1,
@@ -1803,7 +1803,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 226,
-    lo: "Glossary - Roth IRA",
+    lo: "Glossary",
     question: "An individual retirement arrangement where contributions are NOT tax-deductible, but qualified withdrawals are tax-free, is a(n)",
     options: ["Traditional IRA", "Roth IRA", "SEP IRA", "SIMPLE IRA"],
     answer: 1,
@@ -1811,15 +1811,15 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 227,
-    lo: "Glossary - Second Insured Rider",
+    lo: "Glossary",
     question: "Tom added a rider to his policy that provides term coverage for his wife, Carol. This is a(n)",
     options: ["children's rider", "second insured rider", "additional insured rider", "joint life rider"],
-    answer: 1, // 'additional insured rider' is also used but glossary specifies 'second insured rider' specifically for a spouse/other person
-    explanation: "The glossary defines 'second insured rider' (also additional/optional insured) as providing term coverage on someone other than the primary insured."
+    answer: 1, // 'additional insured rider' is also used but Glossary",
+    explanation: "The Glossary",
   },
   {
     id: 228,
-    lo: "Glossary - Security",
+    lo: "Glossary",
     question: "An investment instrument like a bond (debt) or a share of stock (equity) is broadly known as a(n)",
     options: ["asset", "liability", "security", "intermediary"],
     answer: 2,
@@ -1827,7 +1827,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 229,
-    lo: "Glossary - Separate Account",
+    lo: "Glossary",
     question: "To manage the funds placed in variable insurance products, an insurer maintains an account that is legally isolated from its main funds. This is a(n)",
     options: ["general account", "separate account", "escrow account", "investment account"],
     answer: 1,
@@ -1835,7 +1835,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 230,
-    lo: "Glossary - Settlement Options",
+    lo: "Glossary",
     question: "When a beneficiary is notified of a death benefit, they can choose between taking a single lump sum or receiving monthly payments. These choices are",
     options: ["annuity options", "nonforfeiture options", "settlement options", "dividend options"],
     answer: 2,
@@ -1843,15 +1843,15 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 231,
-    lo: "Glossary - Short-term Individual Disability Coverage",
+    lo: "Glossary",
     question: "A disability policy that provides income benefits for a maximum period of two years is categorized as",
     options: ["short-term disability", "long-term disability", "presumptive disability", "partial disability"],
     answer: 0,
-    explanation: "Short-term individual disability coverage usually has a benefit period of 1 to 5 years (glossary states 'one to five years')."
+    explanation: "Short-term individual disability coverage usually has a benefit period of 1 to 5 years (Glossary",
   },
   {
     id: 232,
-    lo: "Glossary - SIMULTANEOUS DEATH ACT",
+    lo: "Glossary",
     question: "A law in many jurisdictions helps insurers determine who to pay if BOTH the insured and the primary beneficiary die in the same accident. This is the",
     options: ["McCarran-Ferguson Act", "ERISA", "SIMULTANEOUS DEATH ACT", "Dodd-Frank Act"],
     answer: 2,
@@ -1859,7 +1859,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 233,
-    lo: "Glossary - Single-Premium Annuity",
+    lo: "Glossary",
     question: "Rachel bought an annuity by paying the entire cost in one large $100,000 payment. This is a",
     options: ["flexible-premium annuity", "single-premium annuity", "deferred income annuity", "indexed annuity"],
     answer: 1,
@@ -1867,7 +1867,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 234,
-    lo: "Glossary - Social Insurance Program",
+    lo: "Glossary",
     question: "A government-administered welfare plan established by law to provide assistance to the elderly, disabled, or unemployed is a(n)",
     options: ["private insurance plan", "group insurance plan", "social insurance program", "individual insurance program"],
     answer: 2,
@@ -1875,7 +1875,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 235,
-    lo: "Glossary - Sole Proprietorship",
+    lo: "Glossary",
     question: "A small plumbing business that is owned and operated entirely by one person is a",
     options: ["corporation", "partnership", "sole proprietorship", "fraternal society"],
     answer: 2,
@@ -1883,7 +1883,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 236,
-    lo: "Glossary - Solvent",
+    lo: "Glossary",
     question: "An insurance company that has enough assets to meet all its debts and pay all policy benefits as they come due is described as",
     options: ["liquid", "insolvent", "solvent", "consolidated"],
     answer: 2,
@@ -1891,7 +1891,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 237,
-    lo: "Glossary - Speculative Risk",
+    lo: "Glossary",
     question: "Investing in the stock market involves a chance for gain, a chance for loss, or no change. This is categorized as a",
     options: ["pure risk", "speculative risk", "personal risk", "aleatory risk"],
     answer: 1,
@@ -1899,7 +1899,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 238,
-    lo: "Glossary - Standard Premium Rate",
+    lo: "Glossary",
     question: "The rate charged to insurance applicants who have an average likelihood of loss and fit within normal health guidelines is the",
     options: ["preferred rate", "standard premium rate", "substandard rate", "blended rate"],
     answer: 1,
@@ -1907,7 +1907,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 239,
-    lo: "Glossary - State Insurance Code",
+    lo: "Glossary",
     question: "The set of laws in a specific state that regulates the insurance business within that state is the",
     options: ["Annual Statement", "state insurance code", "McCarran-Ferguson Act", "master contract"],
     answer: 1,
@@ -1915,7 +1915,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 240,
-    lo: "Glossary - State Insurance Department",
+    lo: "Glossary",
     question: "The administrative agency in a state responsible for ensuring that insurance companies operating there follow all laws is the",
     options: ["NAIC", "state insurance department", "FSOC", "FIO"],
     answer: 1,
@@ -1923,7 +1923,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 241,
-    lo: "Glossary - Stock Corporation",
+    lo: "Glossary",
     question: "A company whose ownership is divided into units called shares that can be bought and sold by investors is a",
     options: ["mutual company", "stock corporation", "partnership", "fraternal society"],
     answer: 1,
@@ -1931,7 +1931,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 242,
-    lo: "Glossary - Stockholder Dividend",
+    lo: "Glossary",
     question: "The portion of a corporation's earnings that is paid out to the owners of its stock is a",
     options: ["policy dividend", "stockholder dividend", "surplus distribution", "premium refund"],
     answer: 1,
@@ -1939,7 +1939,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 243,
-    lo: "Glossary - Stock Insurance Company",
+    lo: "Glossary",
     question: "An insurance company that is owned by investors who hold shares of the company's stock is a",
     options: ["mutual insurance company", "stock insurance company", "fraternal insurer", "reinsurer"],
     answer: 1,
@@ -1947,7 +1947,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 244,
-    lo: "Glossary - Subaccount",
+    lo: "Glossary",
     question: "One of the several different investment funds that a variable policyowner can choose to put their premiums into is a",
     options: ["general account", "subaccount", "dividend account", "escrow account"],
     answer: 1,
@@ -1955,7 +1955,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 245,
-    lo: "Glossary - Substandard Risk",
+    lo: "Glossary",
     question: "An applicant has a history of high-risk activities and some health issues but is still insurable at a higher-than-average premium. They are classified as a(n)",
     options: ["standard risk", "preferred risk", "substandard risk", "declined risk"],
     answer: 2,
@@ -1963,7 +1963,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 246,
-    lo: "Glossary - Suicide Exclusion Provision",
+    lo: "Glossary",
     question: "A policy provision states that the insurer won't pay if the insured dies by suicide within the first two years of the policy. This is the",
     options: ["incontestability provision", "suicide exclusion provision", "nonforfeiture provision", "grace period provision"],
     answer: 1,
@@ -1971,7 +1971,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 247,
-    lo: "Glossary - Surgical Expenses",
+    lo: "Glossary",
     question: "The part of medical coverage that specifically covers the costs of operations, whether done in an operating room or as an outpatient, pays for",
     options: ["hospital expenses", "surgical expenses", "physicians' expenses", "dental expenses"],
     answer: 1,
@@ -1979,7 +1979,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 248,
-    lo: "Glossary - Surplus",
+    lo: "Glossary",
     question: "An insurance company's assets minus its total liabilities and capital equals its",
     options: ["profit", "surplus", "policy reserves", "premium revenue"],
     answer: 1,
@@ -1987,7 +1987,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 249,
-    lo: "Glossary - Surrender Charge",
+    lo: "Glossary",
     question: "If Lisa cancels her deferred annuity just two years after buying it, the insurer will subtract a fee from her account for early termination. This is a(n)",
     options: ["contract fee", "surrender charge", "M&E charge", "service fee"],
     answer: 1,
@@ -1995,7 +1995,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 250,
-    lo: "Glossary - Survivor Benefit",
+    lo: "Glossary",
     question: "In most annuities, the amount of money paid to a beneficiary if the owner dies during the accumulation phase is the",
     options: ["payout", "survivor benefit", "annuity unit", "dividend"],
     answer: 1,
@@ -2003,7 +2003,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 251,
-    lo: "Glossary - Survivorship Clause",
+    lo: "Glossary",
     question: "A policy provision states that a beneficiary must outlive the insured by at least 30 days to receive the death benefit. This is a(n)",
     options: ["Simultaneous Death Act", "survivorship clause", "incontestability clause", "settlement option"],
     answer: 1,
@@ -2011,7 +2011,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 252,
-    lo: "Glossary - Systemically Important Financial Institution (SIFI)",
+    lo: "Glossary",
     question: "A bank or insurer whose failure could pose a major risk to the entire U.S. financial system and is thus subject to stricter regulation is a",
     options: ["standard insurer", "fraternal society", "SIFI", "HMO"],
     answer: 2,
@@ -2019,7 +2019,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 253,
-    lo: "Glossary - Terminal Illness (TI) Benefit",
+    lo: "Glossary",
     question: "A provision that pays a portion of the death benefit early ONLY if a doctor certifies that the insured has less than 24 months to live is a(n)",
     options: ["dread disease benefit", "terminal illness (TI) benefit", "LTC benefit", "AD&D benefit"],
     answer: 1,
@@ -2027,7 +2027,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 254,
-    lo: "Glossary - Term Life Insurance",
+    lo: "Glossary",
     question: "A life insurance policy that provides a death benefit ONLY IF the insured dies within a set period of 10 or 20 years is",
     options: ["whole life insurance", "term life insurance", "universal life", "endowment insurance"],
     answer: 1,
@@ -2035,7 +2035,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 255,
-    lo: "Glossary - Third-Party Policy",
+    lo: "Glossary",
     question: "A business buys a life insurance policy on its president to protect the business interests. This policy is a(n)",
     options: ["individual policy", "joint policy", "third-party policy", "family policy"],
     answer: 2,
@@ -2043,7 +2043,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 256,
-    lo: "Glossary - Total Disability",
+    lo: "Glossary",
     question: "A condition that perfectly fits a policy's definition for being unable to perform work and thus qualifies the insured for broad income benefits is",
     options: ["partial disability", "total disability", "survivorship disability", "vested disability"],
     answer: 1,
@@ -2051,7 +2051,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 257,
-    lo: "Glossary - Traditional IRA",
+    lo: "Glossary",
     question: "A retirement arrangement into which individuals can make annual pre-tax contributions that are often tax-deductible is a(n)",
     options: ["Roth IRA", "Traditional IRA", "pension plan", "annuity certain"],
     answer: 1,
@@ -2059,7 +2059,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 258,
-    lo: "Glossary - Underwriter",
+    lo: "Glossary",
     question: "An insurance company employee whose job is to evaluate applicants to determine their risk class and decide if they should get a policy is a(n)",
     options: ["actuary", "underwriter", "agent", "commissioner"],
     answer: 1,
@@ -2067,7 +2067,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 259,
-    lo: "Glossary - Underwriting",
+    lo: "Glossary",
     question: "The entire process of assessing applicants, classifying their risk, and making a final decision on issuing coverage is",
     options: ["risk management", "underwriting", "claims adjusting", "market conduct"],
     answer: 1,
@@ -2075,7 +2075,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 260,
-    lo: "Glossary - Underwriting Guidelines",
+    lo: "Glossary",
     question: "The set of internal rules an insurer follow so that all applicants are treated consistently when determining their risk class are",
     options: ["Annual Statements", "model laws", "underwriting guidelines", "policy provisions"],
     answer: 2,
@@ -2083,7 +2083,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 261,
-    lo: "Glossary - Unilateral Contract",
+    lo: "Glossary",
     question: "In an insurance policy, only the insurer makes a legally enforceable promise (to pay benefits). The policyowner doesn't promise to pay premiums; they just must pay to keep coverage. This makes it a(n)",
     options: ["bilateral contract", "unilateral contract", "commutative contract", "bargaining contract"],
     answer: 1,
@@ -2091,7 +2091,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 262,
-    lo: "Glossary - Universal Life Insurance",
+    lo: "Glossary",
     question: "A form of permanent life insurance where the three elements—death benefit, cash value, and premiums—are separated and flexible is",
     options: ["whole life insurance", "universal life insurance", "term life insurance", "endowment insurance"],
     answer: 1,
@@ -2099,7 +2099,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 263,
-    lo: "Glossary - Usual, Customary, and Reasonable (UCR) Fee",
+    lo: "Glossary",
     question: "The standard amount that most doctors in a specific city charge for a particular check-up is the",
     options: ["coinsurance amount", "deductible amount", "usual, customary, and reasonable (UCR) fee", "flat fee"],
     answer: 2,
@@ -2107,7 +2107,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 264,
-    lo: "Glossary - Valid Contract",
+    lo: "Glossary",
     question: "A document that meets all legal requirements and is thus legally enforceable by a court is a",
     options: ["void contract", "voidable contract", "valid contract", "standard contract"],
     answer: 2,
@@ -2115,7 +2115,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 265,
-    lo: "Glossary - Valued Contract",
+    lo: "Glossary",
     question: "A life insurance policy pays a fixed $500,000 benefit regardless of the actual financial loss suffered by the family. This makes it a",
     options: ["contract of indemnity", "valued contract", "bargaining contract", "bilateral contract"],
     answer: 1,
@@ -2123,7 +2123,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 266,
-    lo: "Glossary - Variable Annuity",
+    lo: "Glossary",
     question: "An annuity payout where the monthly benefit amount changes based on how well the chosen investment funds perform is a",
     options: ["fixed annuity", "variable annuity", "indexed annuity", "deferred annuity"],
     answer: 1,
@@ -2131,7 +2131,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 267,
-    lo: "Glossary - Variable Life (VL) Insurance",
+    lo: "Glossary",
     question: "A whole life policy where the death benefit and cash values depend on the performance of subaccounts, and premiums are set and fixed, is",
     options: ["universal life", "variable life (VL) insurance", "indexed universal life", "term life insurance"],
     answer: 1,
@@ -2139,7 +2139,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 268,
-    lo: "Glossary - Variable Universal Life (VUL) Insurance",
+    lo: "Glossary",
     question: "A policy that combines the investment flexibility of variable life with the premium and face amount flexibility of universal life is",
     options: ["variable universal life (VUL)", "whole life insurance", "indexed life", "family policy"],
     answer: 0,
@@ -2147,7 +2147,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 269,
-    lo: "Glossary - Vested Interest",
+    lo: "Glossary",
     question: "When an irrevocable beneficiary's right to policy proceeds is locked-in and cannot be taken away without their consent, they have a(n)",
     options: ["insurable interest", "vested interest", "contingent interest", "ownership interest"],
     answer: 1,
@@ -2155,7 +2155,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 270,
-    lo: "Glossary - Vesting Requirements",
+    lo: "Glossary",
     question: "The rules that define when a retirement plan participant has an absolute right to keep the money contributed by their employer are",
     options: ["eligibility requirements", "probationary requirements", "vesting requirements", "benefit formulas"],
     answer: 2,
@@ -2163,7 +2163,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 271,
-    lo: "Glossary - Vision Care Coverage",
+    lo: "Glossary",
     question: "A medical benefit that specifically pays for eye exams, glasses, and contact lenses is",
     options: ["major medical coverage", "vision care coverage", "dental coverage", "physicians' expense coverage"],
     answer: 1,
@@ -2171,7 +2171,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 272,
-    lo: "Glossary - Voidable Contract",
+    lo: "Glossary",
     question: "A contract where one party (like a minor) has the legal right to cancel or avoid their obligations is a",
     options: ["valid contract", "void contract", "voidable contract", "bargaining contract"],
     answer: 2,
@@ -2179,7 +2179,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 273,
-    lo: "Glossary - Void Contract",
+    lo: "Glossary",
     question: "A contract that was never legally enforceable from the start (e.g., it was for an illegal purpose) is a",
     options: ["valid contract", "void contract", "voidable contract", "formal contract"],
     answer: 1,
@@ -2187,7 +2187,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 274,
-    lo: "Glossary - Waiting Period",
+    lo: "Glossary",
     question: "In a long-term care policy, the first 60 days of care that the insured must pay for before insurer benefits begin is the",
     options: ["probationary period", "waiting period / elimination period", "grace period", "enrollment period"],
     answer: 1,
@@ -2195,7 +2195,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 275,
-    lo: "Glossary - Waiver of Premium for Disability (WP) Benefit",
+    lo: "Glossary",
     question: "A supplemental benefit that allows a policyowner to stop paying premiums if they become totally disabled is the",
     options: ["AD&D benefit", "accelerated death benefit", "WP benefit", "disability income benefit"],
     answer: 2,
@@ -2203,7 +2203,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 276,
-    lo: "Glossary - Waiver of Premium for Payor Benefit",
+    lo: "Glossary",
     question: "A rider on a child's policy states that if the parent paying the premiums dies, the child's coverage will stay in force for free. This is the",
     options: ["juvenile insurance rider", "waiver of premium for payor benefit", "family insurance rider", "survivor benefit"],
     answer: 1,
@@ -2211,7 +2211,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 277,
-    lo: "Glossary - Whole Life Insurance",
+    lo: "Glossary",
     question: "A type of permanent life insurance providing coverage for the insured's entire life, usually at a level premium rate, is",
     options: ["term life insurance", "whole life insurance", "endowment insurance", "annuity"],
     answer: 1,
@@ -2219,7 +2219,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 278,
-    lo: "Glossary - Yearly Renewable Term (YRT) Insurance",
+    lo: "Glossary",
     question: "A term policy that provides coverage for one year at a time and automatically allows the owner to renew for next year is",
     options: ["level term insurance", "YRT insurance", "decreasing term", "whole life"],
     answer: 1,
@@ -2227,7 +2227,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 279,
-    lo: "Glossary - Actively-at-Work Provision (Scenario)",
+    lo: "Glossary",
     question: "Jen's employer group policy was set to begin on May 1st. However, Jen was hospitalized for a severe illness on April 28th and did not return to the office until May 15th. Her coverage did not start on May 1st because of the",
     options: ["eligibility period", "actively-at-work provision", "waiting period", "grace period"],
     answer: 1,
@@ -2235,7 +2235,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 280,
-    lo: "Glossary - Adverse Selection (Antiselection)",
+    lo: "Glossary",
     question: "Insurance companies often ask medical questions to applicants to prevent the tendency of unhealthy people to seek insurance more aggressively than healthy people. This tendency is",
     options: ["risk selection", "antiselection", "risk management", "loss control"],
     answer: 1,
@@ -2243,7 +2243,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 281,
-    lo: "Glossary - Aleatory (Scenario)",
+    lo: "Glossary",
     question: "Sam paid $500 in premiums for a life insurance policy and died shortly after. The insurer paid his beneficiary $100,000. This massive difference between the premium paid and the benefit received illustrates that insurance is",
     options: ["commutative", "aleatory", "bargaining", "bilateral"],
     answer: 1,
@@ -2251,7 +2251,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 282,
-    lo: "Glossary - Commutative (Scenario)",
+    lo: "Glossary",
     question: "In a real estate transaction, both the buyer and seller agree that the $300,000 price is a fair exchange for the property. This type of contract is",
     options: ["aleatory", "commutative", "unilateral", "adhesion"],
     answer: 1,
@@ -2259,7 +2259,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 283,
-    lo: "Glossary - Contract of Adhesion (Scenario)",
+    lo: "Glossary",
     question: "When applying for insurance, the customer was told they could not change any of the policy's fine print. They had to 'take it or leave it.' This contract structure is a",
     options: ["bargaining contract", "contract of adhesion", "negotiated contract", "formal contract"],
     answer: 1,
@@ -2267,7 +2267,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 284,
-    lo: "Glossary - Group Insured",
+    lo: "Glossary",
     question: "An employee named Alex is covered under a group policy provided by their employer. Alex is known in insurance terminology as the",
     options: ["policyholder", "group insured", "assignor", "beneficiary"],
     answer: 1,
@@ -2275,7 +2275,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 285,
-    lo: "Glossary - Interest Option (Scenario)",
+    lo: "Glossary",
     question: "The beneficiary of a $100,000 policy chose to have the insurance company keep the $100,000 for 10 years and only send them monthly interest checks. This is the",
     options: ["fixed amount option", "fixed period option", "interest option", "life income option"],
     answer: 2,
@@ -2283,7 +2283,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 286,
-    lo: "Glossary - Fixed Period Option (Scenario)",
+    lo: "Glossary",
     question: "The beneficiary chose to receive the policy proceeds in equal monthly installments for exactly 120 months. This is the",
     options: ["fixed period option", "fixed amount option", "interest option", "life income option"],
     answer: 0,
@@ -2291,7 +2291,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 287,
-    lo: "Glossary - Fixed Amount Option (Scenario)",
+    lo: "Glossary",
     question: "A widow chose to receive her husband's $250,000 death benefit in $5,000 monthly chunks until all the money and interest is gone. This is the",
     options: ["fixed period option", "fixed amount option", "interest option", "life income option"],
     answer: 1,
@@ -2299,7 +2299,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 288,
-    lo: "Glossary - Misstatement of Age (Scenario)",
+    lo: "Glossary",
     question: "A man applied for insurance stating he was 35, when he was actually 40. Upon his death, the insurer adjusted the death benefit to what the premiums would have bought at the correct age. This action is allowed by the",
     options: ["incontestability provision", "misstatement of age or sex provision", "grace period provision", "nonforfeiture provision"],
     answer: 1,
@@ -2307,7 +2307,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 289,
-    lo: "Glossary - Premium Mode (Scenario)",
+    lo: "Glossary",
     question: "A policyowner switches from paying their premium once a year to paying once a month. They have changed their",
     options: ["premium rate", "premium payment mode", "nonforfeiture option", "dividend option"],
     answer: 1,
@@ -2315,7 +2315,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 290,
-    lo: "Glossary - Risk Class (Scenario)",
+    lo: "Glossary",
     question: "An insurer groupings insureds into 'Smoker,' 'Non-Smoker,' and 'Preferred Non-Smoker' categories to set different prices. Each category is a",
     options: ["benefit schedule", "risk class", "block of policies", "subaccount"],
     answer: 1,
@@ -2323,7 +2323,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 291,
-    lo: "Glossary - Separated Accounts (Variable Products)",
+    lo: "Glossary",
     question: "Why must insurers maintain separate accounts for variable products?",
     options: ["To avoid paying taxes on those funds", "To isolate investment risk and support non-guaranteed benefits", "To comply with the Simultaneous Death Act", "To manage policy loans"],
     answer: 1,
@@ -2331,7 +2331,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 292,
-    lo: "Glossary - Surplus vs Capital",
+    lo: "Glossary",
     question: "In a stock insurance company, extra funds beyond what is owed to policyowners and stockholders' initial investment is",
     options: ["statutory reserves", "surplus", "liabilities", "capital"],
     answer: 1,
@@ -2339,7 +2339,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 293,
-    lo: "Glossary - Direct Writer vs Reinsurer",
+    lo: "Glossary",
     question: "Company X issues a policy but sells the risk to Company Y. Company X is the:",
     options: ["Reinsurer", "Direct Writer", "Annuitant", "Beneficiary"],
     answer: 1,
@@ -2347,7 +2347,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 294,
-    lo: "Glossary - Convertible Term (Scenario)",
+    lo: "Glossary",
     question: "Marcus wants to switch his 10-year term policy to whole life insurance without having to take another physical exam. He should exercise his:",
     options: ["reinstatement right", "conversion privilege", "renewal provision", "dividend option"],
     answer: 1,
@@ -2355,7 +2355,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 295,
-    lo: "Glossary - ADLs vs IADLs",
+    lo: "Glossary",
     question: "Which of the following is an Activity of Daily Living (ADL)?",
     options: ["Cooking", "Bathing", "Managing Money", "Shopping"],
     answer: 1,
@@ -2363,7 +2363,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 296,
-    lo: "Glossary - Annuity Commencement Date",
+    lo: "Glossary",
     question: "Another name for the Annuity Start Date is the:",
     options: ["Liquidation period", "Income date", "Policy anniversary", "Maturity date"],
     answer: 1,
@@ -2371,7 +2371,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 297,
-    lo: "Glossary - Cash Value vs Face Amount",
+    lo: "Glossary",
     question: "Which of the following represents the potential death benefit of a life insurance policy?",
     options: ["Accumulated value", "Face amount", "Cash surrender value", "Surrender benefit"],
     answer: 1,
@@ -2379,7 +2379,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 298,
-    lo: "Glossary - Participating vs Nonparticipating",
+    lo: "Glossary",
     question: "Which type of policy allows the owner to possibly receive dividends based on the insurer's surplus?",
     options: ["Nonparticipating", "Participating", "Term Life", "Standard"],
     answer: 1,
@@ -2387,7 +2387,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 299,
-    lo: "Glossary - Endowment (Scenario)",
+    lo: "Glossary",
     question: "A policy that pays $10,000 if you die, but also pays $10,000 if you reach age 100, is a(n):",
     options: ["Pure term policy", "Endowment policy", "Fixed annuity", "HMO plan"],
     answer: 1,
@@ -2395,7 +2395,7 @@ export const glossaryQuestions: Question[] = [
   },
   {
     id: 300,
-    lo: "Glossary - Ultimate Challenge",
+    lo: "Glossary",
     question: "The legal document that directs how an individual's property should be distributed after their death is a(n):",
     options: ["Assignment", "Will", "Bilateral contract", "Option A plan"],
     answer: 1,
