@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['phoneNumber', 'createdAt'])
+        && data.keys().size() == 2
+        && data.phoneNumber is string
+        && data.phoneNumber.size() <= 20
+        && data.createdAt == request.time;
+    }
+
+    function isValidAssessment(data) {
+      return data.keys().hasAll(['userId', 'assessmentId', 'assessmentTitle', 'score', 'totalQuestions', 'completedAt'])
+        && data.keys().size() == 6
+        && data.userId == request.auth.uid
+        && data.assessmentId is string
+        && data.assessmentId.size() <= 100
+        && data.assessmentTitle is string
+        && data.assessmentTitle.size() <= 200
+        && data.score is number
+        && data.totalQuestions is number
+        && data.completedAt == request.time;
+    }
+
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+    }
+
+    match /assessments/{docId} {
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow get: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() 
+        && request.resource.data.userId == request.auth.uid
+        && isValidAssessment(request.resource.data);
+    }
+  }
+}

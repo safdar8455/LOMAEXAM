@@ -1,4 +1,4 @@
-import { Question } from '../types';
+import { Question } from '../../types';
 import { chapter1Questions } from './chapter1';
 import { chapter2Questions } from './chapter2';
 import { chapter3Questions } from './chapter3';

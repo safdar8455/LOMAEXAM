@@ -1,14 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Georgia", "Times New Roman", serif;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
   --color-bg: #F9F8F5;
   --color-ink: #1A1A1A;
   --color-accent: #B28B5C;
   --color-muted: #888888;
   --color-border: #E5E2DB;
+  
+  --font-serif: Georgia, Times New Roman, serif;
+  --font-sans: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #E5E2DB;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #B28B5C;
+  }
 }
 
 @layer base {

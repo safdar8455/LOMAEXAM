@@ -1,184 +1,116 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Award, BookOpen, AlertCircle, LayoutGrid, Calendar } from 'lucide-react';
-import { Question, Chapter } from './types';
-import { chapter1Questions } from './data/chapter1';
-import { chapter2Questions } from './data/chapter2';
-import { chapter3Questions } from './data/chapter3';
-import { chapter4Questions } from './data/chapter4';
-import { chapter5Questions } from './data/chapter5';
-import { chapter6Questions } from './data/chapter6';
-import { chapter7Questions } from './data/chapter7';
-import { chapter8Questions } from './data/chapter8';
-import { chapter9Questions } from './data/chapter9';
-import { chapter10Questions } from './data/chapter10';
-import { chapter11Questions } from './data/chapter11';
-import { chapter12Questions } from './data/chapter12';
-import { chapter13Questions } from './data/chapter13';
-import { chapter14Questions } from './data/chapter14';
-import { finalExamQuestions } from './data/finalExam';
-import { tpgChapterQuestions } from './data/tpgChapterQuestions';
-import { simulationRounds } from './data/simulationExams';
-import { tpgMaster100 } from './data/tpgMaster100';
-import { glossaryQuestions } from './data/chapter15';
-import { saveProgress, getProgress, ProgressData } from './lib/storage';
-
-const studyChapters: Chapter[] = [
-  {
-    id: 1,
-    title: "Chapter 1: Introduction to Risk",
-    description: "Fundamental concepts of risk, risk management methods, and insurable interest.",
-    questions: chapter1Questions
-  },
-  {
-    id: 2,
-    title: "Chapter 2: The Life and Health Insurance Industry",
-    description: "Business organizations, insurer types, and the financial services landscape.",
-    questions: chapter2Questions
-  },
-  {
-    id: 3,
-    title: "Chapter 3: The Insurance Contract",
-    description: "Legal principles, contract formation, and property rights in a policy.",
-    questions: chapter3Questions
-  },
-  {
-    id: 4,
-    title: "Chapter 4: Life Insurance Premiums",
-    description: "Policy reserves, mortality tables, investment earnings, and level premium systems.",
-    questions: chapter4Questions
-  },
-  {
-    id: 5,
-    title: "Chapter 5: Term Life Insurance",
-    description: "Personal and business needs, level/decreasing/increasing term plans, renewal and conversion features.",
-    questions: chapter5Questions
-  },
-  {
-    id: 6,
-    title: "Chapter 6: Cash Value Life Insurance and Endowment Insurance",
-    description: "Whole life, universal life, variable life, indexed universal life, and endowment insurance characteristics.",
-    questions: chapter6Questions
-  },
-  {
-    id: 7,
-    title: "Chapter 7: Supplemental Benefits",
-    description: "Disability benefits, accident benefits, accelerated death benefits, and riders for additional insureds.",
-    questions: chapter7Questions
-  },
-  {
-    id: 8,
-    title: "Chapter 8: Individual Life Insurance Policy Provisions",
-    description: "Free-look, incontestability, grace period, reinstatement, loans, and nonforfeiture options.",
-    questions: chapter8Questions
-  },
-  {
-    id: 9,
-    title: "Chapter 9: Life Insurance Policy Ownership Rights",
-    description: "Beneficiary designations, dividend options, ownership transfers, and settlement options.",
-    questions: chapter9Questions
-  },
-  {
-    id: 10,
-    title: "Chapter 10: Introduction to Annuities",
-    description: "Longevity risk, annuity classifications, new fixed products (DIA, FIA), and standard provisions.",
-    questions: chapter10Questions
-  },
-  {
-    id: 11,
-    title: "Chapter 11: Annuities and Individual Retirement Arrangements",
-    description: "Payout options, guarantee riders, payout calculations, fees, taxation, and traditional/Roth IRAs.",
-    questions: chapter11Questions
-  },
-  {
-    id: 12,
-    title: "Chapter 12: Health Insurance Products",
-    description: "Medical expense coverage, managed care, CDHPs, disability income, and long-term care insurance.",
-    questions: chapter12Questions
-  },
-  {
-    id: 13,
-    title: "Chapter 13: Principles of Group Insurance",
-    description: "Group contracts, certificates, underwriting objectives, insurable groups, and premium calculation methods.",
-    questions: chapter13Questions
-  },
-  {
-    id: 14,
-    title: "Chapter 14: Group Life Insurance and Group Retirement Plans",
-    description: "Policy provisions, term/cash value plans, creditor life, and qualified retirement plan types (DB/DC).",
-    questions: chapter14Questions
-  },
-  {
-    id: 15,
-    title: "Glossary: Master Class",
-    description: "300 scenario-based challenges covering every defined term in the LOMA 280 curriculum. The ultimate test of your insurance vocabulary.",
-    questions: glossaryQuestions
-  },
-  {
-    id: 100,
-    title: "Comprehensive Final Examination",
-    description: "Full-length 60-question exam covering all 14 chapters. Official LOMA-style difficulty with randomized topics.",
-    questions: finalExamQuestions
-  }
-];
-
-const tpgChapters: Chapter[] = [
-  ...tpgChapterQuestions.map(tpg => ({
-    id: tpg.id,
-    title: tpg.title,
-    description: "Practice questions directly from the official LOMA Test Preparation Guide.",
-    questions: tpg.questions
-  })),
-  {
-    id: 100,
-    title: "TPG Final Sample Examination",
-    description: "The official 60-question sample exam from the Test Preparation Guide.",
-    questions: finalExamQuestions
-  }
-];
-
-const simulationChapters: Chapter[] = [
-  ...simulationRounds.map((round, index) => ({
-    id: index + 1,
-    title: `Simulation Round ${index + 1}`,
-    description: `Full-length 60-question simulation. Randomized from the complete question bank including all Chapters, TPG, Final Exams, and Glossary.`,
-    questions: round
-  })),
-  {
-    id: 99,
-    title: "100-Question Mastery Challenge",
-    description: "The ultimate preparation. 100 high-difficulty MCQs covering every learning objective in the LOMA 280 curriculum.",
-    questions: tpgMaster100
-  }
-];
-
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Award, BookOpen, AlertCircle, LayoutGrid, Calendar, User as UserIcon, LogOut, History, Phone as PhoneIcon, Loader2, Globe, Library, ArrowLeft } from 'lucide-react';
+import { Question, Chapter, Course } from './types';
+import { COURSES } from './data/allCourses';
+import { saveProgress, getProgress, ProgressData, getFirestoreAssessments, AssessmentRecord } from './lib/storage';
+import { useAuth } from './lib/AuthContext';
+import { auth } from './lib/firebase';
+import { PhoneAuth } from './components/PhoneAuth';
+import { signOut } from 'firebase/auth';
+import { format } from 'date-fns';
 
 export default function App() {
-  const [appMode, setAppMode] = useState<'learning' | 'assessment' | 'simulation'>('learning');
+  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
+  const [appMode, setAppMode] = useState<'learning' | 'assessment' | 'simulation' | 'profile'>('learning');
   const [selectedChapterId, setSelectedChapterId] = useState<number | null>(null);
   const [allProgress, setAllProgress] = useState<ProgressData>({});
+  const [assessmentHistory, setAssessmentHistory] = useState<AssessmentRecord[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(false);
+  const { user, loading: authLoading } = useAuth();
 
   useEffect(() => {
     setAllProgress(getProgress());
   }, []);
 
-  const activeChapters = useMemo(() => {
-    switch(appMode) {
-      case 'learning': return studyChapters;
-      case 'assessment': return tpgChapters;
-      case 'simulation': return simulationChapters;
-      default: return studyChapters;
+  useEffect(() => {
+    if (user) {
+      loadHistory();
     }
-  }, [appMode]);
+  }, [user]);
+
+  const loadHistory = async () => {
+    if (!user) return;
+    setLoadingHistory(true);
+    try {
+      const history = await getFirestoreAssessments(user.uid);
+      setAssessmentHistory(history);
+    } catch (error) {
+      console.error('Failed to load history:', error);
+    } finally {
+      setLoadingHistory(false);
+    }
+  };
+
+  const selectedCourse = useMemo(() => 
+    COURSES.find((c: Course) => c.id === selectedCourseId) || COURSES[0], 
+  [selectedCourseId]);
+
+  const activeChapters = useMemo(() => {
+    if (!selectedCourse) return [];
+    
+    switch(appMode) {
+      case 'learning': {
+        const base = [...selectedCourse.chapters];
+        if (selectedCourse.finalExam) {
+          base.push({
+            id: 100,
+            title: `${selectedCourse.shortTitle} Comprehensive Final Examination`,
+            description: `A full bloom-level evaluation across all chapters of ${selectedCourse.shortTitle}.`,
+            questions: selectedCourse.finalExam
+          });
+        }
+        return base;
+      }
+      case 'assessment': {
+        const chaptersToUse = selectedCourse.tpgChapters || selectedCourse.chapters;
+        const base = chaptersToUse.map((c: Chapter) => ({
+          ...c,
+          title: c.title.includes('Chapter') 
+            ? c.title.replace('Chapter', `${selectedCourse.shortTitle} TPG Review: Chapter`) 
+            : `${selectedCourse.shortTitle} TPG Review: ${c.title}`,
+          description: `Official Test Preparation Guide questions for ${selectedCourse.shortTitle}.`
+        }));
+        if (selectedCourse.tpgFinalExam) {
+          base.push({
+            id: 100,
+            title: `${selectedCourse.shortTitle} TPG Final Sample Examination`,
+            description: `Full-length TPG-level practice exam for ${selectedCourse.shortTitle}.`,
+            questions: selectedCourse.tpgFinalExam
+          });
+        }
+        return base;
+      }
+      case 'simulation': {
+        const base = selectedCourse.simulationRounds.map((round: Question[], index: number) => ({
+          id: index + 1,
+          title: `${selectedCourse.shortTitle} Simulation Round ${index + 1}`,
+          description: `Full-length 60-question exam simulation for ${selectedCourse.shortTitle}.`,
+          questions: round
+        }));
+        if (selectedCourse.masteryChallenge) {
+          base.push({
+            id: 99,
+            title: `${selectedCourse.shortTitle} 100-Question Mastery Challenge`,
+            description: `The ultimate endurance test for ${selectedCourse.shortTitle} students.`,
+            questions: selectedCourse.masteryChallenge
+          });
+        }
+        return base;
+      }
+      default: return selectedCourse.chapters;
+    }
+  }, [appMode, selectedCourse]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isLocked, setIsLocked] = useState(false);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const currentChapter = useMemo(() => 
-    activeChapters.find(c => c.id === selectedChapterId) || null
+    activeChapters.find((c: Chapter) => c.id === selectedChapterId) || null
   , [selectedChapterId, activeChapters]);
 
   const questions = currentChapter?.questions || [];
@@ -197,17 +129,21 @@ export default function App() {
     setIsLocked(true);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
       setSelectedOption(null);
       setIsLocked(false);
     } else {
+      setIsSubmitting(true);
       const finalAccuracy = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
       if (selectedChapterId !== null) {
-        const newProgress = saveProgress(appMode, selectedChapterId, finalAccuracy);
+        const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
+        const newProgress = await saveProgress(appMode, assessmentId, finalAccuracy, questions.length, currentChapter?.title || 'Unknown');
         setAllProgress(newProgress);
+        if (user) loadHistory();
       }
+      setIsSubmitting(false);
       setShowResults(true);
     }
   };
@@ -233,7 +169,332 @@ export default function App() {
     restartQuiz();
   };
 
+  const exitCourse = () => {
+    goHome();
+    setSelectedCourseId(null);
+  };
+
   const getAccuracy = () => questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
+
+  // Authentication Gate
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-bg flex items-center justify-center">
+        <div className="flex flex-col items-center gap-6">
+          <Loader2 className="w-12 h-12 animate-spin text-accent" />
+          <p className="font-serif italic text-muted">Securing your session...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-bg p-8 md:p-24 flex items-center justify-center">
+        <div className="w-full max-w-2xl">
+          <div className="text-center mb-12">
+            <h1 className="font-serif italic text-6xl text-ink mb-4">LOMA Exam Master</h1>
+            <p className="font-sans text-[10px] uppercase tracking-[0.4em] text-muted">Study Suite &bull; Preparations</p>
+          </div>
+          <PhoneAuth />
+        </div>
+      </div>
+    );
+  }
+
+  // Course Selection Phase
+  if (selectedCourseId === null && appMode !== 'profile') {
+    return (
+      <div className="min-h-screen bg-bg p-8 md:p-24 overflow-x-hidden">
+        <div className="max-w-6xl mx-auto">
+          <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <Globe className="w-8 h-8 text-accent animate-pulse" />
+                <span className="font-sans text-[10px] font-bold uppercase tracking-[0.5em] text-muted">Global Professional Standard</span>
+              </div>
+              <h1 className="font-serif italic text-7xl text-ink leading-tight">
+                FLMI Program <br />
+                <span className="text-accent underline decoration-border decoration-1 underline-offset-8">Study Suite</span>
+              </h1>
+            </div>
+            <button 
+              onClick={() => setAppMode('profile')}
+              className="group flex items-center gap-6 p-6 border border-border hover:bg-ink hover:text-white transition-all shadow-xl hover:shadow-2xl"
+            >
+              <div className="text-right">
+                <span className="block text-[8px] font-bold uppercase tracking-widest text-muted">Active Student</span>
+                <span className="block text-sm font-serif italic">{user.phoneNumber}</span>
+              </div>
+              <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <UserIcon className="w-6 h-6 text-ink" />
+              </div>
+            </button>
+          </header>
+
+          <section className="mb-20 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="space-y-4">
+              <h4 className="font-serif italic text-2xl text-ink">Program Overview</h4>
+              <p className="text-muted text-sm leading-relaxed">
+                The Fellow, Life Management Institute (FLMI) is a 10-course professional development program providing industry-specific business education since 1932.
+              </p>
+            </div>
+            <div className="col-span-2 bg-ink p-10 text-white shadow-2xl relative overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
+                <div className="space-y-2">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-accent">Level I</span>
+                  <h5 className="font-serif italic text-lg">Fundamentals</h5>
+                  <p className="text-white/40 text-[10px] leading-relaxed">Products & operations for quick confidence.</p>
+                </div>
+                <div className="space-y-2">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-accent">ALMI</span>
+                  <h5 className="font-serif italic text-lg">Associate</h5>
+                  <p className="text-white/40 text-[10px] leading-relaxed">Core insurance functions & financial acumen.</p>
+                </div>
+                <div className="space-y-2">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-accent">FLMI</span>
+                  <h5 className="font-serif italic text-lg">Fellow</h5>
+                  <p className="text-white/40 text-[10px] leading-relaxed">Big-picture strategic business topics.</p>
+                </div>
+              </div>
+              <div className="absolute top-0 right-0 p-4">
+                <Award className="w-12 h-12 text-white/10" />
+              </div>
+            </div>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-border border border-border">
+            {COURSES.map((course: Course, idx: number) => (
+              <motion.div
+                key={course.id}
+                whileHover={{ y: -4 }}
+                onClick={() => setSelectedCourseId(course.id)}
+                className="bg-white p-12 cursor-pointer group hover:bg-ink transition-all relative overflow-hidden"
+              >
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted group-hover:text-accent transition-colors">
+                      {idx < 2 ? 'Level I' : idx < 5 ? 'ALMI Level' : 'FLMI Level'} • {course.shortTitle}
+                    </span>
+                    <Library className="w-5 h-5 text-border group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-3xl font-serif italic text-ink mb-6 group-hover:text-white leading-snug transition-colors">
+                    {course.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed mb-10 group-hover:text-white/60 transition-colors line-clamp-2">
+                    {course.description}
+                  </p>
+                  <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-accent opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                    Initialize Module <ChevronRight className="w-3 h-3" />
+                  </div>
+                </div>
+                <div className="absolute -bottom-10 -right-10 text-bg group-hover:text-white/5 transition-colors">
+                  <Library className="w-48 h-48 rotate-12" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <footer className="mt-20 pt-12 border-t border-border flex justify-between items-center text-[8px] font-bold uppercase tracking-widest text-muted">
+            <div className="flex gap-8">
+              <span>LOMA & PFLP Comprehensive Suite</span>
+              <span>© 2026 Academic Research &bull; Prepared by Safdar Hussain</span>
+            </div>
+            <div className="flex gap-8">
+              <span className="flex items-center gap-1"><CheckCircle2 className="w-2 h-2" /> Verified Content</span>
+              <span className="flex items-center gap-1"><Globe className="w-2 h-2" /> Global Sync Ready</span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    );
+  }
+
+  // Profile Page
+  if (appMode === 'profile' && selectedChapterId === null) {
+    return (
+      <div className="min-h-screen bg-bg p-8 md:p-24 overflow-x-hidden">
+        <div className="max-w-5xl mx-auto">
+          <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h1 
+                onClick={goHome}
+                className="font-serif italic text-5xl text-ink mb-4 cursor-pointer hover:opacity-70 transition-opacity"
+              >
+                LOMA Exam Master
+              </h1>
+              <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Prepared by Safdar Hussain</p>
+            </div>
+            
+            <div className="flex bg-white/50 backdrop-blur p-1 border border-border">
+              <button
+                onClick={() => setAppMode('learning')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  (appMode as any) === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Learning
+              </button>
+              <button
+                onClick={() => setAppMode('assessment')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  (appMode as any) === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                TPG Review
+              </button>
+              <button
+                onClick={() => setAppMode('simulation')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  (appMode as any) === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Sim Rounds
+              </button>
+              <button
+                onClick={() => setAppMode('profile')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  (appMode as any) === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Profile
+              </button>
+            </div>
+          </header>
+
+          <AnimatePresence mode="wait">
+            {!user ? (
+              <motion.div
+                key="auth"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="py-12"
+              >
+                <PhoneAuth />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="profile-content"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="space-y-12"
+              >
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 bg-ink p-12 text-white shadow-2xl relative overflow-hidden group">
+                  <div className="relative z-10">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-2 block">Logged in as</span>
+                    <h2 className="text-4xl font-serif italic mb-4">{user.phoneNumber}</h2>
+                    <div className="flex items-center gap-6">
+                      <div className="flex flex-col">
+                        <span className="text-[8px] font-bold uppercase tracking-widest text-muted">Completed</span>
+                        <span className="text-2xl font-serif text-accent">{assessmentHistory.length}</span>
+                      </div>
+                      <div className="w-[1px] h-8 bg-white/10" />
+                      <div className="flex flex-col">
+                        <span className="text-[8px] font-bold uppercase tracking-widest text-muted">Avg Accuracy</span>
+                        <span className="text-2xl font-serif text-accent">
+                          {assessmentHistory.length > 0 
+                            ? Math.round(assessmentHistory.reduce((acc, h) => acc + h.score, 0) / assessmentHistory.length) 
+                            : 0}%
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="relative z-10 flex flex-col gap-4">
+                    <button 
+                      onClick={() => signOut(auth)}
+                      className="flex items-center justify-center gap-2 px-8 py-3 bg-white/10 hover:bg-white text-white hover:text-ink transition-all font-bold uppercase tracking-widest text-[10px] border border-white/20"
+                    >
+                      <LogOut className="w-3 h-3" /> Sign Out
+                    </button>
+                    <button 
+                      onClick={loadHistory}
+                      className="flex items-center justify-center gap-2 px-8 py-3 bg-accent text-ink font-bold uppercase tracking-widest text-[10px] hover:bg-white transition-all shadow-lg"
+                    >
+                      <RotateCcw className="w-3 h-3" /> Refresh Records
+                    </button>
+                  </div>
+
+                  <Award className="absolute -bottom-10 -right-10 w-64 h-64 text-white/5 rotate-12 group-hover:scale-110 transition-transform duration-1000" />
+                </div>
+
+                <div className="bg-white border border-border overflow-hidden">
+                  <div className="p-8 border-b border-border bg-bg/30 flex items-center justify-between">
+                    <h3 className="text-xl font-serif italic text-ink flex items-center gap-3">
+                      <History className="w-6 h-6 text-accent" /> Achievement Timeline
+                    </h3>
+                  </div>
+                  
+                  <div className="divide-y divide-border">
+                    {loadingHistory ? (
+                      <div className="flex flex-col items-center justify-center py-32 gap-6">
+                        <Loader2 className="w-12 h-12 animate-spin text-accent" />
+                        <p className="text-muted font-serif italic text-sm">Synchronizing with cloud archives...</p>
+                      </div>
+                    ) : assessmentHistory.length === 0 ? (
+                      <div className="text-center py-32">
+                        <Award className="w-20 h-20 text-border mx-auto mb-6" />
+                        <p className="text-ink font-serif text-lg mb-2">No records found yet.</p>
+                        <p className="text-muted italic text-sm max-w-sm mx-auto">Complete any chapter or simulation round to see your performance history here.</p>
+                        <button 
+                          onClick={() => setAppMode('learning')}
+                          className="mt-8 px-10 py-4 bg-ink text-white font-bold uppercase tracking-widest text-[10px] hover:shadow-2xl transition-all"
+                        >
+                          Start Your First Module
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="max-h-[600px] overflow-y-auto custom-scrollbar">
+                        {assessmentHistory.map((record) => (
+                          <div key={record.id} className="group p-8 flex flex-col md:flex-row md:items-center justify-between hover:bg-bg/40 transition-colors">
+                            <div className="flex items-start gap-6">
+                              <div className={`w-16 h-16 shrink-0 flex items-center justify-center border-2 ${
+                                record.score >= 70 ? 'border-accent/40 bg-accent/5' : 'border-border bg-bg'
+                              }`}>
+                                <span className={`text-xl font-serif ${record.score >= 70 ? 'text-accent' : 'text-muted'}`}>{record.score}%</span>
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-3 mb-2">
+                                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted bg-white border border-border px-3 py-1">
+                                    {COURSES.find((c: Course) => c.id === record.assessmentId.split('_')[0])?.shortTitle || record.assessmentId.split('_')[0].toUpperCase()} • {record.assessmentId.split('_')[1].toUpperCase()}
+                                  </span>
+                                  {record.score >= 70 ? (
+                                    <span className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-accent">
+                                      <CheckCircle2 className="w-3 h-3" /> Mastered
+                                    </span>
+                                  ) : (
+                                    <span className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-muted">
+                                      <BookOpen className="w-3 h-3" /> Practicing
+                                    </span>
+                                  )}
+                                </div>
+                                <h4 className="text-2xl font-serif text-ink group-hover:text-accent transition-colors">{record.assessmentTitle}</h4>
+                              </div>
+                            </div>
+                            
+                            <div className="mt-6 md:mt-0 flex flex-col items-end">
+                              <div className="text-[10px] font-bold uppercase tracking-widest text-muted flex items-center gap-2 mb-2">
+                                <Calendar className="w-3 h-3 text-accent" /> 
+                                {record.completedAt ? format(record.completedAt.toDate(), 'MMM dd, yyyy') : 'Recently'}
+                              </div>
+                              <div className="text-[8px] font-bold uppercase tracking-[0.2em] text-muted/60 self-start md:self-end">
+                                {record.completedAt ? format(record.completedAt.toDate(), 'HH:mm:ss') : '--:--:--'}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    );
+  }
 
   // Chapter Selection Page
   if (selectedChapterId === null) {
@@ -242,15 +503,21 @@ export default function App() {
         <div className="max-w-5xl mx-auto">
           <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <h1 className="font-serif italic text-5xl text-ink mb-4">LOMA 280 Exam Master</h1>
-              <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Principles of Insurance Study Suite</p>
+              <button 
+                onClick={exitCourse}
+                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted hover:text-accent transition-colors mb-4"
+              >
+                <ArrowLeft className="w-3 h-3" /> All Courses
+              </button>
+              <h1 className="font-serif italic text-5xl text-ink mb-4">{selectedCourse.shortTitle} Exam Master</h1>
+              <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Prepared by Safdar Hussain</p>
             </div>
             
             <div className="flex bg-white/50 backdrop-blur p-1 border border-border">
               <button
                 onClick={() => setAppMode('learning')}
                 className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  appMode === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  (appMode as any) === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
                 Learning
@@ -258,7 +525,7 @@ export default function App() {
               <button
                 onClick={() => setAppMode('assessment')}
                 className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  appMode === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  (appMode as any) === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
                 TPG Review
@@ -266,10 +533,18 @@ export default function App() {
               <button
                 onClick={() => setAppMode('simulation')}
                 className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  appMode === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  (appMode as any) === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
                 Sim Rounds
+              </button>
+              <button
+                onClick={() => setAppMode('profile')}
+                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                  (appMode as any) === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                }`}
+              >
+                Profile
               </button>
             </div>
           </header>
@@ -288,7 +563,7 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeChapters.map(chapter => {
+            {activeChapters.map((chapter: Chapter) => {
               const chProgress = allProgress[appMode]?.[chapter.id];
               return (
                 <motion.button
@@ -329,8 +604,8 @@ export default function App() {
           </div>
 
           <footer className="mt-32 pt-12 border-t border-border flex justify-between items-center text-muted text-[10px] uppercase tracking-widest font-bold">
-             <span>LOMA 280 Principles of Insurance</span>
-             <span>© 2026 Study Master</span>
+             <span>{selectedCourse.title}</span>
+             <span>© 2026 &bull; Prepared by Safdar Hussain</span>
           </footer>
         </div>
       </div>
@@ -393,13 +668,14 @@ export default function App() {
       {/* Sidebar */}
       <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg">
         <div>
-          <button onClick={goHome} className="font-serif italic text-2xl tracking-tighter mb-16 text-ink block hover:text-accent transition-colors">
-            LOMA 280 Prep
+          <button onClick={goHome} className="font-serif italic text-2xl tracking-tighter mb-16 text-ink block hover:text-accent transition-all">
+            {selectedCourse.shortTitle} <span className="text-accent underline decoration-1 underline-offset-4">Prep</span>
+            <span className="block text-[8px] font-bold uppercase tracking-[0.4em] text-muted mt-2">Prepared by Safdar Hussain</span>
           </button>
 
           <div className="mb-12">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Module Progress</span>
-            <div className="font-serif text-xl text-ink leading-tight">{currentChapter.title}</div>
+            <div className="font-serif text-xl text-ink leading-tight">{currentChapter?.title}</div>
           </div>
 
           <div className="mb-16">
@@ -415,7 +691,7 @@ export default function App() {
 
           <div className="max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
             <ul className="hidden md:block space-y-0 text-muted">
-              {activeChapters.map(c => {
+              {activeChapters.map((c: Chapter) => {
                 const chProgress = allProgress[appMode]?.[c.id];
                 return (
                   <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
@@ -471,7 +747,7 @@ export default function App() {
 
             <div className="grid grid-cols-1 gap-4 max-w-2xl mb-24">
               <AnimatePresence mode="popLayout">
-                {currentQuestion.options.map((option, idx) => {
+                {currentQuestion.options.map((option: string, idx: number) => {
                   const isSelected = selectedOption === idx;
                   const isCorrect = idx === currentQuestion.answer;
                   const showFeedback = isLocked;
@@ -576,10 +852,20 @@ export default function App() {
               ) : (
                 <button
                   onClick={handleNext}
-                  className="px-10 py-3 bg-ink text-white border border-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-transparent hover:text-ink shadow-sm"
+                  disabled={isSubmitting}
+                  className="px-10 py-3 bg-ink text-white border border-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-transparent hover:text-ink shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {currentQuestionIndex === questions.length - 1 ? 'Finish Results' : 'Next Question'}
-                  <ChevronRight className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      {currentQuestionIndex === questions.length - 1 ? 'Finish Results' : 'Next Question'}
+                      <ChevronRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               )}
             </div>

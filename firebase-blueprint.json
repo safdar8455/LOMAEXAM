@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User specific information",
+      "type": "object",
+      "properties": {
+        "phoneNumber": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["phoneNumber", "createdAt"]
+    },
+    "Assessment": {
+      "title": "Assessment Result",
+      "description": "Result of a completed chapter or simulation",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "assessmentId": { "type": "string" },
+        "assessmentTitle": { "type": "string" },
+        "score": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "completedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "assessmentId", "score", "totalQuestions", "completedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/assessments/{docId}": {
+      "schema": "Assessment",
+      "description": "Assessment history"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Question } from '../types';
+import { Question } from '../../types';
 
 export const tpgMaster100: Question[] = [
   // Chapter 1: Risk and Insurance (7 questions)
