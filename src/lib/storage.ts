@@ -158,5 +158,34 @@ export const saveUserProfile = async (uid: string, phoneNumber: string) => {
   }
 };
 
+export interface SessionState {
+  currentQuestionIndex: number;
+  sessionState: Record<number, { selected: number | null, isLocked: boolean }>;
+  score: number;
+}
+
+const SESSION_PREFIX = 'loma280_session_';
+
+export const saveSession = (assessmentId: string, state: SessionState) => {
+  const userId = auth.currentUser?.uid || 'guest';
+  localStorage.setItem(`${SESSION_PREFIX}${userId}_${assessmentId}`, JSON.stringify(state));
+};
+
+export const getSession = (assessmentId: string): SessionState | null => {
+  const userId = auth.currentUser?.uid || 'guest';
+  const saved = localStorage.getItem(`${SESSION_PREFIX}${userId}_${assessmentId}`);
+  if (!saved) return null;
+  try {
+    return JSON.parse(saved);
+  } catch {
+    return null;
+  }
+};
+
+export const clearSession = (assessmentId: string) => {
+  const userId = auth.currentUser?.uid || 'guest';
+  localStorage.removeItem(`${SESSION_PREFIX}${userId}_${assessmentId}`);
+};
+
 // Alias for App.tsx compatibility if needed
 export const getProgress = getLocalProgress;

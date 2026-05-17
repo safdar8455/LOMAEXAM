@@ -1,9 +1,9 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, XCircle, ChevronRight, RotateCcw, Award, BookOpen, AlertCircle, LayoutGrid, Calendar, User as UserIcon, LogOut, History, Phone as PhoneIcon, Loader2, Globe, Library, ArrowLeft } from 'lucide-react';
 import { Question, Chapter, Course } from './types';
 import { COURSES } from './data/allCourses';
-import { saveProgress, getProgress, ProgressData, getFirestoreAssessments, AssessmentRecord } from './lib/storage';
+import { saveProgress, getProgress, ProgressData, getFirestoreAssessments, AssessmentRecord, saveSession, getSession, clearSession } from './lib/storage';
 import { useAuth } from './lib/AuthContext';
 import { auth } from './lib/firebase';
 import { PhoneAuth } from './components/PhoneAuth';
@@ -43,8 +43,14 @@ export default function App() {
   };
 
   const selectedCourse = useMemo(() => 
-    COURSES.find((c: Course) => c.id === selectedCourseId) || COURSES[0], 
+    COURSES.find(c => c.id === selectedCourseId) || COURSES[0], 
   [selectedCourseId]);
+
+  useEffect(() => {
+    if (selectedCourseId !== 'loma280' && (appMode === 'assessment' || appMode === 'simulation')) {
+      setAppMode('learning');
+    }
+  }, [selectedCourseId, appMode]);
 
   const activeChapters = useMemo(() => {
     if (!selectedCourse) return [];
@@ -63,12 +69,11 @@ export default function App() {
         return base;
       }
       case 'assessment': {
+        if (selectedCourseId !== 'loma280') return selectedCourse.chapters;
         const chaptersToUse = selectedCourse.tpgChapters || selectedCourse.chapters;
-        const base = chaptersToUse.map((c: Chapter) => ({
+        const base = chaptersToUse.map(c => ({
           ...c,
-          title: c.title.includes('Chapter') 
-            ? c.title.replace('Chapter', `${selectedCourse.shortTitle} TPG Review: Chapter`) 
-            : `${selectedCourse.shortTitle} TPG Review: ${c.title}`,
+          title: `${selectedCourse.shortTitle} TPG Review: ${c.title.replace('Chapter ', '')}`,
           description: `Official Test Preparation Guide questions for ${selectedCourse.shortTitle}.`
         }));
         if (selectedCourse.tpgFinalExam) {
@@ -82,7 +87,8 @@ export default function App() {
         return base;
       }
       case 'simulation': {
-        const base = selectedCourse.simulationRounds.map((round: Question[], index: number) => ({
+        if (selectedCourseId !== 'loma280') return selectedCourse.chapters;
+        const base = selectedCourse.simulationRounds.map((round, index) => ({
           id: index + 1,
           title: `${selectedCourse.shortTitle} Simulation Round ${index + 1}`,
           description: `Full-length 60-question exam simulation for ${selectedCourse.shortTitle}.`,
@@ -103,47 +109,89 @@ export default function App() {
   }, [appMode, selectedCourse]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const [isLocked, setIsLocked] = useState(false);
+  const [sessionState, setSessionState] = useState<Record<number, { selected: number | null, isLocked: boolean }>>({});
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
+  const isInitialized = useRef<string | null>(null);
+
+  // Persist session state
+  useEffect(() => {
+    if (selectedChapterId !== null && !showResults) {
+      const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
+      if (isInitialized.current === assessmentId) {
+        saveSession(assessmentId, {
+          currentQuestionIndex,
+          sessionState,
+          score
+        });
+      }
+    }
+  }, [currentQuestionIndex, sessionState, score, selectedChapterId, selectedCourseId, appMode, showResults]);
+
+  // Load session state
+  useEffect(() => {
+    if (selectedChapterId !== null && user) {
+      const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
+      if (isInitialized.current !== assessmentId) {
+        const saved = getSession(assessmentId);
+        if (saved) {
+          setCurrentQuestionIndex(saved.currentQuestionIndex);
+          setSessionState(saved.sessionState);
+          setScore(saved.score);
+        } else {
+          setCurrentQuestionIndex(0);
+          setSessionState({});
+          setScore(0);
+        }
+        isInitialized.current = assessmentId;
+      }
+    } else if (selectedChapterId === null) {
+      isInitialized.current = null;
+    }
+  }, [selectedChapterId, user, selectedCourseId, appMode]);
+
   const currentChapter = useMemo(() => 
-    activeChapters.find((c: Chapter) => c.id === selectedChapterId) || null
+    activeChapters.find(c => c.id === selectedChapterId) || null
   , [selectedChapterId, activeChapters]);
 
   const questions = currentChapter?.questions || [];
   const currentQuestion = questions[currentQuestionIndex];
-  const progress = questions.length > 0 ? ((currentQuestionIndex + 1) / questions.length) * 100 : 0;
+  const progress = questions.length > 0 ? ((Object.keys(sessionState).filter(k => sessionState[Number(k)].isLocked).length) / questions.length) * 100 : 0;
+
+  const currentStatus = sessionState[currentQuestionIndex] || { selected: null, isLocked: false };
 
   const handleOptionSelect = (index: number) => {
-    if (isLocked) return;
-    setSelectedOption(index);
+    if (currentStatus.isLocked) return;
+    setSessionState(prev => ({
+      ...prev,
+      [currentQuestionIndex]: { ...prev[currentQuestionIndex], selected: index, isLocked: false }
+    }));
   };
 
   const handleConfirm = () => {
-    if (selectedOption === null || isLocked || !currentQuestion) return;
-    const isCorrect = selectedOption === currentQuestion.answer;
+    if (currentStatus.selected === null || currentStatus.isLocked || !currentQuestion) return;
+    const isCorrect = currentStatus.selected === currentQuestion.answer;
     if (isCorrect) setScore(prev => prev + 1);
-    setIsLocked(true);
+    
+    setSessionState(prev => ({
+      ...prev,
+      [currentQuestionIndex]: { ...prev[currentQuestionIndex], isLocked: true }
+    }));
   };
 
   const handleNext = async () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedOption(null);
-      setIsLocked(false);
     } else {
-      setIsSubmitting(true);
       const finalAccuracy = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
       if (selectedChapterId !== null) {
         const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
         const newProgress = await saveProgress(appMode, assessmentId, finalAccuracy, questions.length, currentChapter?.title || 'Unknown');
         setAllProgress(newProgress);
         if (user) loadHistory();
+        clearSession(assessmentId);
       }
-      setIsSubmitting(false);
       setShowResults(true);
     }
   };
@@ -151,22 +199,34 @@ export default function App() {
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
-      setSelectedOption(null);
-      setIsLocked(false);
     }
   };
 
   const restartQuiz = () => {
+    if (selectedChapterId !== null) {
+      const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
+      clearSession(assessmentId);
+    }
     setCurrentQuestionIndex(0);
-    setSelectedOption(null);
-    setIsLocked(false);
+    setSessionState({});
     setScore(0);
     setShowResults(false);
   };
 
   const goHome = () => {
+    if (selectedChapterId !== null) {
+      const assessmentId = `${selectedCourseId}_${appMode}_${selectedChapterId}`;
+      clearSession(assessmentId); 
+    }
     setSelectedChapterId(null);
-    restartQuiz();
+    restartQuizInternal();
+  };
+
+  const restartQuizInternal = () => {
+    setCurrentQuestionIndex(0);
+    setSessionState({});
+    setScore(0);
+    setShowResults(false);
   };
 
   const exitCourse = () => {
@@ -205,15 +265,15 @@ export default function App() {
   // Course Selection Phase
   if (selectedCourseId === null && appMode !== 'profile') {
     return (
-      <div className="min-h-screen bg-bg p-8 md:p-24 overflow-x-hidden">
+      <div className="min-h-screen bg-bg p-6 md:p-24 overflow-x-hidden">
         <div className="max-w-6xl mx-auto">
-          <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
+          <header className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <Globe className="w-8 h-8 text-accent animate-pulse" />
                 <span className="font-sans text-[10px] font-bold uppercase tracking-[0.5em] text-muted">Global Professional Standard</span>
               </div>
-              <h1 className="font-serif italic text-7xl text-ink leading-tight">
+              <h1 className="font-serif italic text-4xl md:text-7xl text-ink leading-tight">
                 FLMI Program <br />
                 <span className="text-accent underline decoration-border decoration-1 underline-offset-8">Study Suite</span>
               </h1>
@@ -232,26 +292,26 @@ export default function App() {
             </button>
           </header>
 
-          <section className="mb-20 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="space-y-4">
+          <section className="mb-12 md:mb-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div className="space-y-4 border border-border p-8 md:p-12 hover:bg-white transition-colors group">
               <h4 className="font-serif italic text-2xl text-ink">Program Overview</h4>
               <p className="text-muted text-sm leading-relaxed">
                 The Fellow, Life Management Institute (FLMI) is a 10-course professional development program providing industry-specific business education since 1932.
               </p>
             </div>
-            <div className="col-span-2 bg-ink p-10 text-white shadow-2xl relative overflow-hidden">
+            <div className="md:col-span-2 bg-ink p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   <span className="text-[8px] font-bold uppercase tracking-widest text-accent">Level I</span>
                   <h5 className="font-serif italic text-lg">Fundamentals</h5>
                   <p className="text-white/40 text-[10px] leading-relaxed">Products & operations for quick confidence.</p>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   <span className="text-[8px] font-bold uppercase tracking-widest text-accent">ALMI</span>
                   <h5 className="font-serif italic text-lg">Associate</h5>
                   <p className="text-white/40 text-[10px] leading-relaxed">Core insurance functions & financial acumen.</p>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1 md:space-y-2">
                   <span className="text-[8px] font-bold uppercase tracking-widest text-accent">FLMI</span>
                   <h5 className="font-serif italic text-lg">Fellow</h5>
                   <p className="text-white/40 text-[10px] leading-relaxed">Big-picture strategic business topics.</p>
@@ -264,12 +324,12 @@ export default function App() {
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-border border border-border">
-            {COURSES.map((course: Course, idx: number) => (
+            {COURSES.map((course, idx) => (
               <motion.div
                 key={course.id}
                 whileHover={{ y: -4 }}
                 onClick={() => setSelectedCourseId(course.id)}
-                className="bg-white p-12 cursor-pointer group hover:bg-ink transition-all relative overflow-hidden"
+                className="bg-white p-8 md:p-12 cursor-pointer group hover:bg-ink transition-all relative overflow-hidden"
               >
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-8">
@@ -330,31 +390,35 @@ export default function App() {
               <button
                 onClick={() => setAppMode('learning')}
                 className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  appMode === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
                 Learning
               </button>
-              <button
-                onClick={() => setAppMode('assessment')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                TPG Review
-              </button>
-              <button
-                onClick={() => setAppMode('simulation')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                Sim Rounds
-              </button>
+              {selectedCourseId === 'loma280' && (
+                <>
+                  <button
+                    onClick={() => setAppMode('assessment')}
+                    className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                      appMode === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    TPG Review
+                  </button>
+                  <button
+                    onClick={() => setAppMode('simulation')}
+                    className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                      appMode === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    Sim Rounds
+                  </button>
+                </>
+              )}
               <button
                 onClick={() => setAppMode('profile')}
                 className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  appMode === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
                 }`}
               >
                 Profile
@@ -457,7 +521,7 @@ export default function App() {
                               <div>
                                 <div className="flex items-center gap-3 mb-2">
                                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted bg-white border border-border px-3 py-1">
-                                    {COURSES.find((c: Course) => c.id === record.assessmentId.split('_')[0])?.shortTitle || record.assessmentId.split('_')[0].toUpperCase()} • {record.assessmentId.split('_')[1].toUpperCase()}
+                                    {COURSES.find(c => c.id === record.assessmentId.split('_')[0])?.shortTitle || record.assessmentId.split('_')[0].toUpperCase()} • {record.assessmentId.split('_')[1].toUpperCase()}
                                   </span>
                                   {record.score >= 70 ? (
                                     <span className="flex items-center gap-1 text-[8px] font-bold uppercase tracking-widest text-accent">
@@ -499,53 +563,61 @@ export default function App() {
   // Chapter Selection Page
   if (selectedChapterId === null) {
     return (
-      <div className="min-h-screen bg-bg p-8 md:p-24">
+      <div className="min-h-screen bg-bg p-6 md:p-24 overflow-x-hidden">
         <div className="max-w-5xl mx-auto">
           <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <button 
-                onClick={exitCourse}
-                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted hover:text-accent transition-colors mb-4"
-              >
-                <ArrowLeft className="w-3 h-3" /> All Courses
-              </button>
-              <h1 className="font-serif italic text-5xl text-ink mb-4">{selectedCourse.shortTitle} Exam Master</h1>
-              <p className="font-sans text-xs uppercase tracking-[0.3em] text-muted">Prepared by Safdar Hussain</p>
+            <div className="flex items-start justify-between md:block">
+              <div>
+                <button 
+                  onClick={exitCourse}
+                  className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted hover:text-accent transition-colors mb-4"
+                >
+                  <ArrowLeft className="w-3 h-3" /> All Courses
+                </button>
+                <h1 className="font-serif italic text-3xl md:text-5xl text-ink mb-2 md:mb-4">{selectedCourse.shortTitle}</h1>
+                <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-muted">Prepared by Safdar Hussain</p>
+              </div>
             </div>
             
-            <div className="flex bg-white/50 backdrop-blur p-1 border border-border">
-              <button
-                onClick={() => setAppMode('learning')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                Learning
-              </button>
-              <button
-                onClick={() => setAppMode('assessment')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                TPG Review
-              </button>
-              <button
-                onClick={() => setAppMode('simulation')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                Sim Rounds
-              </button>
-              <button
-                onClick={() => setAppMode('profile')}
-                className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  (appMode as any) === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
-                }`}
-              >
-                Profile
-              </button>
+            <div className="flex bg-white/50 backdrop-blur p-1 border border-border overflow-x-auto no-scrollbar">
+              <div className="flex min-w-max">
+                <button
+                  onClick={() => setAppMode('learning')}
+                  className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                    appMode === 'learning' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  Learning
+                </button>
+                {selectedCourseId === 'loma280' && (
+                  <>
+                    <button
+                      onClick={() => setAppMode('assessment')}
+                      className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                        appMode === 'assessment' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                      }`}
+                    >
+                      TPG Review
+                    </button>
+                    <button
+                      onClick={() => setAppMode('simulation')}
+                      className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                        appMode === 'simulation' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                      }`}
+                    >
+                      Sim Rounds
+                    </button>
+                  </>
+                )}
+                <button
+                  onClick={() => setAppMode('profile')}
+                  className={`px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-widest transition-all ${
+                    appMode === 'profile' ? 'bg-ink text-white shadow-xl' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  Profile
+                </button>
+              </div>
             </div>
           </header>
 
@@ -555,7 +627,7 @@ export default function App() {
             </h2>
             <p className="font-serif italic text-sm text-muted leading-relaxed">
               {appMode === 'learning' 
-                ? 'Comprehensive modules featuring 100 scenario-based questions per chapter to ensure mastery of the LOMA 280 curriculum.'
+                ? `Comprehensive modules featuring scenario-based questions to ensure mastery of the ${selectedCourse.shortTitle} curriculum.`
                 : appMode === 'assessment'
                 ? 'Accelerated assessment containing the official practice questions and sample exam from the LOMA Test Preparation Guide (TPG).'
                 : 'Full-length 60-question rounds sampled from our massive question bank. Same difficulty, unique questions every round.'}
@@ -563,7 +635,7 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeChapters.map((chapter: Chapter) => {
+            {activeChapters.map(chapter => {
               const chProgress = allProgress[appMode]?.[chapter.id];
               return (
                 <motion.button
@@ -615,27 +687,27 @@ export default function App() {
   // Quiz Results
   if (showResults) {
     return (
-      <div className="min-h-screen bg-bg flex items-center justify-center p-4">
+      <div className="min-h-screen bg-bg flex items-center justify-center p-6 md:p-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-xl w-full bg-white border border-border p-12 text-center relative"
+          className="max-w-xl w-full bg-white border border-border p-8 md:p-12 text-center relative"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-ink" />
-          <Award className="w-16 h-16 mx-auto mb-6 text-accent" />
-          <h1 className="font-serif italic text-4xl mb-4 text-ink">
+          <Award className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6 text-accent" />
+          <h1 className="font-serif italic text-3xl md:text-4xl mb-4 text-ink">
             {selectedChapterId === 100 ? 'Final Exam Results' : `Results: Ch. ${selectedChapterId}`}
           </h1>
-          <p className="font-sans text-xs uppercase tracking-[0.2em] text-muted mb-12">Performance Summary</p>
+          <p className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted mb-8 md:mb-12">Performance Summary</p>
           
-          <div className="grid grid-cols-2 gap-px bg-border mb-12 border border-border">
-            <div className="bg-white p-8">
-              <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Score</span>
-              <span className="font-serif text-4xl text-ink">{score} / {questions.length}</span>
+          <div className="grid grid-cols-2 gap-px bg-border mb-8 md:mb-12 border border-border">
+            <div className="bg-white p-6 md:p-8">
+              <span className="block text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Score</span>
+              <span className="font-serif text-2xl md:text-4xl text-ink">{score} / {questions.length}</span>
             </div>
-            <div className="bg-white p-8">
-              <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Accuracy</span>
-              <span className={`font-serif text-4xl ${getAccuracy() >= 70 ? 'text-ink' : 'text-accent'}`}>{getAccuracy()}%</span>
+            <div className="bg-white p-6 md:p-8">
+              <span className="block text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Accuracy</span>
+              <span className={`font-serif text-2xl md:text-4xl ${getAccuracy() >= 70 ? 'text-ink' : 'text-accent'}`}>{getAccuracy()}%</span>
             </div>
           </div>
 
@@ -664,8 +736,8 @@ export default function App() {
   if (!currentQuestion) return null;
 
   return (
-    <div className="min-h-screen bg-bg flex flex-col md:grid md:grid-cols-[280px_1fr]">
-      {/* Sidebar */}
+    <div className="min-h-screen bg-bg flex flex-col md:grid md:grid-cols-[260px_1fr] lg:grid-cols-[260px_1fr_280px]">
+      {/* Left Sidebar */}
       <aside className="border-b md:border-b-0 md:border-r border-border p-10 flex flex-col justify-between bg-bg">
         <div>
           <button onClick={goHome} className="font-serif italic text-2xl tracking-tighter mb-16 text-ink block hover:text-accent transition-all">
@@ -675,23 +747,12 @@ export default function App() {
 
           <div className="mb-12">
             <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-2 font-bold font-sans">Module Progress</span>
-            <div className="font-serif text-xl text-ink leading-tight">{currentChapter?.title}</div>
+            <div className="font-serif text-xl text-ink leading-tight">{currentChapter.title}</div>
           </div>
 
-          <div className="mb-16">
-            <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-4 font-bold font-sans">Current Progress</span>
-            <div className="h-[2px] w-full bg-border relative overflow-hidden">
-              <motion.div 
-                className="h-full bg-accent absolute left-0 top-0"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
-
-          <div className="max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
+          <div className="max-h-[50vh] overflow-y-auto pr-4 custom-scrollbar">
             <ul className="hidden md:block space-y-0 text-muted">
-              {activeChapters.map((c: Chapter) => {
+              {activeChapters.map(c => {
                 const chProgress = allProgress[appMode]?.[c.id];
                 return (
                   <li key={c.id} className={`py-4 border-b border-border flex justify-between items-center ${c.id === selectedChapterId ? 'text-ink font-semibold' : 'opacity-40'}`}>
@@ -704,7 +765,7 @@ export default function App() {
                         className="text-[13px] font-sans hover:text-accent text-left"
                       >
                         {appMode === 'simulation' 
-                          ? `Sim Round ${c.id}` 
+                          ? `Sim Round ${c.id}`
                           : c.id === 100 
                           ? (appMode === 'learning' ? 'Prep Exam' : 'Sample Exam') 
                           : `Ch. ${c.id} ${appMode === 'learning' ? 'Study' : 'TPG'}`
@@ -729,28 +790,59 @@ export default function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="relative p-8 md:p-24 flex-1 flex flex-col bg-bg overflow-y-auto">
+      <main className="relative p-6 md:p-24 flex-1 flex flex-col bg-bg overflow-y-auto border-r border-border">
         <div className="max-w-3xl w-full mx-auto relative h-full flex flex-col">
           {/* Decorative Number */}
-          <div className="absolute -top-12 -left-12 md:-top-20 md:-left-20 font-serif text-[120px] md:text-[200px] leading-none text-ink opacity-[0.05] select-none pointer-events-none">
+          <div className="absolute -top-12 -left-12 md:-top-20 md:-left-20 font-serif text-[100px] md:text-[200px] leading-none text-ink opacity-[0.05] select-none pointer-events-none">
             {currentQuestionIndex + 1}
           </div>
 
           <div className="relative z-10 flex-1">
-            <div className="font-serif italic text-accent mb-4 text-base md:text-lg">
+            {/* Mobile-Only Question Navigator */}
+            <div className="lg:hidden mb-8">
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-[10px] font-bold text-muted uppercase tracking-wider">Navigate Questions</span>
+                <span className="text-[10px] font-bold text-accent uppercase tracking-wider">Q {currentQuestionIndex + 1} / {questions.length}</span>
+              </div>
+              <div className="flex flex-nowrap gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 mask-edge-fade">
+                {questions.map((_, idx) => {
+                  const qState = sessionState[idx];
+                  const isCurrent = idx === currentQuestionIndex;
+                  const isAnswered = qState?.isLocked;
+                  
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentQuestionIndex(idx)}
+                      className={`min-w-[44px] h-11 text-[11px] font-bold border transition-all flex items-center justify-center shrink-0 ${
+                        isCurrent 
+                          ? 'bg-ink text-white border-ink ring-2 ring-accent/20' 
+                          : isAnswered 
+                          ? 'bg-accent/10 border-accent/30 text-accent' 
+                          : 'bg-white border-border text-muted hover:border-ink shadow-sm'
+                      }`}
+                    >
+                      {idx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="font-serif italic text-accent mb-2 md:mb-4 text-base md:text-lg">
               Section {currentQuestion.lo} &bull; Principles
             </div>
 
-            <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl text-ink leading-tight mb-16 max-w-2xl">
+            <h1 className="font-serif text-xl md:text-3xl lg:text-4xl text-ink leading-tight mb-8 md:mb-16 max-w-2xl">
               {currentQuestion.question}
             </h1>
 
-            <div className="grid grid-cols-1 gap-4 max-w-2xl mb-24">
+            <div className="grid grid-cols-1 gap-3 md:gap-4 max-w-2xl mb-16 md:mb-24">
               <AnimatePresence mode="popLayout">
-                {currentQuestion.options.map((option: string, idx: number) => {
-                  const isSelected = selectedOption === idx;
+                {currentQuestion.options.map((option, idx) => {
+                  const isSelected = currentStatus.selected === idx;
                   const isCorrect = idx === currentQuestion.answer;
-                  const showFeedback = isLocked;
+                  const showFeedback = currentStatus.isLocked;
 
                   let borderColor = "border-border";
                   let bgOverlay = "transparent";
@@ -779,14 +871,14 @@ export default function App() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.05 }}
                       onClick={() => handleOptionSelect(idx)}
-                      disabled={isLocked}
+                      disabled={currentStatus.isLocked}
                       style={{ backgroundColor: bgOverlay }}
                       className={`group w-full text-left flex items-center p-5 border ${borderColor} transition-all duration-200 relative`}
                     >
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold mr-5 flex-shrink-0 transition-colors ${markerStyles}`}>
                         {idx + 1}
                       </div>
-                      <span className={`text-[15px] leading-relaxed font-sans ${isLocked && !isCorrect && !isSelected ? 'text-muted' : 'text-ink'}`}>
+                      <span className={`text-[15px] leading-relaxed font-sans ${currentStatus.isLocked && !isCorrect && !isSelected ? 'text-muted' : 'text-ink'}`}>
                         {option}
                       </span>
                     </motion.button>
@@ -798,7 +890,7 @@ export default function App() {
 
           {/* Explanation Overlay */}
           <AnimatePresence>
-            {isLocked && (
+            {currentStatus.isLocked && (
               <motion.div
                 initial={{ opacity: 0, x: 20, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
@@ -806,7 +898,7 @@ export default function App() {
                 style={{ boxShadow: '20px 20px 0px rgba(178, 139, 92, 0.1)' }}
               >
                 <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent mb-3 font-sans">
-                  {selectedOption === currentQuestion.answer ? 'Confirmation' : 'Concept Revision'}
+                  {currentStatus.selected === currentQuestion.answer ? 'Confirmation' : 'Concept Revision'}
                 </div>
                 <p className="text-[13px] leading-[1.6] text-ink/80 font-serif">
                   {currentQuestion.explanation}
@@ -825,24 +917,25 @@ export default function App() {
                 Quit Exam
               </button>
               
-              {currentQuestionIndex > 0 && !isLocked && (
-                <button
-                  onClick={handlePrevious}
-                  className="text-muted font-sans text-[10px] uppercase tracking-widest font-bold hover:text-ink transition-colors flex items-center gap-2"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  Previous
-                </button>
-              )}
+              <button
+                onClick={handlePrevious}
+                disabled={currentQuestionIndex === 0}
+                className={`font-sans text-[10px] uppercase tracking-widest font-bold transition-colors flex items-center gap-2 ${
+                  currentQuestionIndex === 0 ? 'text-border cursor-not-allowed' : 'text-muted hover:text-ink'
+                }`}
+              >
+                <RotateCcw className="w-3 h-3" />
+                Previous
+              </button>
             </div>
             
             <div className="flex gap-x-4">
-              {!isLocked ? (
+              {!currentStatus.isLocked ? (
                 <button
                   onClick={handleConfirm}
-                  disabled={selectedOption === null}
+                  disabled={currentStatus.selected === null}
                   className={`px-10 py-3 uppercase tracking-widest text-[11px] font-bold transition-all border ${
-                    selectedOption === null 
+                    currentStatus.selected === null 
                       ? 'border-border text-muted cursor-not-allowed'
                       : 'border-ink bg-ink text-white hover:bg-transparent hover:text-ink shadow-sm'
                   }`}
@@ -852,26 +945,72 @@ export default function App() {
               ) : (
                 <button
                   onClick={handleNext}
-                  disabled={isSubmitting}
-                  className="px-10 py-3 bg-ink text-white border border-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-transparent hover:text-ink shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-10 py-3 bg-ink text-white border border-ink uppercase tracking-widest text-[11px] font-bold transition-all flex items-center gap-3 hover:bg-transparent hover:text-ink shadow-sm"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      {currentQuestionIndex === questions.length - 1 ? 'Finish Results' : 'Next Question'}
-                      <ChevronRight className="w-4 h-4" />
-                    </>
-                  )}
+                  {currentQuestionIndex === questions.length - 1 ? 'Finish Results' : 'Next Question'}
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               )}
             </div>
           </div>
         </div>
       </main>
+
+      {/* Right Sidebar: Navigation Grid */}
+      <aside className="hidden lg:flex p-10 flex-col bg-bg sticky top-0 h-screen overflow-y-auto">
+          <div className="mb-10">
+            <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-4 font-bold font-sans">Session Progress</span>
+            <div className="h-[2px] w-full bg-border relative overflow-hidden mb-3">
+              <motion.div 
+                className="h-full bg-accent absolute left-0 top-0"
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+              />
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-[9px] font-bold text-muted uppercase tracking-wider">{Math.round(progress)}% Complete</span>
+              <span className="text-[9px] font-bold text-accent uppercase tracking-wider">Score: {score}</span>
+            </div>
+          </div>
+
+          <span className="block text-[10px] uppercase tracking-[0.15em] text-muted mb-4 font-bold font-sans">Question Navigator</span>
+          <div className="grid grid-cols-4 gap-1.5 pr-1">
+            {questions.map((_, idx) => {
+              const qState = sessionState[idx];
+              const isCurrent = idx === currentQuestionIndex;
+              const isAnswered = qState?.isLocked;
+              
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentQuestionIndex(idx)}
+                  className={`h-10 text-[10px] font-bold border transition-all ${
+                    isCurrent 
+                      ? 'bg-ink text-white border-ink ring-2 ring-accent/20' 
+                      : isAnswered 
+                      ? 'bg-accent/10 border-accent/30 text-accent' 
+                      : 'bg-white border-border text-muted hover:border-ink hover:bg-bg/50 shadow-sm'
+                  }`}
+                >
+                  {idx + 1}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-auto pt-10 space-y-4">
+            <div className="p-5 border border-border bg-white rounded-none">
+                <span className="block text-[8px] font-bold uppercase tracking-widest text-muted mb-2">Requirement</span>
+                <p className="text-[11px] font-serif italic text-ink/70 leading-relaxed">
+                  Minimum 70% required for module mastery.
+                </p>
+            </div>
+            <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-muted">Session Active</span>
+            </div>
+          </div>
+      </aside>
     </div>
   );
 }
