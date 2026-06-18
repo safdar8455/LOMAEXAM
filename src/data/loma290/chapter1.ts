@@ -4,7 +4,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1A: Stakeholder groups
   {
     id: 1,
-    lo: "1A: Identify stakeholder groups",
+    lo: "principle",
     question: "A party that has an interest in or a reason to concern itself with how an insurance company conducts its business is known as a:",
     options: ["Competitor", "Stakeholder", "Reinsurer", "Policyowner"],
     answer: 1,
@@ -12,7 +12,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 2,
-    lo: "1A: Owners - Stock Insurance Company",
+    lo: "principle",
     question: "Scenario: The Forbright Financial Company is owned by individuals who have purchased shares of the company's stock. Periodically, the board of directors distributes a portion of excess profits to these individuals. These payments are called:",
     options: ["Policy dividends", "Stockholder dividends", "Premium refunds", "Interest credits"],
     answer: 1,
@@ -20,7 +20,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 3,
-    lo: "1A: Owners - Mutual Insurance Company",
+    lo: "principle",
     question: "Unlike stock insurance companies, mutual insurance companies are owned by their:",
     options: ["Board of Directors", "Stockholders", "Policyowners", "Bondholders"],
     answer: 2,
@@ -28,7 +28,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 4,
-    lo: "1A: Owners - Fraternal Benefit Society",
+    lo: "principle",
     question: "Scenario: The Unity Circle is a nonprofit organization that provides social and insurance benefits to its members. Members may periodically receive premium refunds. This entity is most likely a:",
     options: ["Stock insurer", "Mutual insurer", "Fraternal benefit society", "Holding company"],
     answer: 2,
@@ -36,7 +36,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 5,
-    lo: "1A: Customers",
+    lo: "principle",
     question: "In the context of the insurance industry, which of the following groups are considered 'customers' of an insurer?",
     options: ["Only policyowners", "Policyowners, insureds, and beneficiaries", "Only regulators and rating agencies", "Only employees"],
     answer: 1,
@@ -44,7 +44,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 6,
-    lo: "1A: Financial Professionals",
+    lo: "principle",
     question: "Scenario: Sarah is a licensed independent agent who advises clients on which insurance products best meet their needs. From the perspective of the insurance company, Sarah is considered a:",
     options: ["Regulator", "Support function", "Customer", "Sub-contractor"],
     answer: 2,
@@ -52,7 +52,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 7,
-    lo: "1A: Compensation",
+    lo: "principle",
     question: "Most financial professionals receive the majority of their compensation for selling insurance products in the form of:",
     options: ["Salaries", "Bonuses", "Commissions", "Dividends"],
     answer: 2,
@@ -62,7 +62,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1B: Solvency vs Market Conduct Laws
   {
     id: 8,
-    lo: "1B: Solvency Laws",
+    lo: "principle",
     question: "Regulations that focus on an insurance company's ability to pay its debts, contractual obligations, and operating expenses on time are known as:",
     options: ["Market conduct laws", "Solvency laws", "Employment laws", "Taxation laws"],
     answer: 1,
@@ -70,7 +70,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 9,
-    lo: "1B: Market Conduct Laws",
+    lo: "principle",
     question: "Scenario: A regulator is reviewing the sales practices and claim administration procedures of a life insurer to ensure they are operating fairly. This review falls under:",
     options: ["Solvency regulation", "Market conduct regulation", "Taxation regulation", "Investment regulation"],
     answer: 1,
@@ -80,7 +80,7 @@ export const chapter1Questions: Question[] = [
   // Rating Agencies
   {
     id: 10,
-    lo: "Rating Agencies",
+    lo: "principle",
     question: "Which of the following describes a rating agency?",
     options: ["A government body that sets insurance laws", "A private organization that evaluates an insurer's financial condition", "An internal department that audits company expenses", "A trade organization for financial professionals"],
     answer: 1,
@@ -90,7 +90,7 @@ export const chapter1Questions: Question[] = [
   // Reinsurers
   {
     id: 11,
-    lo: "Reinsurance",
+    lo: "principle",
     question: "Scenario: Global Life transfers a portion of its death benefit risk to Secure Re to safeguard its financial stability. Global Life is known in this transaction as the:",
     options: ["Reinsurer", "Assuming company", "Direct writer", "Subsidiary"],
     answer: 2,
@@ -100,7 +100,7 @@ export const chapter1Questions: Question[] = [
   // Balancing Stakeholders
   {
     id: 12,
-    lo: "Balancing Stakeholder Interests",
+    lo: "principle",
     question: "Scenario: Apex Life has excess profits. Owners want a large dividend, while employees want a pay raise. The responsibility for identifying and prioritizing these conflicting interests lies with:",
     options: ["The Customers", "Management", "Regulators", "The Reinsurer"],
     answer: 1,
@@ -110,7 +110,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1C: Levels of management & 4 functions
   {
     id: 13,
-    lo: "1C: Levels of Management",
+    lo: "principle",
     question: "Which group of people is elected by the owners of a company to set broad policies and appoint the CEO?",
     options: ["Senior-level managers", "Board of directors", "Middle-level managers", "Department supervisors"],
     answer: 1,
@@ -118,7 +118,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 14,
-    lo: "1C: Inside vs Outside Directors",
+    lo: "principle",
     question: "Scenario: Mr. Chen serves on the board of directors of Zenith Life and also holds the position of Chief Financial Officer (CFO) within the company. Mr. Chen is an:",
     options: ["Outside director", "Inside director", "Independent director", "Ad hoc director"],
     answer: 1,
@@ -126,7 +126,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 15,
-    lo: "1C: Senior-Level Management",
+    lo: "principle",
     question: "The most senior member of management, often also serving as the company president, is the:",
     options: ["CFO", "COO", "CEO", "CIO"],
     answer: 2,
@@ -134,7 +134,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 16,
-    lo: "1C: Middle-Level Management",
+    lo: "principle",
     question: "Scenario: Maria is an expert in claim administration and manages the Claim Department. She reports to a Vice President. Maria is a:",
     options: ["First-level manager", "Middle-level manager", "Senior-level manager", "Inside director"],
     answer: 1,
@@ -142,7 +142,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 17,
-    lo: "1C: Four Functions of Management",
+    lo: "principle",
     question: "Management activities such as leading, influencing, and motivating employees are part of the management function called:",
     options: ["Planning", "Organizing", "Directing", "Controlling"],
     answer: 2,
@@ -152,7 +152,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1D: Organizational Concepts
   {
     id: 18,
-    lo: "1D: Authority vs Responsibility",
+    lo: "principle",
     question: "An employee's right to make decisions, take action, and direct others is known as:",
     options: ["Responsibility", "Authority", "Accountability", "Delegation"],
     answer: 1,
@@ -160,7 +160,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 19,
-    lo: "1D: Delegation",
+    lo: "principle",
     question: "The process of assigning authority and responsibility to another employee for completing a specific task is:",
     options: ["Centralization", "Delegation", "Departmentalization", "Supervision"],
     answer: 1,
@@ -168,7 +168,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 20,
-    lo: "1D: Centralized vs Decentralized",
+    lo: "principle",
     question: "In a centralized organization, top management:",
     options: ["Shares decision-making authority with lower levels", "Retains most of the decision-making authority", "Does not create any strategic plans", "Delegates most policy decisions to supervisors"],
     answer: 1,
@@ -178,7 +178,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1E: Functional Areas (Line vs Support)
   {
     id: 21,
-    lo: "1E: Line Functions",
+    lo: "principle",
     question: "Which of the following is considered a 'line function' in an insurance company?",
     options: ["Human Resources", "Underwriting", "Legal", "Accounting"],
     answer: 1,
@@ -186,7 +186,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 22,
-    lo: "1E: Support Functions",
+    lo: "principle",
     question: "Functional areas that provide services like Actuarial, Investments, or Legal are known as:",
     options: ["Line functions", "Support (Staff) functions", "Profit centers", "Strategic business units"],
     answer: 1,
@@ -196,7 +196,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1F: Traditional Organization Ways
   {
     id: 23,
-    lo: "1F: Organization by Function",
+    lo: "principle",
     question: "When an insurer divides its operations according to the work each division performs (e.g., separate units for Accounting and Marketing that serve all products), it is organized by:",
     options: ["Product", "Function", "Territory", "Customer"],
     answer: 1,
@@ -204,7 +204,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 24,
-    lo: "1F: Organization by Product",
+    lo: "principle",
     question: "Scenario: Reliance Life has three divisions: Individual Life, Group Life, and Individual Annuities. Each division has its own marketing and actuarial teams. This company is organized by:",
     options: ["Function", "Product", "Distribution Channel", "Market Type"],
     answer: 1,
@@ -214,7 +214,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1G: Profit Center vs SBU
   {
     id: 25,
-    lo: "1G: Profit Center",
+    lo: "principle",
     question: "A line of business that is evaluated on its profitability and is responsible for its own revenues and expenses is a:",
     options: ["Support function", "Profit center", "Holding company", "Centralized unit"],
     answer: 1,
@@ -222,7 +222,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 26,
-    lo: "1G: Strategic Business Unit (SBU)",
+    lo: "principle",
     question: "An organizational unit that acts like an independent business, with its own set of customers, competitors, and budget, is most specifically called a:",
     options: ["Line function", "Strategic Business Unit (SBU)", "Standing committee", "Ad hoc committee"],
     answer: 1,
@@ -232,7 +232,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1H: Committees
   {
     id: 27,
-    lo: "1H: Standing vs Ad Hoc Committees",
+    lo: "principle",
     question: "A permanent committee used by executives as a source of continuing advice is a:",
     options: ["Ad hoc committee", "Project team", "Standing committee", "Task force"],
     answer: 2,
@@ -240,7 +240,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 28,
-    lo: "1H: Audit Committee",
+    lo: "principle",
     question: "Which committee of the Board of Directors reviews the company's internal audit plan and periodic financial statements?",
     options: ["Executive committee", "Investment committee", "Audit committee", "Product development committee"],
     answer: 2,
@@ -250,7 +250,7 @@ export const chapter1Questions: Question[] = [
   // Objective 1I: Holding Company Structure
   {
     id: 29,
-    lo: "1I: Holding Company Definition",
+    lo: "principle",
     question: "A company that has a controlling interest in one or more other companies is a:",
     options: ["Subsidiary", "Reinsurer", "Holding company", "Profit center"],
     answer: 2,
@@ -258,7 +258,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 30,
-    lo: "1I: Upstream vs Downstream",
+    lo: "principle",
     question: "Scenario: Best Life creates 'Best Holdings Inc.' as its owner. Best Holdings now controls Best Life. This is an example of an:",
     options: ["Downstream holding company", "Upstream holding company", "Independent SBU", "Ad hoc structure"],
     answer: 1,
@@ -268,7 +268,7 @@ export const chapter1Questions: Question[] = [
   // ... (Continuing with more specific definitions and nuances to reach depth)
   {
     id: 31,
-    lo: "1A: Stakeholder Interests",
+    lo: "principle",
     question: "The 'overriding common interest' of all stakeholders in an insurance company is:",
     options: ["Large dividend payments", "Higher pay for employees", "Continued solvency and profitable operations", "Low prices for all products"],
     answer: 2,
@@ -276,7 +276,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 32,
-    lo: "1C: Management Functions - Planning",
+    lo: "principle",
     question: "Strategic planning usually covers a time horizon of:",
     options: ["One year or less", "Three to five years", "Ten to twenty years", "One month"],
     answer: 1,
@@ -284,7 +284,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 33,
-    lo: "1D: Division of Labor",
+    lo: "principle",
     question: "Breaking down the processing of a life insurance application into underwriting activities and policy issue activities is an example of:",
     options: ["Departmentalization", "Division of labor", "Authority delegation", "Centralization"],
     answer: 1,
@@ -292,7 +292,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 34,
-    lo: "1E: Typical Functional Areas",
+    lo: "principle",
     question: "Which functional area ensures that the company conducts operations on a mathematically sound basis and determines reserve liabilities?",
     options: ["Marketing", "Accounting", "Actuarial", "Treasury"],
     answer: 2,
@@ -300,7 +300,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 35,
-    lo: "1I: Advantages of Holding Company",
+    lo: "principle",
     question: "One advantage of a holding company structure is that it allows a company to:",
     options: ["Violate solvency laws", "Diversify products and protect from concentration risk", "Merge all corporate cultures instantly", "Avoid all government regulation"],
     answer: 1,
@@ -308,7 +308,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 36,
-    lo: "1A: Stakeholders - Creditors",
+    lo: "principle",
     question: "Scenario: Forbright Financial borrows money from a major bank to fund a new technology platform. In this context, the bank becomes a:",
     options: ["Regulator", "Reinsurer", "Creditor stakeholder", "Supplier stakeholder"],
     answer: 2,
@@ -316,7 +316,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 37,
-    lo: "Mission Statement",
+    lo: "principle",
     question: "A formal written statement of a company's fundamental purpose or reason for being is its:",
     options: ["Strategic plan", "Org chart", "Mission statement", "Policy dividend"],
     answer: 2,
@@ -324,7 +324,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 38,
-    lo: "1B: Solvency vs Market Conduct",
+    lo: "principle",
     question: "Prudential regulation is another term for:",
     options: ["Market conduct regulation", "Solvency regulation", "Labor law regulation", "Tax regulation"],
     answer: 1,
@@ -332,7 +332,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 39,
-    lo: "1C: Management Functions - Organizing",
+    lo: "principle",
     question: "The process of assembling and coordinating required resources to attain organizational goals is:",
     options: ["Planning", "Organizing", "Directing", "Controlling"],
     answer: 1,
@@ -340,7 +340,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 40,
-    lo: "1D: Accountability",
+    lo: "principle",
     question: "When an employee is answerable for how well he or she carries out assigned responsibilities, this is known as:",
     options: ["Authority", "Accountability", "Delegation", "Centralization"],
     answer: 1,
@@ -348,7 +348,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 41,
-    lo: "1E: Functional Areas - Information Technology",
+    lo: "principle",
     question: "Which functional area oversees the management of corporate data and uses technology to optimize company operations?",
     options: ["Actuarial", "Underwriting", "Information Technology", "Treasury operations"],
     answer: 2,
@@ -356,7 +356,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 42,
-    lo: "1F: Organization by Territory",
+    lo: "principle",
     question: "Scenario: Global Life has separate divisions for its North American operations and its Asian operations. This is an example of organization by:",
     options: ["Product", "Distribution channel", "Territory", "Function"],
     answer: 2,
@@ -364,7 +364,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 43,
-    lo: "1H: Ad Hoc Committee",
+    lo: "principle",
     question: "A temporary committee established for a specific purpose, such as investigating why claims are escalating in one region, is an:",
     options: ["Standing committee", "Audit committee", "Ad hoc committee", "Executive committee"],
     answer: 2,
@@ -372,7 +372,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 44,
-    lo: "1I: Downstream Holding Company",
+    lo: "principle",
     question: "Scenario: Best Life Insurance Company creates a holding company called 'Best Holdings' which it owns. Best Holdings then owns two other subsidiaries. Best Holdings is an:",
     options: ["Upstream holding company", "Downstream holding company", "Strategic business unit", "Ad hoc committee"],
     answer: 1,
@@ -380,7 +380,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 45,
-    lo: "1A: Customers - Beneficiaries",
+    lo: "principle",
     question: "Scenario: Mr. Smith is named as the recipient of the death benefit in his wife's life insurance policy. In the insurer's view, Mr. Smith is a:",
     options: ["Stockholder", "Policyowner", "Customer", "Regulator"],
     answer: 2,
@@ -388,7 +388,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 46,
-    lo: "1C: Management Functions - Controlling",
+    lo: "principle",
     question: "The management function that involves monitoring whether the company's performance is meeting its goals and taking corrective action if it is not is:",
     options: ["Planning", "Organizing", "Directing", "Controlling"],
     answer: 3,
@@ -396,7 +396,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 47,
-    lo: "1D: Chain of Command",
+    lo: "principle",
     question: "A visual display of the lines of authority and responsibility within a company is an:",
     options: ["Strategic plan", "Organization chart", "SWOT analysis", "Reinsurance treaty"],
     answer: 1,
@@ -404,7 +404,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 48,
-    lo: "1E: Functional Areas - Underwriting",
+    lo: "principle",
     question: "Which functional area is responsible for ensuring the company classifies proposed insureds so they fall within the range of mortality rates assumed during product design?",
     options: ["Actuarial", "Underwriting", "Marketing", "Claim administration"],
     answer: 1,
@@ -412,7 +412,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 49,
-    lo: "1G: Strategic Business Unit (SBU) Benefits",
+    lo: "principle",
     question: "The primary advantage of creating profit centers or SBUs is that it allows management to:",
     options: ["Avoid duplicating support functions", "Identify which business lines are performing above or below expectations", "Ensure centralized decision making", "Reduce the number of managers needed"],
     answer: 1,
@@ -420,7 +420,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 50,
-    lo: "1H: Executive Committee",
+    lo: "principle",
     question: "Which board committee deals with questions of overall company policy and items not specifically assigned to other board committees?",
     options: ["Audit committee", "Investment committee", "Executive committee", "Product development committee"],
     answer: 2,
@@ -428,7 +428,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 51,
-    lo: "1A: Stakeholders - Rating Agencies",
+    lo: "principle",
     question: "Scenario: A potential investor is checking the financial strength of Best Life. They consult A.M. Best and Standard & Poor's. These organizations are called:",
     options: ["Regulators", "Rating agencies", "Trade organizations", "Reinsurers"],
     answer: 1,
@@ -436,7 +436,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 52,
-    lo: "1A: Stakeholders - Trade Organizations",
+    lo: "principle",
     question: "Groups that represent the interests of the insurance industry as a whole, such as the American Council of Life Insurers (ACLI), are examples of:",
     options: ["Rating agencies", "Regulators", "Trade organizations", "Profit centers"],
     answer: 2,
@@ -444,7 +444,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 53,
-    lo: "1C: Levels of Management - Lower-Level",
+    lo: "principle",
     question: "Managers who are in charge of subunits of departments and spend more time in direct supervision of nonmanagement employees are:",
     options: ["Senior-level managers", "Middle-level managers", "Supervisors (First-level managers)", "Inside directors"],
     answer: 2,
@@ -452,7 +452,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 54,
-    lo: "1C: Management Functions - Planning",
+    lo: "principle",
     question: "The process of preparing for the future by establishing goals and formulating strategies is:",
     options: ["Planning", "Organizing", "Directing", "Controlling"],
     answer: 0,
@@ -460,7 +460,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 55,
-    lo: "1C: Planning - Strategy vs Tactics",
+    lo: "principle",
     question: "Scenario: Zenith Life decides to expand into the Asian market (a long-term goal). To do this, they plan to hire 50 new agents in Tokyo (a specific task). The long-term goal is a ______, and the hiring task is a ______.",
     options: ["Tactic; Strategy", "Strategy; Tactic", "Goal; Objective", "Plan; Goal"],
     answer: 1,
@@ -468,7 +468,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 56,
-    lo: "1C: Operational Planning",
+    lo: "principle",
     question: "Middle-level managers conduct _______ planning, which typically covers a period of one year or less.",
     options: ["Strategic", "Operational (Tactical)", "Long-range", "Fiduciary"],
     answer: 1,
@@ -476,7 +476,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 57,
-    lo: "1D: Departmentalization",
+    lo: "principle",
     question: "The process of grouping similar or related work activities into units is known as:",
     options: ["Division of labor", "Departmentalization", "Delegation", "Decentralization"],
     answer: 1,
@@ -484,7 +484,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 58,
-    lo: "1D: Decentralized Organizations",
+    lo: "principle",
     question: "A major advantage of a decentralized organization is that it:",
     options: ["Ensures absolute consistency in all policy decisions", "Allows decisions to be made closer to the customer", "Requires fewer managers than centralized firms", "Eliminates the need for middle management"],
     answer: 1,
@@ -492,7 +492,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 59,
-    lo: "1E: Functional Areas - New Business",
+    lo: "principle",
     question: "Which functional area oversees the process from the receipt of an application through the issuance of the insurance policy?",
     options: ["Underwriting", "New business administration", "Annuity administration", "Marketing"],
     answer: 1,
@@ -500,7 +500,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 60,
-    lo: "1E: Functional Areas - Customer Service",
+    lo: "principle",
     question: "Interacting with customers and providing them information to help perform transactions is the primary role of:",
     options: ["New business administration", "Marketing", "Customer service", "Accounting"],
     answer: 2,
@@ -508,7 +508,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 61,
-    lo: "1E: Functional Areas - Treasury Operations",
+    lo: "principle",
     question: "The functional area that manages and invests the cash coming into and out of a company is:",
     options: ["Accounting", "Treasury operations", "Investments", "Actuarial"],
     answer: 1,
@@ -516,7 +516,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 62,
-    lo: "1F: Organization by Customer Type",
+    lo: "principle",
     question: "Scenario: Best Life has two separate divisions: one for household markets and another for corporate markets. This is organization by:",
     options: ["Product", "Customer type", "Territory", "Function"],
     answer: 1,
@@ -524,7 +524,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 63,
-    lo: "1F: Organization by Distribution Channel",
+    lo: "principle",
     question: "An insurer that has an 'Agency division' and a 'Direct-to-consumer division' is organized by:",
     options: ["Territory", "Distribution system", "Function", "Product"],
     answer: 1,
@@ -532,7 +532,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 64,
-    lo: "1H: Standing Committees - Board Level",
+    lo: "principle",
     question: "Which board-level committee determines the broad investment policy of the company?",
     options: ["Audit committee", "Investment committee", "Executive committee", "Budget committee"],
     answer: 1,
@@ -540,7 +540,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 65,
-    lo: "1H: Interdepartmental Committees - ALCO",
+    lo: "principle",
     question: "The committee that analyzes the unique asset and liability characteristics of a company's products is the:",
     options: ["Product development committee", "Asset/liability committee (ALCO)", "Budget committee", "Corporate communications committee"],
     answer: 1,
@@ -548,7 +548,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 66,
-    lo: "1I: Subsidiaries",
+    lo: "principle",
     question: "A company that is owned or controlled by another company is known as a:",
     options: ["Parent company", "Holding company", "Subsidiary", "Reinsurer"],
     answer: 2,
@@ -556,7 +556,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 67,
-    lo: "1I: Upstream Holding Company Characteristics",
+    lo: "principle",
     question: "Which type of insurance company CANNOT be owned by another company, thus cannot be part of an upstream holding company system?",
     options: ["Stock insurance company", "Mutual insurance company", "Fraternal benefit society", "Both B and C"],
     answer: 3,
@@ -564,7 +564,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 68,
-    lo: "1A: Stakeholders - Suppliers",
+    lo: "principle",
     question: "Scenario: A company that provides office equipment and software to Forbright Financial is a stakeholder known as a:",
     options: ["Customer", "Vendor/Supplier", "Creditor", "Regulator"],
     answer: 1,
@@ -572,7 +572,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 69,
-    lo: "1C: Management Levels - Middle-Level Role",
+    lo: "principle",
     question: "Functional experts who manage specific departments, like the claim or actuarial department, are typically:",
     options: ["Senior-level managers", "Middle-level managers", "First-level supervisors", "Independent directors"],
     answer: 1,
@@ -580,7 +580,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 70,
-    lo: "1B: Market Conduct Laws Focus",
+    lo: "principle",
     question: "Which of the following is a focus of market conduct laws?",
     options: ["Adequacy of reserve liabilities", "Company investment limits", "Fair claim administration practices", "Minimum capital requirements"],
     answer: 2,
@@ -588,7 +588,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 71,
-    lo: "1A: Stakeholders - Employees",
+    lo: "principle",
     question: "Insurance company employees are stakeholders because their efforts significantly impact:",
     options: ["The company's social media presence", "Success and profitability of company operations", "The election of the Board of Directors", "Taxation laws in their region"],
     answer: 1,
@@ -596,7 +596,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 72,
-    lo: "1C: Planning Process",
+    lo: "principle",
     question: "Taking into consideration company resources, strengths, weaknesses, and the environment is part of:",
     options: ["Organizing", "Planning", "Controlling", "Delegating"],
     answer: 1,
@@ -604,7 +604,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 73,
-    lo: "1D: Authority Delegation",
+    lo: "principle",
     question: "When a manager assigns a task to an employee, they must also provide the ______ to meet their responsibilities.",
     options: ["Accountability", "Authority", "Liability", "Supervision"],
     answer: 1,
@@ -612,7 +612,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 74,
-    lo: "1E: Functional Areas - Compliance",
+    lo: "principle",
     question: "Which function ensures that the company's operations comply with financial services and insurance department regulations in every jurisdiction it operates in?",
     options: ["Legal", "Compliance", "Accounting", "HR"],
     answer: 1,
@@ -620,7 +620,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 75,
-    lo: "1E: Functional Areas - HR",
+    lo: "principle",
     question: "Matters related to hiring, training, evaluating, and terminating employees are handled by:",
     options: ["Accounting", "Human Resources", "Legal", "Directing"],
     answer: 1,
@@ -628,7 +628,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 76,
-    lo: "1F: Functional Organization Advantage",
+    lo: "principle",
     question: "The major advantage of organizing operations by function is its:",
     options: ["Personalized customer focus", "Simplicity and focus on technical skills in each area", "Ease of diversifying into separate markets", "Avoidance of duplicate support functions"],
     answer: 1,
@@ -636,7 +636,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 77,
-    lo: "1G: SBU Characteristics",
+    lo: "principle",
     question: "A Strategic Business Unit (SBU) typically has its own identifying ______ and its own set of ______.",
     options: ["Legal name; Employees", "Profits; Competitors", "Tax ID; Reinsurers", "CEO; Regulators"],
     answer: 1,
@@ -644,7 +644,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 78,
-    lo: "1H: Board Committees",
+    lo: "principle",
     question: "Officers of a company and members of its board make up several of the most important ______ committees of any business.",
     options: ["Ad hoc", "Standing", "Temporal", "External"],
     answer: 1,
@@ -652,7 +652,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 79,
-    lo: "1H: Standing Committee Definition",
+    lo: "principle",
     question: "The word used to describe a permanent committee that executives use for continuing advice is:",
     options: ["Task force", "Project team", "Standing committee", "Ad hoc group"],
     answer: 2,
@@ -660,7 +660,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 80,
-    lo: "1I: Controlling Interest",
+    lo: "principle",
     question: "A holding company exists when a company owns enough shares of another company's stock to control its operations. This is known as a:",
     options: ["Shared interest", "Controlling interest", "Statutory interest", "Minority interest"],
     answer: 1,
@@ -668,7 +668,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 81,
-    lo: "1A: Stockholder Rights",
+    lo: "principle",
     question: "Stockholders receive excess profits in the form of stockholder dividends. These dividends are payments to the:",
     options: ["Customers", "Owners", "Regulators", "Creditors"],
     answer: 1,
@@ -676,7 +676,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 82,
-    lo: "1A: Policyowner Rights",
+    lo: "principle",
     question: "In a mutual company, policy dividends are considered to be a:",
     options: ["Stockholder profit", "Return of a portion of the premium", "Guaranteed interest credit", "Taxable salary"],
     answer: 1,
@@ -684,7 +684,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 83,
-    lo: "1C: Management Functions - Directing",
+    lo: "principle",
     question: "Supervision corresponds to the formal functions of:",
     options: ["Planning and Organizing", "Directing and Controlling", "Accounting and Legal", "Marketing and Sales"],
     answer: 1,
@@ -692,7 +692,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 84,
-    lo: "1D: Chain of Command Function",
+    lo: "principle",
     question: "The chain of command identifies:",
     options: ["The company's mission", "Who reports to whom", "The profitability of each department", "The company's investment policy"],
     answer: 1,
@@ -700,7 +700,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 85,
-    lo: "1E: Functional Areas - Legal",
+    lo: "principle",
     question: "Which functional area drafts the contracts that insurers use in the course of business?",
     options: ["Marketing", "Accounting", "Legal", "Actuarial"],
     answer: 2,
@@ -708,7 +708,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 86,
-    lo: "1F: Territory Organization Driver",
+    lo: "principle",
     question: "Organizing by territory makes sense when ______ differences exist among the various regions.",
     options: ["Product", "Regulatory or language", "Marketing", "Employee salary"],
     answer: 1,
@@ -716,7 +716,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 87,
-    lo: "1H: Product Development Committee",
+    lo: "principle",
     question: "The interdepartmental committee that decides whether enough consumer demand exists for a new product is the:",
     options: ["Budget committee", "Product development committee", "Corporate communications committee", "Audit committee"],
     answer: 1,
@@ -724,7 +724,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 88,
-    lo: "1I: Downstream Holding Company Setup",
+    lo: "principle",
     question: "In a downstream holding company arrangement, Best Life creates Best Holdings, which in turn owns subsidiaries. Who does the President of Best Holdings report to?",
     options: ["Regulators", "The CEO of Best Life", "The policyowners", "The Reinsurer"],
     answer: 1,
@@ -732,7 +732,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 89,
-    lo: "1B: Solvency Definition",
+    lo: "principle",
     question: "The ability of a company to pay its debts and contractual obligations on time is:",
     options: ["Profitability", "Solvency", "Liquidity", "Efficiency"],
     answer: 1,
@@ -740,7 +740,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 90,
-    lo: "1C: senior-Level Management - Vice President",
+    lo: "principle",
     question: "Each vice president in an insurance company usually supervises and coordinates the activities of a:",
     options: ["Profit center", "Strategic Business Unit", "Major division", "Temporary task force"],
     answer: 2,
@@ -748,7 +748,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 91,
-    lo: "1E: Functional Areas - Annuity Administration",
+    lo: "principle",
     question: "Which functional area is specifically responsible for processing annuity payments?",
     options: ["Claim administration", "Actuarial", "Annuity administration", "Treasury"],
     answer: 2,
@@ -756,7 +756,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 92,
-    lo: "1F: Product Organization Disadvantage",
+    lo: "principle",
     question: "What is a common drawback of organizing as profit centers or SBUs?",
     options: ["Slower decision making", "Duplication of some support functions", "Lack of technical expertise", "Too much centralization"],
     answer: 1,
@@ -764,7 +764,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 93,
-    lo: "1G: Profit Center Evaluation",
+    lo: "principle",
     question: "A profit center is evaluated on its:",
     options: ["Number of employees", "Profitability (revenues vs expenses)", "Compliance reports", "Marketing reach"],
     answer: 1,
@@ -772,7 +772,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 94,
-    lo: "1H: Ad Hoc Committee Disbanding",
+    lo: "principle",
     question: "Once an ad hoc committee's purpose is accomplished, the committee is:",
     options: ["Promoted to a standing committee", "Disbanded", "Sent to the Board of Directors", "Reorganized by territory"],
     answer: 1,
@@ -780,7 +780,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 95,
-    lo: "1I: Holding Company Advantage",
+    lo: "principle",
     question: "A holding company often has greater access to external funds than an individual insurance company. This is through:",
     options: ["Only policy dividends", "Borrowing or issuing shares of stock in the holding company", "Regulatory grants", "Customer premiums"],
     answer: 1,
@@ -788,7 +788,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 96,
-    lo: "1D: Accountability vs Authority",
+    lo: "principle",
     question: "Scenario: A manager gives an employee the task to audit files but does not give the login credentials to the system. This manager has assigned ______ without ______.",
     options: ["Authority; Responsibility", "Responsibility; Authority", "Accountability; Planning", "Strategy; Tactics"],
     answer: 1,
@@ -796,7 +796,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 97,
-    lo: "1E: Functional Areas - Accounting",
+    lo: "principle",
     question: "Which area maintains financial records and files required financial statements with regulators?",
     options: ["Treasury operations", "Accounting", "Investments", "Legal"],
     answer: 1,
@@ -804,7 +804,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 98,
-    lo: "1I: Holding Company Clashes",
+    lo: "principle",
     question: "A holding company structure helps eliminate potential problems like:",
     options: ["Corporate culture clashes", "Taxes", "Government audits", "Competition from other SBUs"],
     answer: 0,
@@ -812,7 +812,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 99,
-    lo: "1C: Board of Directors Election",
+    lo: "principle",
     question: "The owners of a company elect the board of directors. In a stock company, these owners are ______; in a mutual company, they are ______.",
     options: ["Policyowners; Stockholders", "Stockholders; Policyowners", "Managers; Employees", "Regulators; Reinsurers"],
     answer: 1,
@@ -820,7 +820,7 @@ export const chapter1Questions: Question[] = [
   },
   {
     id: 100,
-    lo: "1A: stakeholder interests divergence",
+    lo: "principle",
     question: "Beyond the common goal of solvency, different stakeholder interests can diverge from, and এমনকি conflict with, each other. This must be managed by:",
     options: ["Regulators", "Owners", "Management", "Rating Agencies"],
     answer: 2,

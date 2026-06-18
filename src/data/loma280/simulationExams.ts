@@ -16,7 +16,7 @@ import { chapter14Questions } from './chapter14';
 import { finalExamQuestions } from './finalExam';
 import { tpgChapterQuestions } from './tpgChapterQuestions';
 import { tpgMaster100 } from './tpgMaster100';
-import { glossaryQuestions } from './chapter15';
+import { glossary280Questions } from './chapter15';
 
 // Flatten TPG Chapter questions
 const flattenedTpgQuestions = tpgChapterQuestions.flatMap(c => c.questions);
@@ -40,7 +40,7 @@ const masterPool: Question[] = [
   ...finalExamQuestions,
   ...flattenedTpgQuestions,
   ...tpgMaster100,
-  ...glossaryQuestions
+  ...glossary280Questions
 ];
 
 // Fisher-Yates Shuffle

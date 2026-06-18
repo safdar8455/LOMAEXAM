@@ -1,6 +1,6 @@
 import { Question } from '../../types';
 
-export const glossaryQuestions: Question[]=[
+export const glossary280Questions: Question[]=[
   {
     id: 1,
     lo: "Glossary",
