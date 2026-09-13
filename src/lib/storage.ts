@@ -1,17 +1,5 @@
 
-import { db, auth } from './firebase';
-import { 
-  collection, 
-  addDoc, 
-  query, 
-  where, 
-  getDocs, 
-  orderBy, 
-  serverTimestamp,
-  doc,
-  getDoc,
-  setDoc
-} from 'firebase/firestore';
+import { auth } from './firebase';
 
 export enum OperationType {
   CREATE = 'create',
@@ -20,34 +8,6 @@ export enum OperationType {
   LIST = 'list',
   GET = 'get',
   WRITE = 'write',
-}
-
-interface FirestoreErrorInfo {
-  error: string;
-  operationType: OperationType;
-  path: string | null;
-  authInfo: {
-    userId?: string | null;
-    email?: string | null;
-    emailVerified?: boolean | null;
-    isAnonymous?: boolean | null;
-  }
-}
-
-function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
-  const errInfo: FirestoreErrorInfo = {
-    error: error instanceof Error ? error.message : String(error),
-    authInfo: {
-      userId: auth.currentUser?.uid,
-      email: auth.currentUser?.email,
-      emailVerified: auth.currentUser?.emailVerified,
-      isAnonymous: auth.currentUser?.isAnonymous,
-    },
-    operationType,
-    path
-  };
-  console.error('Firestore Error: ', JSON.stringify(errInfo));
-  throw new Error(JSON.stringify(errInfo));
 }
 
 export interface ChapterProgress {
@@ -70,10 +30,23 @@ export interface AssessmentRecord {
   assessmentTitle: string;
   score: number;
   totalQuestions: number;
-  completedAt: any;
+  completedAt: string;
 }
 
 const STORAGE_KEY = 'loma280_progress';
+const ASSESSMENTS_KEY = 'loma_assessment_history';
+const USERS_KEY = 'loma_users';
+
+const readJson = <T>(key: string, fallback: T): T => {
+  try {
+    const saved = localStorage.getItem(key);
+    return saved ? (JSON.parse(saved) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const readUsers = () => readJson<any[]>(USERS_KEY, []);
 
 export const saveProgress = async (mode: string, chapterId: string, score: number, totalQuestions: number, title: string) => {
   const data = getLocalProgress();
@@ -89,73 +62,69 @@ export const saveProgress = async (mode: string, chapterId: string, score: numbe
 
   data[mode] = {
     ...modeData,
-    [chapterId]: newProgress
+    [chapterId]: newProgress,
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-  // Sync with Firestore if logged in
-  if (auth.currentUser) {
-    const path = 'assessments';
-    try {
-      await addDoc(collection(db, path), {
-        userId: auth.currentUser.uid,
-        assessmentId: chapterId,
-        assessmentTitle: title,
-        score,
-        totalQuestions,
-        completedAt: serverTimestamp()
-      });
-    } catch (error) {
-      handleFirestoreError(error, OperationType.WRITE, path);
-    }
+  const userId = auth.currentUser?.uid || 'guest';
+  if (userId !== 'guest') {
+    const history = readJson<AssessmentRecord[]>(ASSESSMENTS_KEY, []);
+    history.unshift({
+      id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      userId,
+      assessmentId: chapterId,
+      assessmentTitle: title,
+      score,
+      totalQuestions,
+      completedAt: new Date().toISOString(),
+    });
+    localStorage.setItem(ASSESSMENTS_KEY, JSON.stringify(history));
   }
 
   return data;
 };
 
 export const getLocalProgress = (): ProgressData => {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return {};
-  try {
-    return JSON.parse(saved);
-  } catch {
-    return {};
-  }
+  return readJson<ProgressData>(STORAGE_KEY, {});
 };
 
 export const getFirestoreAssessments = async (userId: string): Promise<AssessmentRecord[]> => {
-  const path = 'assessments';
-  try {
-    const q = query(
-      collection(db, path),
-      where('userId', '==', userId),
-      orderBy('completedAt', 'desc')
-    );
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    } as AssessmentRecord));
-  } catch (error) {
-    handleFirestoreError(error, OperationType.GET, path);
-    return [];
-  }
+  const history = readJson<AssessmentRecord[]>(ASSESSMENTS_KEY, []);
+  return history
+    .filter((item) => item.userId === userId)
+    .sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
 };
 
-export const saveUserProfile = async (uid: string, phoneNumber: string) => {
-  const path = `users/${uid}`;
-  try {
-    const userDoc = await getDoc(doc(db, 'users', uid));
-    if (!userDoc.exists()) {
-      await setDoc(doc(db, 'users', uid), {
-        phoneNumber,
-        createdAt: serverTimestamp()
-      });
-    }
-  } catch (error) {
-    handleFirestoreError(error, OperationType.WRITE, path);
+export const saveUserProfile = async (uid: string, phoneNumber: string, email?: string) => {
+  const users = readUsers();
+  const existingIndex = users.findIndex((user: any) => user.uid === uid);
+
+  const nextUser = {
+    uid,
+    phoneNumber: phoneNumber || '',
+    email: email || '',
+    createdAt: existingIndex >= 0 ? users[existingIndex].createdAt : new Date().toISOString(),
+    role: existingIndex >= 0 ? users[existingIndex].role || 'student' : 'student',
+  };
+
+  if (existingIndex >= 0) {
+    users[existingIndex] = nextUser;
+  } else {
+    users.push(nextUser);
   }
+
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  localStorage.setItem('loma_current_user', JSON.stringify(nextUser));
+
+  auth.currentUser = {
+    uid: nextUser.uid,
+    phoneNumber: nextUser.phoneNumber,
+    email: nextUser.email,
+    role: nextUser.role,
+  };
+
+  window.dispatchEvent(new Event('loma-auth-changed'));
 };
 
 export interface SessionState {
@@ -187,5 +156,4 @@ export const clearSession = (assessmentId: string) => {
   localStorage.removeItem(`${SESSION_PREFIX}${userId}_${assessmentId}`);
 };
 
-// Alias for App.tsx compatibility if needed
 export const getProgress = getLocalProgress;

@@ -1,16 +1,16 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+export const hasValidConfig = false;
 
-// Check if Firebase config has valid credentials
-export const hasValidConfig = !!(
-  firebaseConfig?.apiKey &&
-  firebaseConfig?.projectId &&
-  firebaseConfig?.authDomain &&
-  firebaseConfig?.apiKey !== 'DEMO_API_KEY'
-);
+export const auth: { currentUser: any } = {
+  currentUser: null,
+};
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
-export const auth = getAuth(app);
+export const db = null;
+export const storage = null;
+
+export const setAuthCurrentUser = (user: any | null) => {
+  auth.currentUser = user;
+};
+
+export const clearAuthCurrentUser = () => {
+  auth.currentUser = null;
+};

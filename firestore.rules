@@ -13,38 +13,109 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == userId;
     }
 
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.uid == "W2CchXNm43UQfnt5zc08zI2VmUp1" || 
+        (request.auth.token.keys().contains('email') && request.auth.token.email == "safderjamali12@gmail.com") || 
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.keys().contains('role') && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin")
+      );
+    }
+
     function isValidUser(data) {
-      return data.keys().hasAll(['phoneNumber', 'createdAt'])
-        && data.keys().size() == 2
-        && data.phoneNumber is string
-        && data.phoneNumber.size() <= 20
-        && data.createdAt == request.time;
+      return data.keys().hasAll(['createdAt'])
+        && data.keys().size() >= 1
+        && (!data.keys().contains('phoneNumber') || (data.phoneNumber is string && data.phoneNumber.size() <= 100))
+        && (!data.keys().contains('email') || (data.email is string && data.email.size() <= 200))
+        && (!data.keys().contains('role') || (data.role is string && (data.role == 'admin' || data.role == 'student')));
     }
 
     function isValidAssessment(data) {
       return data.keys().hasAll(['userId', 'assessmentId', 'assessmentTitle', 'score', 'totalQuestions', 'completedAt'])
-        && data.keys().size() == 6
         && data.userId == request.auth.uid
         && data.assessmentId is string
-        && data.assessmentId.size() <= 100
         && data.assessmentTitle is string
-        && data.assessmentTitle.size() <= 200
         && data.score is number
-        && data.totalQuestions is number
-        && data.completedAt == request.time;
+        && data.totalQuestions is number;
+    }
+
+    function isValidCourse(data) {
+      return data.keys().hasAll(['id', 'title', 'approved', 'createdAt', 'createdBy'])
+        && data.id is string
+        && data.title is string
+        && data.approved is bool
+        && data.createdBy is string;
+    }
+
+    function isValidCourseAssignment(data) {
+      return data.keys().hasAll(['userId', 'courseId', 'assignedBy', 'assignedAt', 'accessType', 'active'])
+        && data.userId is string
+        && data.courseId is string
+        && data.assignedBy is string
+        && data.assignedAt is string
+        && data.accessType == "admin_granted"
+        && data.active is bool;
     }
 
     match /users/{userId} {
-      allow get: if isOwner(userId);
-      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) && (
+        request.resource.data.role == 'student' ||
+        (request.resource.data.role == 'admin' && (request.auth.token.email == 'safderjamali12@gmail.com' || request.auth.uid == 'safderjamali12_default'))
+      ) && isValidUser(request.resource.data);
+      allow update: if (isOwner(userId) && (
+        // Prevent normal users from altering their role
+        (!request.resource.data.keys().contains('role') || request.resource.data.role == resource.data.role)
+      ) || isAdmin()) && isValidUser(request.resource.data);
+      allow delete: if isAdmin();
     }
 
     match /assessments/{docId} {
       allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
-      allow get: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
       allow create: if isSignedIn() 
         && request.resource.data.userId == request.auth.uid
         && isValidAssessment(request.resource.data);
+    }
+
+    match /courses/{courseId} {
+      // Students can only fetch approved courses
+      allow list: if isSignedIn() && resource.data.approved == true;
+      allow list: if isSignedIn() && resource.data.createdBy == request.auth.uid;
+      allow list: if isSignedIn() && isAdmin();
+      allow get: if isSignedIn() && (resource.data.approved == true || resource.data.createdBy == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isAdmin() && isValidCourse(request.resource.data);
+      allow update: if isSignedIn() && isAdmin() && isValidCourse(request.resource.data);
+      allow delete: if isSignedIn() && isAdmin();
+    }
+
+    match /appSettings/{docId} {
+      allow get: if isSignedIn();
+      allow create, update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /subscriptions/{subId} {
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow list: if isSignedIn() && isAdmin();
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid && (
+        request.resource.data.approved == false && request.resource.data.status == "pending"
+      );
+      allow update: if isSignedIn() && isAdmin();
+      allow delete: if isSignedIn() && isAdmin();
+    }
+
+    match /courseAssignments/{assignmentId} {
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow list: if isSignedIn() && isAdmin();
+      allow get: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow get: if isSignedIn() && isAdmin();
+      allow create: if isSignedIn() && isAdmin() && isValidCourseAssignment(request.resource.data);
+      allow update: if isSignedIn() && isAdmin() && isValidCourseAssignment(request.resource.data);
+      allow delete: if isSignedIn() && isAdmin();
     }
   }
 }

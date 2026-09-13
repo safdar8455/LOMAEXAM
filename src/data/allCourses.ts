@@ -42,10 +42,22 @@ import { glossary290Questions as loma290Glossary } from './loma290/glossary';
 
 import {chapter1Questions as loma301Chapter1 } from './loma301/chapter1';
 import {chapter2Questions as loma301Chapter2 } from './loma301/chapter2';
+import {chapter3Questions as loma301Chapter3 } from './loma301/chapter3';
+import {chapter4Questions as loma301Chapter4 } from './loma301/chapter4';
+import {chapter5Questions as loma301Chapter5 } from './loma301/chapter5';
+import {chapter6Questions as loma301Chapter6 } from './loma301/chapter6';
+import {chapter7Questions as loma301Chapter7 } from './loma301/chapter7';
+import {chapter8Questions as loma301Chapter8 } from './loma301/chapter8';
+import {chapter9Questions as loma301Chapter9 } from './loma301/chapter9';
+import {chapter10Questions as loma301Chapter10 } from './loma301/chapter10';
+import {chapter11Questions as loma301Chapter11 } from './loma301/chapter11';
+import {chapter12Questions as loma301Chapter12 } from './loma301/chapter12';
+import { glossary301Questions as loma301Glossary } from './loma301/glossary';
+
+import { businessLawQuestions, chapter1Questions as loma307Chapter1, chapter2Questions as loma307Chapter2, chapter3Questions as loma307Chapter3, chapter4Questions as loma307Chapter4, chapter5Questions as loma307Chapter5, chapter6Questions as loma307Chapter6, chapter7Questions as loma307Chapter7, chapter8Questions as loma307Chapter8, chapter9Questions as loma307Chapter9, chapter10Questions as loma307Chapter10, glossaryQuestions as loma307Glossary } from './loma307';
 
 
 import { administrationQuestions } from './loma301';
-import { businessLawQuestions } from './loma307';
 import { marketingQuestions } from './loma311';
 import { lifeInsuranceLawQuestions } from './loma320';
 import { managementQuestions } from './loma335';
@@ -112,7 +124,6 @@ export const COURSES: Course[] = [
       { id: 4, title: 'Chapter 4: Human Resources Management', description: 'Explore HR planning, international staffing structures, employee recruitment, pre-employment testing, and compliance guides.', questions: loma290Chapter4 },
       { id: 5, title: 'Chapter 5: Information and Technology', description: 'Describe IT organization, internal operations tech, web and mobile customer interfaces, databases, data analytics, and cybercrime defense.', questions: loma290Chapter5 },
       { id: 6, title: 'Chapter 6: Financial Management', description: 'Describe how insurers organize financial operations, strategies, risks, risk management through diversification/hedging/ERM, capital, cash flow, statements, ratios, and solvency monitoring tools.', questions: loma290Chapter6 },
-      { id: 6, title: 'Chapter 6: Financial Management', description: 'Describe how insurers organize financial operations, strategies, risks, risk management through diversification/hedging/ERM, capital, cash flow, statements, ratios, and solvency monitoring tools.', questions: loma290Chapter6 },
       { id: 7, title: 'Chapter 7: Accounting, Treasury Operations, and Auditing', description: 'Understand segregation of duties, financial vs management accounting, standards (GAAP, SAP, IFRS), financial statements (Balance Sheet, Income Statement, Cash Flow, Owners Equity), assets, and internal controls.', questions: loma290Chapter7 },
       { id: 8, title: 'Chapter 8: Investment Management', description: 'Describe necessary elements in an insurer’s investment policy, risk-return trade-off, risk premium, diversification, types of investments (bonds, mortgages, stocks, real estate, derivatives, policy loans), bond characteristics/rating risk, active and passive investment management, and general versus separate accounts.', questions: loma290Chapter8 },
       { id: 9, title: 'Chapter 9: Marketing', description: 'Describe essential elements of a marketing plan, traditional marketing mix vs the Four Cs, personal selling/advertising/publicity promotional tools, branding/positioning, market segmentation and target marketing, types of target marketing strategies, internal/external marketing environments, and marketing control tools.', questions: loma290Chapter9 },
@@ -132,21 +143,97 @@ export const COURSES: Course[] = [
     title: 'Insurance Administration',
     description: 'LOMA 301 provides a detailed discussion of the activities of insurance administration for individual and group life coverages, focusing on underwriting, reinsurance, claims, and customer service.',
     chapters: [
-            { id: 1, title: 'Chapter 1: Insurance Administration and the Customer Experience', description: 'Comprehensive 100 MCQ review of the policy life cycle, supportive corporate operations, customer journeys, CEM challenges, and professional ethical obligations.', questions: loma301Chapter1 },
-
-            { id: 2, title: 'Chapter 2: Considerations for Insurance Administration', description: 'Comprehensive 100 MCQ review of regulatory compliance, privacy, fraud, quality control, paperless processing, systems, cybersecurity, and data analytics.', questions: loma301Chapter2 },
-
-
-    ],
+      { id: 1, title: 'Chapter 1: Insurance Administration and the Customer Experience', description: 'Comprehensive 100 MCQ review of the policy life cycle, supportive corporate operations, customer journeys, CEM challenges, and professional ethical obligations.', questions: loma301Chapter1 },
+      { id: 2, title: 'Chapter 2: Considerations for Insurance Administration', description: 'Comprehensive 100 MCQ review of regulatory compliance, privacy, fraud, quality control, paperless processing, systems, cybersecurity, and data analytics.', questions: loma301Chapter2 },
+      { id: 3, title: 'Chapter 3: The New Business Process and Underwriting Principles', description: 'Comprehensive 100 MCQ review of field underwriting, teleunderwriting, applications flow, risk assessment factors, risk classification parameters, job authorization levels, and automated or simplified efficiencies.', questions: loma301Chapter3 },
+      { id: 4, title: 'Chapter 4: Individual Life Insurance: Assessing Mortality Risk', description: 'Comprehensive 100 MCQ review of applicant disclosures, medical files, attending vs examining physician reports, lab results, personal history interviews, credit records, BMI build metrics, and specialized lifestyle risk assessments.', questions: loma301Chapter4 },
+      { id: 5, title: 'Chapter 5: Individual Life Insurance: Financial Underwriting and Risk Classification', description: 'Comprehensive 100 MCQ review of financial risk selection, lapse and speculation deterrence, STOLI/AML warning signs, premium affordability, numerical rating system, and charging substandard extra premiums.', questions: loma301Chapter5 },
+      { id: 6, title: 'Chapter 6: Underwriting Specialized Individual Life Insurance Products', description: 'Comprehensive 100 MCQ review of joint and last survivor policies, juvenile, D2C sales, buy-sell funding, key-person multiples, ratios, replacements, and supplemental benefit riders.', questions: loma301Chapter6 },
+      { id: 7, title: 'Chapter 7: Underwriting Group Life Insurance', description: 'Comprehensive 100 MCQ review of Request for Proposal (RFP) procedures, contributory vs noncontributory plans, group size and industry risk factor assessments, blended rating calculations, and late enrollee and renewal underwriting.', questions: loma301Chapter7 },
+      { id: 8, title: 'Chapter 8: Reinsurance: Insurance for Insurers', description: 'Comprehensive 100 MCQ review of assumption vs. traditional indemnity reinsurance, financial capacity and surplus relief goals, automatic, facultative and fac-ob structures, proportional vs. nonproportional risk sharing, and in-force and termination administration.', questions: loma301Chapter8 },
+      { id: 9, title: 'Chapter 9: Effective Customer Service', description: 'Comprehensive 100 MCQ review of customer service representative roles, work team types, organizational models, communication technologies, multichannel vs. omnichannel design, metrics analytics, and compliance or privacy rules.', questions: loma301Chapter9 },
+      { id: 10, title: 'Chapter 10: Customer Service Practices', description: 'Comprehensive 100 MCQ review of routine vs. complex service requests, absolute vs. collateral assignments, dividend payout options, policy loan repayment structures, Net Cash Surrender Value math, group to individual conversion rules, policy reinstatements, and quantitative vs. qualitative performance metrics.', questions: loma301Chapter10 },
+      { id: 11, title: 'Chapter 11: Overview of Claim Administration', description: 'Comprehensive 100 MCQ review of claim philosophy and daily practices, standard claim evaluation process, staffing hierarchies, job authorization thresholds, express processing parameters, auto-adjudication, unfair claim settlement laws, and market conduct audits.', questions: loma301Chapter11 },
+      { id: 12, title: 'Chapter 12: Claim Administration Practices', description: 'Comprehensive 100 MCQ review of verifying coverage, Temporary Insurance Agreements (TIAs), proof of death certifications, disappearance elements, suicide/exclusion riders, change of health statements, assignee/payee priorities, simultaneous deaths, community property, calculations with misstatements, and claim denial practices.', questions: loma301Chapter12 },
+      { id: 13, title: 'Glossary: Master Terminology Review', description: 'Comprehensive LOMA-aligned 300 MCQ review of all key insurance administration, underwriting, reinsurance, operations, and claims terminology from the master course glossary, applied through structured scenario-based assessments.', questions: loma301Glossary }
+    
+            ],
     simulationRounds: [administrationQuestions]
   },
   {
     id: 'loma307',
     shortTitle: 'LOMA 307',
-    title: ' Business and Financial Concepts for Insurance Professionals',
-    description: 'LOMA 307 introduces industry employees to basic financial concepts and terminology and relates these concepts to the business of insurance and company operations and profitability.',
-    chapters: [{ id: 1, title: 'Agency Law', description: 'Legal relationship between insurers and representatives.', questions: businessLawQuestions }],
-    simulationRounds: [businessLawQuestions]
+    title: 'Business and Financial Concepts for Insurance Professionals',
+    description: 'An Introduction to the Economy, financial markets, sectors, participants, indicators, and business cycles for insurance professionals.',
+    chapters: [
+      { 
+        id: 1, 
+        title: 'Chapter 1: An Introduction to the Economy', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering economic scarcity, economic sectors, markets, flow of funds, money roles', 
+        questions: loma307Chapter1 
+      },
+      { 
+        id: 2, 
+        title: 'Chapter 2: The Role of Insurance Companies in the Economy', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering financial institutions (depository, contractual savings, investment)..', 
+        questions: loma307Chapter2 
+      },
+      { 
+        id: 3, 
+        title: 'Chapter 3: Managing Solvency and Profitability', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering solvency vs profitability, 4 risk management techniques (avoiding, controlling, transferring, accepting).', 
+        questions: loma307Chapter3 
+      },
+      { 
+        id: 4, 
+        title: 'Chapter 4: The Time Value of Money', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering time value of money, simple vs compound interest, nominal vs effective rates.', 
+        questions: loma307Chapter4 
+      },
+      { 
+        id: 5, 
+        title: 'Chapter 5: Product Design and Development', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering the product mix hierarchy (class, line, form, item, width, depth, consistency).', 
+        questions: loma307Chapter5 
+      },
+      { 
+        id: 6, 
+        title: 'Chapter 6: Achieving Operational Efficiency', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering insurance operations & cost accumulation (investment vs G&A, value-added vs support functions).', 
+        questions: loma307Chapter6 
+      },
+      { 
+        id: 7, 
+        title: 'Chapter 7: Managing Information', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering information technology components & 3-part architecture (technical, application, data architecture).', 
+        questions: loma307Chapter7 
+      },
+      { 
+        id: 8, 
+        title: 'Chapter 8: Analyzing Statistical Data', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering descriptive vs inferential statistics (facts vs inferences, populations vs samples), measures of central tendency (mean, median, mode calculations, strengths, outlier distortions, multimodal distributions), measures of dispersion.', 
+        questions: loma307Chapter8 
+      },
+      { 
+        id: 9, 
+        title: 'Chapter 9: Presenting Data Visually', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering tables & data organization (descending vs ascending, chronological, alphabetical, cash value tables, pivot tables), mortality tables (CSO tables, death rates per 1,000 & percentages, living/dying cohorts, remaining life expectancy, reserve/pricing uses), grouped vs ungrouped data (precision vs high-level patterns, grouped frequency distributions), primary chart types (bar charts, trend lines, comparative side-by-side bar charts, component 100% stacked bar charts, histograms, pictographs).', 
+        questions: loma307Chapter9 
+      },
+      { 
+        id: 10, 
+        title: 'Chapter 10: Financial Reports and Plans', 
+        description: 'Comprehensive 100 MCQ scenario-based review covering financial statements (Income Statement/P&L, dynamic nature, premium/investment/fee revenues, contractual benefits & operating expenses, Net Income = Revenues - Expenses; Balance Sheet/financial position, static snapshot, Assets = Liabilities + Capital & Surplus, Own/Owe/Worth, contractual reserves as major liability, capital vs surplus, owners\' equity), statement linkages (transferring net income/loss to surplus roll-forward), Cash Flow Statement.', 
+        questions: loma307Chapter10 
+      },
+      {
+        id: 11,
+        title: 'Glossary: Master Terminology & Definitions',
+        description: 'Comprehensive 500 MCQ scenario-based review covering all terminology, definitions, objectives, and foundational concepts across the complete LOMA 307 curriculum with in-depth explanations.',
+        questions: loma307Glossary
+      }
+    ],
+    simulationRounds: [loma307Chapter1, loma307Chapter2, loma307Chapter3, loma307Chapter4, loma307Chapter5, loma307Chapter6, loma307Chapter7, loma307Chapter8, loma307Chapter9, loma307Chapter10, loma307Glossary]
   },
   {
     id: 'loma311',

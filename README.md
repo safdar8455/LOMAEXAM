@@ -1,76 +1,51 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# LOMA Exam Master
 
-# Run and deploy your AI Studio app
+A static React + Vite study app for LOMA exam preparation. This version runs entirely in the browser with local storage-backed persistence, so it does not depend on Firebase, Google Cloud, or any paid backend services.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/bb05d559-8e35-4206-962b-381ae1003646
+- Local-only authentication/session handling
+- Browser-based progress and assessment history storage
+- Local course catalog, approvals, subscriptions, and assignments
+- Admin dashboard and user management using browser storage only
+- GitHub Pages deployment support via the existing `gh-pages` setup
 
-## Run Locally
+## Run locally
 
-**Prerequisites:** Node.js, Firebase Project
+### 1. Install dependencies
 
-### 1. Firebase Setup
+```bash
+npm install
+```
 
-1. **Create a Firebase Project:**
-   - Go to [Firebase Console](https://console.firebase.google.com/)
-   - Click "Create a project" or select an existing one
-   - Enable **Authentication** and **Firestore Database**
+### 2. Set your Gemini API key
 
-2. **Enable Phone Authentication:**
-   - In Firebase Console, go to Authentication > Sign-in method
-   - Enable "Phone" authentication
-   - Add your domain to authorized domains (including `localhost` for development)
+Create or update the `.env` file in the project root with:
 
-3. **Get Firebase Configuration:**
-   - Go to Project Settings > General > Your apps
-   - Click "Add app" > Web app
-   - Copy the configuration object
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-4. **Update Environment Variables:**
-   - Copy `.env.example` to `.env`
-   - Replace the placeholder values with your actual Firebase config:
+### 3. Start the app
 
-   ```env
-   VITE_FIREBASE_API_KEY=your_actual_api_key_here
-   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
+```bash
+npm run dev
+```
 
-### 2. Install and Run
+## Build for production
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm run build
+```
 
-2. Set the `GEMINI_API_KEY` in [.env](.env) to your Gemini API key
+## Deploy
 
-3. Run the app:
-   ```bash
-   npm run dev
-   ```
+```bash
+gh-pages -d dist
+```
 
-## Troubleshooting
+## Notes
 
-### Firebase Authentication Errors
-
-- **"auth/invalid-app-credential"**: Check that your Firebase config in `.env` matches your Firebase project exactly
-- **"auth/invalid-phone-number"**: Use format `+1234567890` (country code required)
-- **"auth/too-many-requests"**: Wait a few minutes before retrying
-- **reCAPTCHA errors**: Ensure your domain is authorized in Firebase Console
-
-### Environment Variables
-
-Make sure all required environment variables are set in your `.env` file:
-- `VITE_FIREBASE_API_KEY`
-- `VITE_FIREBASE_AUTH_DOMAIN`
-- `VITE_FIREBASE_PROJECT_ID`
-- `VITE_FIREBASE_STORAGE_BUCKET`
-- `VITE_FIREBASE_MESSAGING_SENDER_ID`
-- `VITE_FIREBASE_APP_ID`
+- The app now uses browser local storage instead of Firestore.
+- The demo admin account is seeded automatically for `safderjamali12@gmail.com`.
+- The app is designed to work without any cloud billing, external auth provider, or database subscription.

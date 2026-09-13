@@ -4,7 +4,7 @@ export const chapter2Questions: Question[] = [
   // --- 2A: REGULATORY COMPLIANCE: PRIVACY, FRAUD, UNFAIR TRADE PRACTICES (1-35) ---
   {
     id: 1,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "At Vanguard Life, a major debate arises regarding the difference between a law and a regulation. Which of the following statements accurately describes the distinction according to general administration principles?",
     options: [
       "A law is approved by the vote of a legislature and signed by the executive, whereas a regulation is created by an administrative body such as a state's Department of Insurance to govern specific commerce",
@@ -17,7 +17,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 2,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "The National Association of Insurance Commissioners (NAIC) is reviewing a new model regulation. What is the legal authority of an NAIC model regulation in a specific state?",
     options: [
       "It has immediate binding federal legal authority across all 50 states once published by the NAIC",
@@ -30,7 +30,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 3,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "During the underwriting of an application at Apex Life, the insurer requests a private consumer reporting agency to analyze the applicant's credit history and personal characteristics. Under the US federal Fair Credit Reporting Act (FCRA), this report is termed a:",
     options: [
       "Consumer report",
@@ -43,7 +43,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 4,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Under the guidelines of the US general Fair Credit Reporting Act (FCRA), when an insurer intends to order a consumer report on an applicant, the insurer or financial professional must:",
     options: [
       "Provide a written disclosure notice to the applicant and proposed insured informing them that a consumer report may be ordered",
@@ -56,7 +56,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 5,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Charlotte submits a request to Zenith Life to inquire about the nature and scope of an investigative consumer report ordered on her. Under the US FCRA, within how many days must Zenith Life respond to Charlotte's request?",
     options: [
       "5 days",
@@ -69,7 +69,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 6,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Because of negative credit indicators in a consumer report, Apex Life decides to issue a policy with a higher premium than requested. This action is defined under the FCRA as a(n):",
     options: [
       "Adverse action",
@@ -82,7 +82,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 7,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "When Pioneer Life takes an adverse action based on information inside a consumer report, the insurer must inform the applicant of which statutory customer right?",
     options: [
       "The right to contact the consumer reporting agency to get a free copy of the report and dispute its accuracy or completeness",
@@ -95,7 +95,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 8,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "A Health Underwriter at Integrity Life is evaluating a proposed insured's medical record. She must comply with federal requirements created by which key US legislative act governing health information privacy?",
     options: [
       "The Health Insurance Portability and Accountability Act (HIPAA)",
@@ -108,7 +108,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 9,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "During the application process for life insurance, how does an applicant grant the insurer permission to legally access and review their private medical files under HIPAA guidelines?",
     options: [
       "By signing a HIPAA-compliant authorization during the application process",
@@ -121,7 +121,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 10,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "The Gramm-Leach-Bliley (GLB) Act, enacted by the US federal government in 1999, had which major primary impact on the financial services sector?",
     options: [
       "It removed regulatory barriers between institutions in various segments of the financial services industry and established framework standards for customer privacy",
@@ -134,7 +134,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 11,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Under the federal Gramm-Leach-Bliley (GLB) Act, how frequently must insurers disclose their policies for obtaining and sharing customer nonpublic personal information with their customers?",
     options: [
       "At the beginning of the relationship, and at least once a year afterward",
@@ -147,7 +147,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 12,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "A customer of Beacon Life wants to prevent the company from sharing her personal credit history with nonaffiliated third-party financial institutions. Under the GLB Act, the customer has the legal right to:",
     options: [
       "Opt out of information sharing with nonaffiliated third parties",
@@ -160,7 +160,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 13,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "If a state's local privacy laws provide stricter customer protections than those provided by the federal Gramm-Leach-Bliley (GLB) Act, which law takes precedence?",
     options: [
       "The state's privacy laws take precedence and supersede the GLB Act's provisions",
@@ -173,7 +173,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 14,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "In response to the GLB Act, the NAIC developed two prominent model laws to guide states. These are known as:",
     options: [
       "The Model Privacy Regulation and the Model Privacy Act",
@@ -186,7 +186,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 15,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "The NAIC's 'Model Privacy Regulation' specifically restricts the disclosure of which two categories of client information?",
     options: [
       "Nonpublic personal financial information and nonpublic personal health information",
@@ -199,7 +199,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 16,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "According to the Model Privacy Regulation, which of the following is defined as 'nonpublic personal financial information'?",
     options: [
       "Personally identifiable financial information, such as a person's income or credit history, and lists derived from such data",
@@ -212,7 +212,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 17,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "The NAIC's model law that primarily governs an insurer's underwriting and claim evaluation information practices is known as the:",
     options: [
       "Model Privacy Act (Insurance Information and Privacy Protection Model Act)",
@@ -225,7 +225,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 18,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Under the NAIC's Model Privacy Act, if an insurer obtains information about a policyowner from an outside third-party credit reporter, the insurer is required to:",
     options: [
       "Provide the customer with a written notice of their information practices, including that the insurer may collect certain info from third parties",
@@ -238,7 +238,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 19,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "At Vanguard Life, a billing administrator notices what looks to be a fraudulent claim scheme being submitted by a medical clinic. Insurance fraud is legally defined as:",
     options: [
       "A crime that anyone connected to an insurance transaction can commit, including customers, employees, or financial professionals",
@@ -251,7 +251,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 20,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Why should insurance company managers and executives treat insurance fraud as a critical administrative concern?",
     options: [
       "Because the cost of fraud is ultimately borne by the company's honest policyowners in the form of increased premiums",
@@ -264,7 +264,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 21,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Several states have enacted anti-fraud laws based on the NAIC's 'Insurance Fraud Prevention Model Act'. What is a major purpose of these laws?",
     options: [
       "To permit state insurance departments to investigate fraudulent act reports and receive enforcement assistance from local, state, and federal agencies",
@@ -277,7 +277,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 22,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Due to state laws based on the Insurance Fraud Prevention Model Act, insurers must place which of the following elements on all applications and claims forms?",
     options: [
       "A conspicuous fraud warning statement about potential criminal penalties for false statements",
@@ -290,7 +290,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 23,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Olivia, an underwriter at Beacon Mutual, reports a suspected fraudulent medical record submitted by Peter. Peter's application is declined, and he attempts to sue Olivia for civil defamation. Under most state laws, Olivia is protected because:",
     options: [
       "States protect anyone who in good faith reports possible insurance fraud from civil liability",
@@ -303,7 +303,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 24,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "To actively combat deceptive schemes, several states require life insurance companies to develop and maintain a formal operational program known as a(n):",
     options: [
       "Antifraud plan",
@@ -316,7 +316,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 25,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Vanguard Life wants to ensure its sales agents and customer service representatives offer accurate, complete, and honest information to buyers. Most states enforce laws to prevent deceptive practices, based on which NAIC act?",
     options: [
       "The Unfair Trade Practices Act",
@@ -329,7 +329,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 26,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Under the NAIC's Unfair Trade Practices Act, certain unfair actions are officially prohibited when they are committed under which specific circumstances?",
     options: [
       "When committed flagrantly in conscious disregard of the law, or so frequently as to indicate a general business practice",
@@ -342,7 +342,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 27,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Which of the following is a specific area of insurance administration directly prohibited from engaging in 'unfair discrimination' under the Unfair Trade Practices Act?",
     options: [
       "Underwriting and issuing policies, and setting premium rates",
@@ -355,7 +355,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 28,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "To fulfill compliance requirements under the Unfair Trade Practices Act, insurers are legally mandated to keep detailed records about:",
     options: [
       "Complaints, claims, ratings, and underwriting decisions",
@@ -368,7 +368,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 29,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "A state insurance agency is investigating Zenith Life's billing practices following reviews of policyowner complaints. This state agency is enforcing a set of laws called:",
     options: [
       "Market conduct laws",
@@ -381,7 +381,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 30,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "In accordance with local market conduct laws, state regulators are highly likely to prohibit an insurer from engaging in which of the following administrative actions?",
     options: [
       "Failing to provide adequate disclosure for policy cancellations, and causing lengthy delays in processing claims",
@@ -394,7 +394,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 31,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "State insurance regulators decide to send a delegation to examine Pinnacle Life's compliance across multiple operational branches. This audit procedure is known as a:",
     options: [
       "Market conduct examination",
@@ -407,7 +407,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 32,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "During a market conduct examination by state insurance regulators, which functional areas of the insurance company are typically covered in the scope of the audit?",
     options: [
       "New business, underwriting, and claim administration",
@@ -420,7 +420,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 33,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Pioneer Life is undergoing a rigorous market conduct compliance audit. To prove they have acted in good faith during disputed policy claims, Pioneer's administrative managers must rely on:",
     options: [
       "Accumulated documentation of transactions",
@@ -433,7 +433,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 34,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Why does failing to maintain solid transaction documentation represent a dangerous regulatory risk for a claims administrator?",
     options: [
       "Without clear digital or physical documentation, the insurer cannot prove good faith and may face severe regulatory fines or lawsuits for unfair practices",
@@ -446,7 +446,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 35,
-    lo: "2A Identify regulations that affect administration activities in three different areas of regulatory compliance: privacy, fraud, and unfair trade practices",
+    lo: "principle",
     question: "Which of the following is considered the most common outcome if an insurance company flagrantly fails to comply with state market conduct regulations?",
     options: [
       "Substantial financial fines, regulatory lawsuits, and extensive negative publicity",
@@ -461,7 +461,7 @@ export const chapter2Questions: Question[] = [
   // --- 2B: QUALITY CONTROL AND PERFORMANCE METRICS (36-45) ---
   {
     id: 36,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "Select Life establishes a company-wide initiative to ensure its policies, processes, and outcomes conform to corporate goals and regulatory requirements. This operational practice is termed:",
     options: [
       "Quality control",
@@ -474,7 +474,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 37,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "If an insurer achieves and maintains high levels of quality control and accuracy in its administrative operations, what is a key financial benefit?",
     options: [
       "They spend significantly less time and money correcting errors and resolving complaints for dissatisfied customers",
@@ -487,7 +487,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 38,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "As part of its quality control program, Apex Life creates detailed written documentation of all system procedures and steps. These manuals are essential because they:",
     options: [
       "Define how processes work and give employees clear guidance on how to accomplish administration tasks consistently",
@@ -500,7 +500,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 39,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "A process through which an insurance company decides what activities are critical to its goals, determines how to measure performance, compares results to standards, and communicates results is called:",
     options: [
       "Performance measurement",
@@ -513,7 +513,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 40,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "An established level of performance against which an insurance company or individual employee compares actual daily output is defined as a:",
     options: [
       "Performance standard",
@@ -526,7 +526,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 41,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "Radiant Life targets an underwriting turn-around speed based on elite industry standards achieved by leading national competitors. This type of target is termed a:",
     options: [
       "Benchmark",
@@ -539,7 +539,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 42,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "If an insurance department's actual output falls severely short of its specified benchmarks, what action should the department manager take as part of quality control?",
     options: [
       "Investigate and identify the root causes of the gap, then make targeted changes to improve performance",
@@ -552,7 +552,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 43,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "An operations manager wants to compile behaviors, customer attitudes, or agent opinions to determine the quality of service. This approach is called:",
     options: [
       "Qualitative performance measurement",
@@ -565,7 +565,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 44,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "Which of the following describes a key operational contrast between qualitative performance measurement and quantitative performance measurement?",
     options: [
       "Qualitative methods involve subjective judgments making them harder to administer and interpret, while quantitative methods rely on objective numerical data",
@@ -578,7 +578,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 45,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "A numerical measure that quantifies the performance of a specified activity—such as tracking the number of in-force premium billings processed in good order—is known as a:",
     options: [
       "Metric",
@@ -593,7 +593,7 @@ export const chapter2Questions: Question[] = [
   // --- 2C: ADMINISTRATION SYSTEMS AND PERFORMANCE INDICATORS (46-55) ---
   {
     id: 46,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "To closely monitor activities critical to the company's ultimate competitive success, Pinnacle Life identifies a handful of vital metrics that give managers a simplified performance snapshot. These are called:",
     options: [
       "Key Performance Indicators (KPIs)",
@@ -606,7 +606,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 47,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "Which of the following is an example of an overall corporate KPI that a life insurer uses to evaluate high-level business expense efficiency?",
     options: [
       "Expense ratio",
@@ -619,7 +619,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 48,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "To evaluate client onboarding efficiency, Pioneer Life calculates the average number of calendar days between receiving an application in the home office and its first underwriting review. This administrative KPI is named:",
     options: [
       "Time to underwriter",
@@ -632,7 +632,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 49,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "In the customer call center, an administrator monitors the average amount of time a caller spends waiting before they connect with a representative or between transfers. This metric represents the KPI known as:",
     options: [
       "Average hold time",
@@ -645,7 +645,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 50,
-    lo: "2B Define quality control and explain how insurers use metrics to monitor performance",
+    lo: "principle",
     question: "The claims department at Novus Life is measuring how long it takes to pay death benefits. They define 'claim turnaround time' as the average number of calendar days from:",
     options: [
       "Receipt of all required claim information to the day the benefit check is mailed",
@@ -658,7 +658,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 51,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "An information system application combines real-time visuals (pie charts, maps, and dials) from multiple data sources onto one screen to show what is happening *right now* with an insurer's business functions. This application is a:",
     options: [
       "Performance dashboard",
@@ -671,7 +671,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 52,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "How does a 'scorecard' differ from a 'dashboard' in the context of data visualization tools for insurance management?",
     options: [
       "A scorecard shows long-term progress toward strategic goals and is updated periodically (monthly/quarterly), while a dashboard display is a real-time snapshot of current activity",
@@ -684,7 +684,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 53,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "A company executive looks at a scorecard and notices some colored indicators. What is the standard status code represent by a 'green circle' and a 'red circle' on an executive scorecard?",
     options: [
       "Green indicates performance meets or exceeds expectations; red indicates performance is unacceptable and below targets",
@@ -697,7 +697,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 54,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "What is a primary purpose of using 'trend lines' on an insurance operations scorecard?",
     options: [
       "To depict a KPI's relative direction and progress over an extended period of time to assist long-term planning",
@@ -710,7 +710,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 55,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "By combining software dashboards and scorecards, managers at Paramount Life are able to interactively click on visual metrics to retrieve detailed underlying records. This feature is known as:",
     options: [
       "Drill down",
@@ -725,7 +725,7 @@ export const chapter2Questions: Question[] = [
   // --- 2D: ADMINISTRATION SYSTEMS & PAPERLESS STRATEGIES (56-65) ---
   {
     id: 56,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Pioneer Life's administrative department uses software, staff coordination guidelines, and procedural steps to process policies. This total interactive architecture is defined as a(n):",
     options: [
       "Administration system",
@@ -738,7 +738,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 57,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Pinnacle Mutual coordinates two distinct network styles. Their internal network links staff at all locations, whereas their select extranet allows external partners access. Intranets are strictly:",
     options: [
       "Designed to function like the internet but accessible exclusively to company employees",
@@ -751,7 +751,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 58,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "If Zenith Life's IT department wants to share select administrative data with doctors' offices or verified financial professionals outside the firm, they use a secure partition of their network known as a(n):",
     options: [
       "Extranet",
@@ -764,7 +764,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 59,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Vanguard Life suffers from slow processing because four distinct, outdated computer networks operate in isolation across divisions. These old platforms are known as:",
     options: [
       "Legacy systems",
@@ -777,7 +777,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 60,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Why do legacy systems present a massive strategic headache for modern insurance administrators?",
     options: [
       "They are complex and highly inflexible, slowing down data integration, workflow, and customer response processing",
@@ -790,7 +790,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 61,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Heritage Life wants to update a legacy interface, but realizing it will require massive staff training and capital investments. When evaluating this system update, management must:",
     options: [
       "Weigh the expected benefits of the new technology against the cost of the training and systems investment to optimize resources",
@@ -803,7 +803,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 62,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "To improve core operations, Zenith Life adopts a strategy that combines proven corporate management designs with software tools to model, monitor, and optimize processes. This strategy is:",
     options: [
       "Business Process Management (BPM)",
@@ -816,7 +816,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 63,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "To support their BPM initiative, Summit Life purchases a specialized suite of software tools that helps design, build, deploy, and refine business procedures. This package is a:",
     options: [
       "BPM technology suite",
@@ -829,7 +829,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 64,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Apex Mutual Contracts with an external vendor to contact applicants and collect medical histories. This corporate strategy of hiring external parties to manage secondary tasks is called:",
     options: [
       "Business Process Outsourcing (BPO)",
@@ -842,7 +842,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 65,
-    lo: "2C Explain administration systems and how insurers manage processes and technology to enhance insurance administration",
+    lo: "principle",
     question: "Pioneer Mutual uses a BPO vendor to process simple transactions. Why is it critical for Pioneer Mutual's managers to thoroughly document each procedural step for the vendor?",
     options: [
       "To ensure the outside vendor performs all transactions strictly according to Pioneer's quality standards and compliance rules",
@@ -857,7 +857,7 @@ export const chapter2Questions: Question[] = [
   // --- 2D: PAPERLESS PROCESSING: IMAGING & AUTOMATED WORKFLOWS (66-75) ---
   {
     id: 66,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "To eliminate the high cost of storing paper applications, Pinnacle Mutual scans physical paperwork and preserves it as digital files. This Scanning process is:",
     options: [
       "Document imaging",
@@ -870,7 +870,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 67,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "After physical files are scanned, Apex Life indexes the digital images inside a technology system designed to store, retrieve, and organize them. This software system is a:",
     options: [
       "Document management system",
@@ -883,7 +883,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 68,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "Most document management systems use technology that reads printed characters on scanned files and converts them into editable digital formats. This software is known as:",
     options: [
       "Optical character recognition (OCR)",
@@ -896,7 +896,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 69,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "A scanned application contains handwritten notations in the margin from a medical clinic. Under modern paperless structures, what technology is best suited to recognize handwritten characters?",
     options: [
       "Intelligent character recognition (ICR)",
@@ -909,7 +909,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 70,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "A digital application at Aegis Life is routed automatically to an underwriter's workstation queue, track at each step, and then passed to issue staff. This automated system is a(n):",
     options: [
       "Automated workflow system",
@@ -922,7 +922,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 71,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "Automated workflow systems rely on specialized software that uses 'if... then...' logical rules to process transactions without human hands. This software is a:",
     options: [
       "Business rules engine (BRE)",
@@ -935,7 +935,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 72,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "How does the use of a Business Rules Engine (BRE) improve the quality and equitability of an insurer's underwriting decisions?",
     options: [
       "Unlike human underwriters, BREs can evaluate hundreds of complex risk variables consistently without subjective bias",
@@ -948,7 +948,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 73,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "Zenith Life uses exception-based underwriting. According to standard industry definitions, under exception-based underwriting, the system:",
     options: [
       "Evaluates and issues all standard, simple applications electronically via rules, routing only complex cases to human underwriters for subjective judgment",
@@ -961,7 +961,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 74,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "A digital application processed in the new business department goes from online submission to underwriting and complete policy issuance without any manual intervention. This target is:",
     options: [
       "Straight-Through Processing (STP)",
@@ -974,7 +974,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 75,
-    lo: "2D Explain how document imaging and management systems, automated workflow capabilities, straight-through processing, and knowledge management systems facilitate paperless processing for insurers",
+    lo: "principle",
     question: "By adopting Straight-Through Processing (STP) for simple policy transactions, an insurance company gains what key operational benefit?",
     options: [
       "It reduces data-entry transcription errors and increases processing speed, freeing up human workers to focus on complicated cases",
@@ -989,7 +989,7 @@ export const chapter2Questions: Question[] = [
   // --- 2E: DATA PERSISTENCE, DATABASES, MINING & SECURITY (76-85) ---
   {
     id: 76,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "Underwriters at Regal Life need quick access to procedural manuals detailing rare medical conditions. The company gathers and shares these digital information assets using a:",
     options: [
       "Knowledge management system",
@@ -1002,7 +1002,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 77,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "Vanguard Life consolidates historical details from all separate business divisions and external bureaus into a single centralized server repository for complex analysis. This repository is a:",
     options: [
       "Data warehouse",
@@ -1015,7 +1015,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 78,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "To search, manipulate, and organize info within their databases while ensuring system integrity, Vanguard's data operators use a specialised software known as a:",
     options: [
       "Database management system (DBMS)",
@@ -1028,7 +1028,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 79,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "A customer service specialist runs a DBMS search to extract the home addresses of all clients residing in Ohio carrying active annuities. This database search is called a:",
     options: [
       "Query",
@@ -1041,7 +1041,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 80,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "A marketing manager uses software to analyze payments and claim claims across thousands of historical files, discovering an unknown correlation between on-time payments and healthy lifestyle choices. This exploration is:",
     options: [
       "Data mining",
@@ -1054,7 +1054,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 81,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "The IT security team at Summit Life outlines physical, technical, and procedural steps to protect and prevent unauthorized disclosure or theft of client records. This is called:",
     options: [
       "Information security",
@@ -1067,7 +1067,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 82,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "To prevent malicious computer hackers from penetrating core databases and viewing or stealing customer credit details, insurers set up a digital barrier known as a:",
     options: [
       "Firewall",
@@ -1080,7 +1080,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 83,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "To safeguard data integrity, Pioneer Mutual uses technology that encodes text traveling across computer networks so that unauthorized interceptor parties cannot read it. This technology is:",
     options: [
       "Encryption",
@@ -1093,7 +1093,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 84,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "To authorize secure access for remote representatives to connect to Vanguard Mutual's private intranet servers, characters must use which key network tool?",
     options: [
       "Virtual Private Network (VPN)",
@@ -1106,7 +1106,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 85,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "Which of the following is an example of an physical biometric authentication measure that Zenith Life can use to verify employee identity at terminal workstations?",
     options: [
       "Fingerprint scans or facial layout recognition",
@@ -1121,7 +1121,7 @@ export const chapter2Questions: Question[] = [
   // --- 2F: DATA SECURITY GOVERNANCE & BUSINESS CONTINUITY (86-95) ---
   {
     id: 86,
-    lo: "2E Explain why data is important to insurers’ administration systems and how database management systems help insurers manage data",
+    lo: "principle",
     question: "The executive board at Landmark Life establishes organizational ownership, data accuracy controls, and security accountabilities. This strategic practice is termed:",
     options: [
       "Data governance",
@@ -1134,7 +1134,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 87,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "Vanguard Mutual carries out cybersecurity programs. What constitutes the formal scope of 'cybersecurity' in today's financial services market?",
     options: [
       "Measures undertaken to protect a company's computer networks, systems, and data from unauthorized access, hackers, and cyberattacks",
@@ -1147,7 +1147,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 88,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "The NAIC's Cybersecurity Task Force drafted a prominent model law designed to set rigorous statewide standards for security programs. This draft is named the:",
     options: [
       "Insurance Data Security Model Law",
@@ -1160,7 +1160,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 89,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "Under the provisions of the NAIC's Insurance Data Security Model Law, if an insurer suffers a major cyber breach, they are required to notify state regulators within:",
     options: [
       "72 hours of the event",
@@ -1173,7 +1173,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 90,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "The Insurance Data Security Model Law mandates that insurers regularly perform which of the following proactive diagnostic exercises?",
     options: [
       "Annual risk assessments to identify internal and external threats to data security",
@@ -1186,7 +1186,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 91,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "What is an administrative best practice for insurance companies seeking to minimize the impact of vendor-related security breaches?",
     options: [
       "Carefully and continuously review the cyber risk management practices of any third-party vendors the insurer uses",
@@ -1199,7 +1199,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 92,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "During corporate business continuity planning, Peak National Mutual drafts detailed guidelines to follow if a tornado destroys their physical data center. Business continuity planning is also known as:",
     options: [
       "Disaster recovery planning",
@@ -1212,7 +1212,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 93,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "As a premier safety guard during disaster recovery planning, insurance systems should regularly create copies of critical databases stored offsite. These copies are called:",
     options: [
       "Data backups",
@@ -1225,7 +1225,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 94,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "A company's business continuity plan should address multiple goals. What is the primary purpose of maintaining secure, offsite data backups?",
     options: [
       "To prevent the complete loss of important information and aid in restoring critical operations if a disruptive event occurs",
@@ -1238,7 +1238,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 95,
-    lo: "2F Explain why information security is important to insurers and describe some of the cybersecurity measures used to protect data",
+    lo: "principle",
     question: "Under information security best practices, access to an insurer's IT assets and hardware facilities should be strictly restricted to:",
     options: [
       "Authorized users, processes, and devices",
@@ -1253,7 +1253,7 @@ export const chapter2Questions: Question[] = [
   // --- 2G: BUSINESS INTELLIGENCE & THE THREE DATA ANALYTICS TYPES (96-100) ---
   {
     id: 96,
-    lo: "2G Describe how business intelligence supports data analysis and distinguish among three types of data analytics that insurers use",
+    lo: "principle",
     question: "Summit Life wants to convert massive mountains of disorganized data (big data) into structured visual assets for pricing decisions. Which overall structural discipline should they leverage?",
     options: [
       "Business Intelligence (BI)",
@@ -1266,7 +1266,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 97,
-    lo: "2G Describe how business intelligence supports data analysis and distinguish among three types of data analytics that insurers use",
+    lo: "principle",
     question: "An analyst creates a report demonstrating historical sales volume and past claim behaviors to help managers understand why previous whole life campaigns succeeded or failed. This analysis style is:",
     options: [
       "Descriptive analytics",
@@ -1279,7 +1279,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 98,
-    lo: "2G Describe how business intelligence supports data analysis and distinguish among three types of data analytics that insurers use",
+    lo: "principle",
     question: "Integrity Mutual uses credit scoring databases and statistical tables to project the likelihood that a new applicant will commit claims fraud in the future. This form of analytics is:",
     options: [
       "Predictive analytics",
@@ -1292,7 +1292,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 99,
-    lo: "2G Describe how business intelligence supports data analysis and distinguish among three types of data analytics that insurers use",
+    lo: "principle",
     question: "An advanced algorithmic system at Novus Life evaluates an applicant's drug prescriptions history, predicts risk outcomes, and then suggests the absolute best underwriting tier choice. This complex analytics is:",
     options: [
       "Prescriptive analytics",
@@ -1305,7 +1305,7 @@ export const chapter2Questions: Question[] = [
   },
   {
     id: 100,
-    lo: "2G Describe how business intelligence supports data analysis and distinguish among three types of data analytics that insurers use",
+    lo: "principle",
     question: "A data scientist at Aegis Life uses wearable technology fitness tracker feeds, correlating real-time heart rates with longevity. Under general definitions, a data scientist is an expert who:",
     options: [
       "Uses techniques from statistics and computer programming to identify patterns in data and create mathematical foresting models",

@@ -6,7 +6,8 @@
       "type": "object",
       "properties": {
         "phoneNumber": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" }
+        "createdAt": { "type": "string", "format": "date-time" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
       },
       "required": ["phoneNumber", "createdAt"]
     },
@@ -23,6 +24,35 @@
         "completedAt": { "type": "string", "format": "date-time" }
       },
       "required": ["userId", "assessmentId", "score", "totalQuestions", "completedAt"]
+    },
+    "CourseApproval": {
+      "title": "Course Approval",
+      "description": "Approval status of a course study module",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "approved": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["id", "title", "approved", "createdAt", "createdBy"]
+    },
+    "CourseAssignment": {
+      "title": "Course Assignment",
+      "description": "Admin manually granted course assignment to a student",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "courseId": { "type": "string" },
+        "assignedBy": { "type": "string" },
+        "assignedAt": { "type": "string", "format": "date-time" },
+        "accessType": { "type": "string", "enum": ["admin_granted"] },
+        "expiryDate": { "type": ["string", "null"], "format": "date-time" },
+        "notes": { "type": "string" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["userId", "courseId", "assignedBy", "assignedAt", "accessType", "active"]
     }
   },
   "firestore": {
@@ -33,6 +63,14 @@
     "/assessments/{docId}": {
       "schema": "Assessment",
       "description": "Assessment history"
+    },
+    "/courses/{courseId}": {
+      "schema": "CourseApproval",
+      "description": "Course approval states dynamically managed by administrator"
+    },
+    "/courseAssignments/{assignmentId}": {
+      "schema": "CourseAssignment",
+      "description": "Admins manually granted course assignments"
     }
   }
 }

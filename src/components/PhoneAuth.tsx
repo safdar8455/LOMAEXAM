@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { RecaptchaVerifier, signInWithPhoneNumber, ConfirmationResult } from 'firebase/auth';
-import { auth, hasValidConfig } from '../lib/firebase';
 import { Phone, AlertCircle, Loader2, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { saveUserProfile } from '../lib/storage';
@@ -11,151 +9,50 @@ export const PhoneAuth: React.FC = () => {
   const [confirmationResult, setConfirmationResult] = useState<ConfirmationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [verificationSent, setVerificationSent] = useState(false);
+  const [demoModeActive, setDemoModeActive] = useState(false);
 
   useEffect(() => {
-    // Ensure reCAPTCHA container exists
-    const container = document.getElementById('recaptcha-wrapper');
-    if (!container) {
-      const div = document.createElement('div');
-      div.id = 'recaptcha-wrapper';
-      div.style.display = 'none';
-      document.body.appendChild(div);
-    }
-
-    // Check if Firebase is properly configured
-    if (!hasValidConfig) {
-      setError('Demo mode: Firebase authentication is not configured. The app will work without login features.');
-    } else if (!auth) {
-      setError('Firebase authentication is not available. Please check your Firebase project settings.');
-    }
+    setError('Demo mode: This app uses local-only authentication. Use any 6-digit code to continue.');
   }, []);
-
-  const setupRecaptcha = async () => {
-    if (!hasValidConfig || !auth) {
-      throw new Error('Firebase authentication is not configured. Please set up a Firebase project first.');
-    }
-
-    try {
-      if ((window as any).recaptchaVerifier) {
-        return (window as any).recaptchaVerifier;
-      }
-
-      const verifier = new RecaptchaVerifier(auth, 'recaptcha-wrapper', {
-        size: 'invisible',
-        callback: () => {
-          console.log('reCAPTCHA solved');
-        },
-        'expired-callback': () => {
-          console.log('reCAPTCHA expired');
-          setError('reCAPTCHA expired. Please try again.');
-        }
-      });
-
-      // Render the verifier
-      await verifier.render();
-      (window as any).recaptchaVerifier = verifier;
-      return verifier;
-    } catch (error: any) {
-      console.error('RecaptchaVerifier error:', error);
-      if (error.code === 'auth/invalid-app-credential') {
-        setError('Firebase configuration error. Please check your .env file and Firebase project settings.');
-      } else {
-        setError('reCAPTCHA initialization failed. Please refresh the page and try again.');
-      }
-      throw error;
-    }
-  };
 
   const handleSendCode = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phoneNumber) return;
 
-    // Check if Firebase is configured
-    if (!hasValidConfig) {
-      // Demo mode: simulate successful authentication
-      setLoading(true);
-      setError(null);
-      setTimeout(() => {
-        setLoading(false);
-        setVerificationSent(true);
-        setError('Demo mode: Verification code sent (simulated). Use any 6-digit code to continue.');
-      }, 1000);
-      return;
-    }
-
-    if (!auth) return;
-
     setLoading(true);
     setError(null);
-    try {
-      const appVerifier = await setupRecaptcha();
-      const confirmation = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
-      setConfirmationResult(confirmation);
-    } catch (err: any) {
-      console.error('Send code error:', err);
-      if (err.code === 'auth/invalid-app-credential') {
-        setError('Firebase authentication is not properly configured. Please check your Firebase project credentials in the .env file.');
-      } else if (err.code === 'auth/invalid-phone-number') {
-        setError('Invalid phone number format. Please use format: +1234567890');
-      } else if (err.code === 'auth/too-many-requests') {
-        setError('Too many requests. Please wait a few minutes before trying again.');
-      } else {
-        setError(err.message || 'Failed to send verification code. Please try again.');
-      }
-      if ((window as any).recaptchaVerifier) {
-        (window as any).recaptchaVerifier.clear();
-        (window as any).recaptchaVerifier = null;
-      }
-    } finally {
+    setTimeout(() => {
       setLoading(false);
-    }
+      setVerificationSent(true);
+      setDemoModeActive(true);
+      setConfirmationResult({
+        verificationId: 'demo',
+        confirm: async () => ({
+          user: {
+            uid: 'demo-user-' + Date.now(),
+            phoneNumber,
+          },
+        }),
+      } as any);
+      setError('Demo mode: Verification code sent (simulated). Use any 6-digit code to continue.');
+    }, 1000);
   };
 
   const handleVerifyCode = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!verificationCode) return;
 
-    // Check if Firebase is configured
-    if (!hasValidConfig) {
-      // Demo mode: simulate successful verification
-      setLoading(true);
-      setError(null);
-      setTimeout(() => {
-        setLoading(false);
-        // Simulate successful login with demo user
-        const demoUser = {
-          uid: 'demo-user-' + Date.now(),
-          displayName: 'Demo User',
-          email: null,
-          photoURL: null,
-          emailVerified: false,
-          isAnonymous: false,
-          metadata: {},
-          providerData: [],
-          refreshToken: '',
-          tenantId: null,
-          delete: () => Promise.resolve(),
-          getIdToken: () => Promise.resolve('demo-token'),
-          getIdTokenResult: () => Promise.resolve({ token: 'demo-token', authTime: new Date().toISOString(), issuedAtTime: new Date().toISOString(), expirationTime: new Date(Date.now() + 3600000).toISOString(), signInMethod: 'phone', claims: {} }),
-          reload: () => Promise.resolve(),
-          toJSON: () => ({}),
-          get providerId() { return 'phone'; },
-          get phoneNumber() { return phoneNumber; }
-        };
-        onAuthSuccess(demoUser);
-      }, 1000);
-      return;
-    }
-
     if (!confirmationResult) return;
 
     setLoading(true);
     setError(null);
+
     try {
       const result = await confirmationResult.confirm(verificationCode);
       if (result.user) {
-        await saveUserProfile(result.user.uid, result.user.phoneNumber || phoneNumber);
-        onAuthSuccess(result.user);
+        await saveUserProfile(result.user.uid, result.user.phoneNumber || phoneNumber, result.user.email || '' );
+        setError('Demo authentication complete. You are now signed in locally.');
       }
     } catch (err: any) {
       console.error(err);
@@ -269,7 +166,6 @@ export const PhoneAuth: React.FC = () => {
         </motion.div>
       )}
 
-      <div id="recaptcha-wrapper"></div>
     </div>
   );
 };
